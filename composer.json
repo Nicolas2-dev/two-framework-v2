@@ -1,0 +1,48 @@
+{
+    "name": "nicolas2dev/two-framework",
+    "type": "project",
+    "description": "Two Framework",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nicolas Devoy",
+            "email": "nicolas@nicodev.fr",
+            "homepage": "https://nicodev.fr",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2.1",
+        "danielstjules/stringy": "~3.1.0",
+        "jeremeamia/superclosure": "~2.2",
+        "nesbot/carbon": "^2.0.0",
+        "mtdowling/cron-expression": "~1.0",
+        "symfony/console": "6.0.*",
+        "symfony/http-foundation": "^6.0",
+        "symfony/http-kernel": "^6.0",
+        "symfony/process": "^6.0", 
+        "symfony/routing": "^6.0",
+        "symfony/translation": "^6.0",       
+        "symfony/finder": "^6.0",
+        "symfony/mime": "^6.0",
+        "symfony/var-dumper": "^6.0",
+        "doctrine/inflector": "2.0.*",
+        "swiftmailer/swiftmailer": "^5.4",
+        "monolog/monolog": "^2.0",        
+        "predis/predis": "2.x.*", 
+        "ramsey/uuid": "^4.7",
+        "erusev/parsedown": "2.0.*",
+        "guzzlehttp/guzzle": "^5.0",
+        "filp/whoops": "^2.1"                     
+    },    
+    "autoload": {
+        "psr-4": {
+            "Two\\": "src/"
+        },
+        "files": [
+            "src/Support/helpers.php"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": false
+}

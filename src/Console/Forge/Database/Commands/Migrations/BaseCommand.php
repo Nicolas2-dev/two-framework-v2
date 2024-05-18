@@ -1,0 +1,34 @@
+<?php
+/**
+ * @author  Nicolas Devoy
+ * @email   nicolas@Two-framework.fr 
+ * @version 1.0.0
+ * @date    15 mai 2024
+ */
+namespace Two\Console\Forge\Database\Commands\Migrations;
+
+use Two\Console\Commands\Command;
+
+
+class BaseCommand extends Command
+{
+
+    /**
+     * Get the path to the migration directory.
+     *
+     * @return string
+     */
+    protected function getMigrationPath()
+    {
+        $path = $this->input->getOption('path');
+
+        // First, we will check to see if a path option has been defined. If it has
+        // we will use the path relative to the root of this installation folder
+        // so that migrations may be run for any path within the applications.
+        if (! is_null($path)) {
+            return $this->container['path.base'] .DS .$path;
+        }
+
+        return $this->container['path'] .DS .'Database' .DS .'Migrations';
+    }
+}

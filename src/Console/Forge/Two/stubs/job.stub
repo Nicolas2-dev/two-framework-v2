@@ -1,0 +1,33 @@
+<?php
+
+namespace {{namespace}};
+
+use Two\Bus\QueueableTrait;
+use Two\Foundation\Bus\DispatchableTrait;
+
+
+class {{className}}
+{
+    use DispatchableTrait, QueueableTrait;
+
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle()
+    {
+        //
+    }
+}

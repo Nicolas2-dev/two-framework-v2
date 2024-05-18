@@ -1,0 +1,25 @@
+{
+    "name": "{{lower_package}}",
+    "type": "Two-package",
+    "description": "{{name}} is a package for Two Framework",
+    "license": "{{license}}",
+    "authors": [
+        {
+            "name": "{{author}}",
+            "email": "{{email}}",
+            "homepage": "{{homepage}}",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2.1",
+        "Two/framework": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "{{json_namespace}}\\": "src/"
+        }
+    },
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

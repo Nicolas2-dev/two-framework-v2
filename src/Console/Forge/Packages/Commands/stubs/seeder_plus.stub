@@ -1,0 +1,21 @@
+<?php
+
+namespace {{namespace}};
+
+use Two\Database\ORM\Model;
+use Two\Database\Seeder;
+
+
+class {{className}} extends Seeder
+{
+
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        //
+    }
+}
