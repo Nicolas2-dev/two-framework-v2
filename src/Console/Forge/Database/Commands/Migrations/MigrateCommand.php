@@ -23,7 +23,7 @@ class MigrateCommand extends BaseCommand
      *
      * @var string
      */
-    protected $name = 'migrate';
+    protected $name = 'db:migrate';
 
     /**
      * Description de la commande de la console.
