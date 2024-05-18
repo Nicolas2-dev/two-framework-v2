@@ -10,7 +10,7 @@ use Two\Support\Arr;
 use Two\Support\Str;
 use Two\Bus\Dispatcher;
 use Two\View\Expression;
-use Two\Support\Collection;
+use Two\Collection\Collection;
 use Two\Support\Debug\Dumper;
 use Two\Broadcasting\BroadcastManager;
 

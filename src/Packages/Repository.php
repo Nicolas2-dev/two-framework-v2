@@ -11,7 +11,7 @@ use InvalidArgumentException;
 
 use Two\Support\Arr;
 use Two\Support\Str;
-use Two\Support\Collection;
+use Two\Collection\Collection;
 use Two\Filesystem\Filesystem;
 use Two\Config\Repository as Config;
 use Two\Filesystem\Exception\FileNotFoundException;
@@ -30,7 +30,7 @@ class Repository
     protected $files;
 
     /**
-     * @var \Two\Support\Collection|null
+     * @var \Two\Collection\Collection|null
      */
     protected static $packages;
 

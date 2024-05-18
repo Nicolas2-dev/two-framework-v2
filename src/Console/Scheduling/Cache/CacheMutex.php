@@ -15,7 +15,7 @@ use Two\Console\Scheduling\Contracts\MutexInterface;
 class CacheMutex implements MutexInterface
 {
     /**
-     * The cache repository implementation.
+     * L'implémentation du référentiel de cache.
      *
      * @var \Two\Cache\Repository
      */
@@ -23,7 +23,7 @@ class CacheMutex implements MutexInterface
 
 
     /**
-     * Create a new overlapping strategy.
+     * Créez une nouvelle stratégie de chevauchement.
      *
      * @param  \Two\Cache\Repository  $cache
      * @return void
@@ -34,7 +34,7 @@ class CacheMutex implements MutexInterface
     }
 
     /**
-     * Attempt to obtain a mutex for the given event.
+     * Tentative d'obtenir un mutex pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Event\Event  $event
      * @return bool
@@ -47,7 +47,7 @@ class CacheMutex implements MutexInterface
     }
 
     /**
-     * Determine if a mutex exists for the given event.
+     * Déterminez si un mutex existe pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Event\Event  $event
      * @return bool
@@ -58,7 +58,7 @@ class CacheMutex implements MutexInterface
     }
 
     /**
-     * Clear the mutex for the given event.
+     * Effacez le mutex pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Event\Event  $event
      * @return void

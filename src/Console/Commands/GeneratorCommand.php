@@ -17,14 +17,14 @@ use Symfony\Component\Console\Input\InputArgument;
 abstract class GeneratorCommand extends Command
 {
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -32,7 +32,7 @@ abstract class GeneratorCommand extends Command
 
 
     /**
-     * Create a new controller creator command instance.
+     * Créez une nouvelle instance de commande de créateur de contrôleur.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @return void
@@ -46,14 +46,14 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
     abstract protected function getStub();
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return bool|null
      */
@@ -77,7 +77,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Determine if the class already exists.
+     * Déterminez si la classe existe déjà.
      *
      * @param  string  $rawName
      * @return bool
@@ -90,7 +90,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the destination class path.
+     * Obtenez le chemin de classe de destination.
      *
      * @param  string  $name
      * @return string
@@ -103,7 +103,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Parse the name and format according to the root namespace.
+     * Analysez le nom et le format en fonction de l'espace de noms racine.
      *
      * @param  string  $name
      * @return string
@@ -124,7 +124,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string
@@ -135,7 +135,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Build the directory for the class if necessary.
+     * Créez le répertoire de la classe si nécessaire.
      *
      * @param  string  $path
      * @return string
@@ -148,7 +148,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Build the class with the given name.
+     * Construisez la classe avec le nom donné.
      *
      * @param  string  $name
      * @return string
@@ -161,7 +161,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Replace the namespace for the given stub.
+     * Remplacez l'espace de noms pour le stub donné.
      *
      * @param  string  $stub
      * @param  string  $name
@@ -177,7 +177,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the full namespace name for a given class.
+     * Obtenez le nom complet de l’espace de noms pour une classe donnée.
      *
      * @param  string  $name
      * @return string
@@ -188,7 +188,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Replace the class name for the given stub.
+     * Remplacez le nom de classe pour le stub donné.
      *
      * @param  string  $stub
      * @param  string  $name
@@ -202,7 +202,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the desired class name from the input.
+     * Obtenez le nom de classe souhaité à partir de l’entrée.
      *
      * @return string
      */
@@ -212,7 +212,7 @@ abstract class GeneratorCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

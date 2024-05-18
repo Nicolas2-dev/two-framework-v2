@@ -3,13 +3,13 @@
 namespace {{namespace}}\Providers;
 
 use Two\Events\Dispatcher;
-use Two\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Two\TwoApplication\Providers\EventServiceProvider as ServiceProvider;
 
 
 class EventServiceProvider extends ServiceProvider
 {
     /**
-     * The event listener mappings for the {{lower_type}}.
+     * Les mappages d'écouteurs d'événements pour le {{lower_type}}.
      *
      * @var array
      */
@@ -21,7 +21,7 @@ class EventServiceProvider extends ServiceProvider
 
 
     /**
-     * Register any other events for your {{lower_type}}.
+     * Enregistrez tout autre événement pour votre {{lower_type}}.
      *
      * @param  \Two\Events\Dispatcher  $events
      * @return void
@@ -33,7 +33,7 @@ class EventServiceProvider extends ServiceProvider
         //
         $path = realpath(__DIR__ .'/../');
 
-        // Load the Events.
+        // Chargez les événements.
         $path = $path .DS .'Events.php';
 
         $this->loadEventsFrom($path);

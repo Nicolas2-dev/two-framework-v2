@@ -15,28 +15,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class NotificationMakeCommand extends MakeCommand
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:notification';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package Notification class';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Notification';
 
     /**
-     * Plugin folders to be created.
+     * Dossiers de plugins à créer.
      *
      * @var array
      */
@@ -45,7 +45,7 @@ class NotificationMakeCommand extends MakeCommand
     );
 
     /**
-     * Plugin files to be created.
+     * Fichiers plugin à créer.
      *
      * @var array
      */
@@ -54,7 +54,7 @@ class NotificationMakeCommand extends MakeCommand
     );
 
     /**
-     * Plugin stubs used to populate defined files.
+     * Stubs de plugin utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -65,7 +65,7 @@ class NotificationMakeCommand extends MakeCommand
     );
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $filePath
      *
@@ -81,7 +81,7 @@ class NotificationMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class NotificationMakeCommand extends MakeCommand
     }
 
     /**
-     * Get stub content by key.
+     * Obtenez le contenu du stub par clé.
      *
      * @param int $key
      *
@@ -117,7 +117,7 @@ class NotificationMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

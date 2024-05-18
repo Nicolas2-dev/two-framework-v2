@@ -26,7 +26,7 @@ use Symfony\Component\Console\Command\Command as SymfonyCommand;
 class TwoConsole extends \Symfony\Component\Console\Application
 {
     /**
-     * The Two application instance.
+     * L'instance de deux applications.
      *
      * @var Two\TwoApplication\TwoApplication
      */
@@ -34,7 +34,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
 
 
     /**
-     * Create and boot a new Console application.
+     * Créez et démarrez une nouvelle application console.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return \Two\Console\TwoConsole
@@ -45,7 +45,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Create a new Console application.
+     * Créez une nouvelle application console.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return \Two\Console\TwoConsole
@@ -64,7 +64,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Boot the Console application.
+     * Démarrez l'application Console.
      *
      * @return $this
      */
@@ -74,9 +74,9 @@ class TwoConsole extends \Symfony\Component\Console\Application
 
         if (is_readable($path)) require $path;
 
-        // If the event dispatcher is set on the application, we will fire an event
-        // with the Two instance to provide each listener the opportunity to
-        // register their commands on this application before it gets started.
+        // Si le répartiteur d'événements est défini sur l'application, nous déclencherons un événement
+        // avec l'instance Two pour offrir à chaque auditeur la possibilité de
+        // enregistre leurs commandes sur cette application avant qu'elle ne démarre.
         if (isset($this->container['events'])) {
             $events = $this->container['events'];
 
@@ -87,7 +87,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Run the console application.
+     * Exécutez l'application console.
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -111,7 +111,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Report and render the given exception.
+     * Signaler et restituer l’exception donnée.
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
      * @param  \Exception  $e
@@ -127,7 +127,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Run an Two console command by name.
+     * Exécutez une commande de deux consoles par son nom.
      *
      * @param  string  $command
      * @param  array   $parameters
@@ -138,9 +138,9 @@ class TwoConsole extends \Symfony\Component\Console\Application
     {
         $parameters['command'] = $command;
 
-        // Unless an output interface implementation was specifically passed to us we
-        // will use the "NullOutput" implementation by default to keep any writing
-        // suppressed so it doesn't leak out to the browser or any other source.
+        // À moins qu'une implémentation d'interface de sortie ne nous soit spécifiquement transmise, nous
+        // utilisera l'implémentation "NullOutput" par défaut pour conserver toute écriture
+        // supprimé afin qu'il ne soit pas divulgué au navigateur ou à toute autre source.
         $output = $output ?: new NullOutput;
 
         $input = new ArrayInput($parameters);
@@ -149,7 +149,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Add a command to the console.
+     * Ajoutez une commande à la console.
      *
      * @param  \Symfony\Component\Console\Command\Command  $command
      * @return \Symfony\Component\Console\Command\Command
@@ -164,7 +164,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Add the command to the parent instance.
+     * Ajoutez la commande à l'instance parent.
      *
      * @param  \Symfony\Component\Console\Command\Command  $command
      * @return \Symfony\Component\Console\Command\Command
@@ -175,7 +175,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Add a command, resolving through the application.
+     * Ajoutez une commande, résolvant via l'application.
      *
      * @param  string  $command
      * @return \Symfony\Component\Console\Command\Command
@@ -186,7 +186,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Resolve an array of commands through the application.
+     * Résolvez un tableau de commandes via l'application.
      *
      * @param  array|mixed  $commands
      * @return void
@@ -201,7 +201,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Register a Closure based command with the application.
+     * Enregistrez une commande basée sur la fermeture auprès de l'application.
      *
      * @param  string  $signature
      * @param  Closure  $callback
@@ -215,7 +215,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Get the default input definitions for the applications.
+     * Obtenez les définitions d'entrée par défaut pour les applications.
      *
      * @return \Symfony\Component\Console\Input\InputDefinition
      */
@@ -229,7 +229,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Get the global environment option for the definition.
+     * Obtenez l’option d’environnement global pour la définition.
      *
      * @return \Symfony\Component\Console\Input\InputOption
      */
@@ -241,7 +241,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Set the Two application instance.
+     * Définissez l’instance de deux applications.
      *
      * @param  Two\TwoApplication\TwoApplication  $container
      * @return $this
@@ -254,7 +254,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Set whether the Console app should auto-exit when done.
+     * Définissez si l'application Console doit se fermer automatiquement une fois terminé.
      *
      * @param  bool  $boolean
      * @return $this
@@ -267,7 +267,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     }
 
     /**
-     * Get the Exception Handler instance.
+     * Obtenez l’instance du gestionnaire d’exceptions.
      *
      * @return \Two\Exceptions\Contracts\HandlerInterface
      */

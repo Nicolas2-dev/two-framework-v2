@@ -16,7 +16,7 @@ use Two\TwoApplication\Providers\ServiceProvider;
 class ScheduleServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
+     * Indique si le chargement du fournisseur est différé.
      *
      * @var bool
      */
@@ -24,7 +24,7 @@ class ScheduleServiceProvider extends ServiceProvider
 
 
     /**
-     * Register the service provider.
+     * Enregistrez le fournisseur de services.
      *
      * @return void
      */
@@ -40,7 +40,7 @@ class ScheduleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the schedule run command.
+     * Enregistrez la commande d'exécution planifiée.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class ScheduleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the schedule run command.
+     * Enregistrez la commande d'exécution planifiée.
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class ScheduleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Obtenez les services fournis par le fournisseur.
      *
      * @return array
      */

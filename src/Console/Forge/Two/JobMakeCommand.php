@@ -15,21 +15,21 @@ use Symfony\Component\Console\Input\InputOption;
 class JobMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:job';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Job class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class JobMakeCommand extends GeneratorCommand
 
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -51,7 +51,7 @@ class JobMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string
@@ -62,7 +62,7 @@ class JobMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

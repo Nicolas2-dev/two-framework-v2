@@ -19,28 +19,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class ViewPublishCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'view:publish';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Publish a Package views to the application";
 
     /**
-     * The plugins manager instance.
+     * L'instance du gestionnaire de plugins.
      *
      * @var \Two\Packages\PackageManager
      */
     protected $plugins;
 
     /**
-     * The view publisher instance.
+     * L'instance d'éditeur de vue.
      *
      * @var \Two\Foundation\ViewPublisher
      */
@@ -48,7 +48,7 @@ class ViewPublishCommand extends Command
 
 
     /**
-     * Create a new view publish command instance.
+     * Créez une nouvelle instance de commande de publication de vue.
      *
      * @param  \Two\Foundation\ViewPublisher  $view
      * @return void
@@ -63,7 +63,7 @@ class ViewPublishCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -71,12 +71,12 @@ class ViewPublishCommand extends Command
     {
         $package = $this->input->getArgument('package');
 
-        // Direct specification of the package and Views path.
+        // Spécification directe du package et du chemin des vues.
         if (! is_null($path = $this->getPath())) {
             $this->publisher->publish($package, $path);
         }
 
-        // For the packages which are registered as plugins.
+        // Pour les packages enregistrés en tant que plugins.
         else if ($this->plugins->exists($package)) {
             if (Str::length($package) > 3) {
                 $slug = Str::snake($package);
@@ -98,7 +98,7 @@ class ViewPublishCommand extends Command
             $this->publisher->publish($package, $path);
         }
 
-        // For other packages located in vendor.
+        // Pour les autres packages situés chez le fournisseur.
         else {
             $this->publisher->publishPackage($package);
         }
@@ -107,7 +107,7 @@ class ViewPublishCommand extends Command
     }
 
     /**
-     * Get the specified path to the files.
+     * Obtenez le chemin spécifié vers les fichiers.
      *
      * @return string
      */
@@ -121,7 +121,7 @@ class ViewPublishCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -133,7 +133,7 @@ class ViewPublishCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

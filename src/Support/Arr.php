@@ -9,6 +9,7 @@ namespace Two\Support;
 
 use Closure;
 
+use Two\Collection\Collection;
 use Two\Support\Traits\MacroableTrait;
 
 

@@ -10,7 +10,7 @@ namespace Two\Config;
 use Closure;
 use ArrayAccess;
 
-use Two\Support\NamespacedItemResolver;
+use Two\Container\NamespacedItemResolver;
 use Two\Config\Contracts\LoaderInterface;
 
 

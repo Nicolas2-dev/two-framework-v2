@@ -14,7 +14,7 @@ use Two\Console\Forge\Localization\Commands\LanguagesUpdateCommand;
 class ConsoleServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
+     * Indique si le chargement du fournisseur est différé.
      *
      * @var bool
      */
@@ -22,7 +22,7 @@ class ConsoleServiceProvider extends ServiceProvider
 
 
     /**
-     * Register the service provider.
+     * Enregistrez le fournisseur de services.
      *
      * @return void
      */
@@ -37,7 +37,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Obtenez les services fournis par le fournisseur.
      *
      * @return array
      */

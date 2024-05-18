@@ -39,14 +39,14 @@ use Two\TwoApplication\Providers\ServiceProvider;
 class ForgeServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
+     * Indique si le chargement du fournisseur est différé.
      *
      * @var bool
      */
     protected $defer = true;
 
     /**
-     * The commands to be registered.
+     * Les commandes à enregistrer.
      *
      * @var array
      */
@@ -77,7 +77,7 @@ class ForgeServiceProvider extends ServiceProvider
     );
 
     /**
-     * Register the service provider.
+     * Enregistrez le fournisseur de services.
      *
      * @return void
      */
@@ -93,7 +93,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the configuration publisher class and command.
+     * Enregistrez la classe et la commande de l'éditeur de configuration.
      *
      * @return void
      */
@@ -120,7 +120,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the configuration publisher class and command.
+     * Enregistrez la classe et la commande de l'éditeur de configuration.
      *
      * @return void
      */
@@ -144,7 +144,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -157,7 +157,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -170,7 +170,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -183,7 +183,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -196,7 +196,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -209,7 +209,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -222,7 +222,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -235,7 +235,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -248,7 +248,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -261,7 +261,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -274,7 +274,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -287,7 +287,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -300,7 +300,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -313,7 +313,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -326,7 +326,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -339,7 +339,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -352,7 +352,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -365,7 +365,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -378,7 +378,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the command.
+     * Enregistrez la commande.
      *
      * @return void
      */
@@ -391,7 +391,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the vendor publish console command.
+     * Enregistrez la commande de console de publication du fournisseur.
      *
      * @return void
      */
@@ -404,7 +404,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the configuration publisher class and command.
+     * Enregistrez la classe et la commande de l'éditeur de configuration.
      *
      * @return void
      */
@@ -431,7 +431,7 @@ class ForgeServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Obtenez les services fournis par le fournisseur.
      *
      * @return array
      */

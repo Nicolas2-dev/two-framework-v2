@@ -15,21 +15,21 @@ use Symfony\Component\Console\Input\InputOption;
 class ListenerMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:listener';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Event Listener class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ListenerMakeCommand extends GeneratorCommand
 
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -51,7 +51,7 @@ class ListenerMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Build the class with the given name.
+     * Construisez la classe avec le nom donné.
      *
      * @param  string  $name
      * @return string
@@ -81,7 +81,7 @@ class ListenerMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -95,7 +95,7 @@ class ListenerMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string
@@ -106,7 +106,7 @@ class ListenerMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

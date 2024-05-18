@@ -13,21 +13,21 @@ use Two\Console\Commands\Command;
 class EnvironmentCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'environement:env';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Display the current Framework Environment";
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */

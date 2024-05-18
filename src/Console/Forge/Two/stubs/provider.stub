@@ -8,7 +8,7 @@ use Two\Support\ServiceProvider;
 class {{className}} extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
+     * Amorcez les services d’application.
      *
      * @return void
      */
@@ -18,7 +18,7 @@ class {{className}} extends ServiceProvider
     }
 
     /**
-     * Register the application services.
+     * Enregistrez les services d'application.
      *
      * @return void
      */

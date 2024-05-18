@@ -5,7 +5,7 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\TwoApplication\Http;
+namespace Two\Http;
 
 use Two\Container\Container;
 use Two\Http\Request;

@@ -10,7 +10,7 @@ use {{rootNamespace}}Controllers\BaseController;
 class {{className}} extends BaseController
 {
     /**
-     * Display a listing of the resource.
+     * Afficher une liste de la ressource.
      *
      * @return \Two\Http\Response
      */
@@ -20,7 +20,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Afficher le formulaire de création d'une nouvelle ressource.
      *
      * @return \Two\Http\Response
      */
@@ -30,7 +30,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Stockez une ressource nouvellement créée dans le stockage.
      *
      * @param  \Two\Http\Request  $request
      * @return \Two\Http\Response
@@ -41,7 +41,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Display the specified resource.
+     * Affiche la ressource spécifiée.
      *
      * @param  int  $id
      * @return \Two\Http\Response
@@ -52,7 +52,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Afficher le formulaire de modification de la ressource spécifiée.
      *
      * @param  int  $id
      * @return \Two\Http\Response
@@ -63,7 +63,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * Mettez à jour la ressource spécifiée dans le stockage.
      *
      * @param  \Two\Http\Request  $request
      * @param  int  $id
@@ -75,7 +75,7 @@ class {{className}} extends BaseController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Supprimez la ressource spécifiée du stockage.
      *
      * @param  int  $id
      * @return \Two\Http\Response

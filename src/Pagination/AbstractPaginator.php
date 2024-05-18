@@ -11,7 +11,7 @@ use Closure;
 use ArrayIterator;
 use RuntimeException;
 
-use Two\Support\Collection;
+use Two\Collection\Collection;
 use Two\TwoApplication\Contracts\HtmlableInterface;
 
 
@@ -20,7 +20,7 @@ abstract class AbstractPaginator implements HtmlableInterface
     /**
      * Tous les éléments étant paginés.
      *
-     * @var \Two\Support\Collection
+     * @var \Two\Collection\Collection
      */
     protected $items;
 
@@ -534,7 +534,7 @@ abstract class AbstractPaginator implements HtmlableInterface
     /**
      * Obtenez la collection sous-jacente du paginateur.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function getItems()
     {

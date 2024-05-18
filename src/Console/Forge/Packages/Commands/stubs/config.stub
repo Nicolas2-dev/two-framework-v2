@@ -5,7 +5,7 @@
 | {{type}} Configuration
 |--------------------------------------------------------------------------
 |
-| Here is where you can register all of the Configuration for the {{type}}.
+| C'est ici que vous pouvez enregistrer toute la configuration pour le {{type}}.
 */
 
 return array(

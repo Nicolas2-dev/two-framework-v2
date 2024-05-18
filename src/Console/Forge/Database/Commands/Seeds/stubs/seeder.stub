@@ -9,7 +9,7 @@ use Two\Database\Seeder;
 class {{className}} extends Seeder
 {
     /**
-     * Run the database seeds.
+     * Exécutez les graines de la base de données.
      *
      * @return void
      */

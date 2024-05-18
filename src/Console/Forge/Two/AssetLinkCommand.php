@@ -13,21 +13,21 @@ use Two\Console\Commands\Command;
 class AssetLinkCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'asset:link';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a symbolic link from "webroot/assets" to the "assets" folder';
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */

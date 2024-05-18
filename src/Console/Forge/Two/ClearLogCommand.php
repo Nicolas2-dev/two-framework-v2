@@ -14,21 +14,21 @@ use Two\Filesystem\Filesystem;
 class ClearLogCommand extends Command
 {
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'log:clear';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -36,7 +36,7 @@ class ClearLogCommand extends Command
 
 
     /**
-     * Create a new key generator command.
+     * Créez une nouvelle commande de générateur de clés.
      *
      * @param \Two\Filesystem\Filesystem $files
      * @author Sang Nguyen
@@ -49,7 +49,8 @@ class ClearLogCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
+     * 
      * @author Sang Nguyen
      */
     public function handle()

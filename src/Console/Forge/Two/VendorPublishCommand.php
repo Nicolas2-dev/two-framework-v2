@@ -7,34 +7,34 @@
  */
 namespace Two\Console\Forge\Two;
 
-use Two\Console\Commands\Command;
-use Two\Filesystem\Filesystem;
-use Two\Support\ServiceProvider;
-
-use Symfony\Component\Console\Input\InputArgument;
-use Symfony\Component\Console\Input\InputOption;
-
 use FilesystemIterator;
+
+use Two\Filesystem\Filesystem;
+use Two\Console\Commands\Command;
+use Two\TwoApplication\Providers\ServiceProvider;
+
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Input\InputArgument;
 
 
 class VendorPublishCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'vendor:publish';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Publish any publishable assets from vendor packages";
 
     /**
-     * The asset publisher instance.
+     * Instance de l’éditeur d’actifs.
      *
      * @var \Two\Filesystem\Filesystem
      */
@@ -42,7 +42,7 @@ class VendorPublishCommand extends Command
 
 
     /**
-     * Create a new vendor publish command instance.
+     * Créez une nouvelle instance de commande de publication du fournisseur.
      *
      * @param  \Two\Foundation\VendorPublisher  $publisher
      * @return void
@@ -55,7 +55,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Publish the assets for a given group name.
+     * Publiez les ressources pour un nom de groupe donné.
      *
      * @param  string|null  $group
      * @return void
@@ -110,7 +110,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Publish the file to the given path.
+     * Publiez le fichier sur le chemin indiqué.
      *
      * @param  string  $from
      * @param  string  $to
@@ -134,7 +134,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Publish the directory to the given directory.
+     * Publiez le répertoire dans le répertoire donné.
      *
      * @param  string  $from
      * @param  string  $to
@@ -148,7 +148,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Copy a directory from one location to another.
+     * Copiez un répertoire d'un emplacement à un autre.
      *
      * @param  string  $directory
      * @param  string  $destination
@@ -157,12 +157,12 @@ class VendorPublishCommand extends Command
      */
     public function copyDirectory($directory, $destination)
     {
-        if (! $this->isDirectory($directory)) {
+        if (! $this->files->isDirectory($directory)) {
             return false;
         }
 
         if (! $this->files->isDirectory($destination)) {
-            $this->makeDirectory($destination, 0777, true);
+            $this->files->makeDirectory($destination, 0777, true);
         }
 
         $items = new FilesystemIterator($directory, FilesystemIterator::SKIP_DOTS);
@@ -178,7 +178,7 @@ class VendorPublishCommand extends Command
                 continue;
             }
 
-            // The current item is a file.
+            // L'élément actuel est un fichier.
             if ($this->files->exists($target) && ! $this->option('force')) {
                 continue;
             } else if (! $this->files->copy($item->getPathname(), $target)) {
@@ -190,7 +190,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Write a status message to the console.
+     * Écrivez un message d'état sur la console.
      *
      * @param  string  $from
      * @param  string  $to
@@ -207,7 +207,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -219,7 +219,7 @@ class VendorPublishCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

@@ -13,28 +13,28 @@ use Two\Console\Commands\GeneratorCommand;
 class ModelMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:model';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new ORM Model class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
     protected $type = 'Model';
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -44,7 +44,7 @@ class ModelMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string

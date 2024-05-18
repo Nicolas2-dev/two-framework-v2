@@ -11,7 +11,7 @@ use BadMethodCallException;
 
 use Two\Support\Str;
 use Two\Support\MessageBag;
-use Two\Support\ViewErrorBag;
+use Two\View\ViewErrorBag;
 use Two\Session\Store as SessionStore;
 use Two\TwoApplication\Contracts\MessageProviderInterface;
 

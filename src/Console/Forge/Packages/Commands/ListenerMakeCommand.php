@@ -16,28 +16,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class ListenerMakeCommand extends MakeCommand
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:listener';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package Event Listener class';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Listener';
 
     /**
-     * package signature option.
+     * option de signature du package.
      *
      * @var array
      */
@@ -46,7 +46,7 @@ class ListenerMakeCommand extends MakeCommand
     );
 
     /**
-     * package folders to be created.
+     * dossiers de packages à créer.
      *
      * @var array
      */
@@ -55,7 +55,7 @@ class ListenerMakeCommand extends MakeCommand
     );
 
     /**
-     * package files to be created.
+     * fichiers de package à créer.
      *
      * @var array
      */
@@ -64,7 +64,7 @@ class ListenerMakeCommand extends MakeCommand
     );
 
     /**
-     * package stubs used to populate defined files.
+     * stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -79,7 +79,7 @@ class ListenerMakeCommand extends MakeCommand
 
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -93,7 +93,7 @@ class ListenerMakeCommand extends MakeCommand
     }
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $filePath
      *
@@ -115,7 +115,7 @@ class ListenerMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -145,7 +145,7 @@ class ListenerMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -158,7 +158,7 @@ class ListenerMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

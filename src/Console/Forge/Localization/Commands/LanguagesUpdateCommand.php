@@ -22,28 +22,28 @@ use Symfony\Component\Console\Input\InputOption;
 class LanguagesUpdateCommand extends Command
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'language:update';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Update the Language files';
 
     /**
-     * The Language Manager instance.
+     * L'instance du gestionnaire de langues.
      *
      * @var LanguageManager
      */
     protected $languages;
 
     /**
-     * The Filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var Filesystem
      */
@@ -61,7 +61,7 @@ class LanguagesUpdateCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param Filesystem $files
      */
@@ -76,7 +76,7 @@ class LanguagesUpdateCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -84,7 +84,7 @@ class LanguagesUpdateCommand extends Command
     {
         $config = $this->container['config'];
 
-        // Get the Language codes.
+        // Obtenez les codes de langue.
         $languages = array_keys(
             $config->get('languages', array())
         );
@@ -101,12 +101,12 @@ class LanguagesUpdateCommand extends Command
             return $this->updateLanguageFiles($path, $languages);
         }
 
-        // Was not specified a custom directory.
+        // Aucun répertoire personnalisé n'a été spécifié.
         else {
             $paths = $this->scanWorkPaths($config);
         }
 
-        // Update the Language files in the available Domains.
+        // Mettez à jour les fichiers de langue dans les domaines disponibles.
         foreach ($paths as $path) {
             if (! $this->files->isDirectory($path)) {
                 continue;
@@ -127,7 +127,7 @@ class LanguagesUpdateCommand extends Command
             base_path('shared')
         );
 
-        // Search for the Modules and Themes.
+        // Recherchez les modules et les thèmes.
         $paths = array(
             $config->get('packages.modules.path', BASEPATH .'modules'),
             $config->get('packages.themes.path', BASEPATH .'themes')
@@ -143,7 +143,7 @@ class LanguagesUpdateCommand extends Command
             );
         }
 
-        // Search for the local Packages.
+        // Recherchez les packages locaux.
         $path = BASEPATH .'packages';
 
         if ($this->files->isDirectory($path)) {
@@ -169,7 +169,7 @@ class LanguagesUpdateCommand extends Command
             return;
         }
 
-        // Extract the messages from files.
+        // Extrayez les messages des fichiers.
         $messages = $this->extractMessages($paths, $withoutDomain);
 
         if (empty($messages)) {
@@ -191,7 +191,7 @@ class LanguagesUpdateCommand extends Command
 
         while ($fileName = readdir($fp)) {
             if (preg_match("#^\.+$#", $fileName) === 1) {
-                // Ignore symbolic links.
+                // Ignorez les liens symboliques.
                 continue;
             }
 
@@ -201,12 +201,12 @@ class LanguagesUpdateCommand extends Command
                 $result = array_merge($result, $this->fileGrep($pattern, $fullPath));
             }
 
-            // The current path is not a directory.
+            // Le chemin actuel n'est pas un répertoire.
             else if (preg_match("#^(.*)\.(php|tpl)$#", $fileName) !== 1) {
                 continue;
             }
 
-            // We found a PHP or TPL file.
+            // Nous avons trouvé un fichier PHP ou TPL.
             else if (stristr(file_get_contents($fullPath), $pattern)) {
                 $result[] = $fullPath;
             }
@@ -225,7 +225,7 @@ class LanguagesUpdateCommand extends Command
 
         $this->comment("Using PATERN: '" .$pattern."'");
 
-        // Extract the messages from files and return them.
+        // Extrayez les messages des fichiers et renvoyez-les.
         $result = array();
 
         foreach ($paths as $path) {
@@ -240,7 +240,7 @@ class LanguagesUpdateCommand extends Command
                     //$message = trim($message);
 
                     if ($message == '$msg, $args = null') {
-                        // We will skip the translation functions definition.
+                        // Nous sauterons la définition des fonctions de traduction.
                         continue;
                     }
 
@@ -306,10 +306,10 @@ class LanguagesUpdateCommand extends Command
     {
         ksort($data);
 
-        // Make sure that the directory exists.
+        // Assurez-vous que le répertoire existe.
         $this->files->makeDirectory(dirname($path), 0755, true, true);
 
-        // Prepare the Language file contents.
+        // Préparez le contenu du fichier de langue.
         $output = "<?php\n\nreturn " .var_export($data, true) .";\n";
 
         //$output = preg_replace("/^ {2}(.*)$/m","    $1", $output);
@@ -318,7 +318,7 @@ class LanguagesUpdateCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

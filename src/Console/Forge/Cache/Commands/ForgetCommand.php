@@ -17,21 +17,21 @@ use Symfony\Component\Console\Input\InputArgument;
 class ForgetCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'cache:forget';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Remove an item from the cache';
 
     /**
-     * The cache manager instance.
+     * L'instance du gestionnaire de cache.
      *
      * @var \Two\Cache\CacheManager
      */
@@ -39,7 +39,7 @@ class ForgetCommand extends Command
 
 
     /**
-     * Create a new cache clear command instance.
+     * Créez une nouvelle instance de commande d'effacement du cache.
      *
      * @param  \Two\Cache\CacheManager  $cache
      * @return void
@@ -52,7 +52,7 @@ class ForgetCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class ForgetCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -76,7 +76,7 @@ class ForgetCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

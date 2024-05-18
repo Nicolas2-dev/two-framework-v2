@@ -9,34 +9,34 @@ namespace Two\Console\Forge\Database\Commands\Seeds;
 
 use Two\Console\Commands\GeneratorCommand;
 use Two\Filesystem\Filesystem;
-use Two\Support\Composer;
+use Two\TwoApplication\Composer;
 
 
 class SeederMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:seeder';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Database Seeder class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
     protected $type = 'Seeder';
 
     /**
-     * The Composer instance.
+     * L'instance du compositeur.
      *
      * @var \Two\Foundation\Composer
      */
@@ -44,7 +44,7 @@ class SeederMakeCommand extends GeneratorCommand
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  \Two\Foundation\Composer  $composer
@@ -58,7 +58,7 @@ class SeederMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class SeederMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -80,7 +80,7 @@ class SeederMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string

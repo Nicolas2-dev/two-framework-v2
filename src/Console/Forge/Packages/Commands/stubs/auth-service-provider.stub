@@ -3,13 +3,13 @@
 namespace {{namespace}}\Providers;
 
 use Two\Auth\Contracts\Access\GateInterface as Gate;
-use Two\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Two\TwoApplication\Providers\AuthServiceProvider as ServiceProvider;
 
 
 class AuthServiceProvider extends ServiceProvider
 {
     /**
-     * The policy mappings for the {{lower_type}}.
+     * Les mappages de stratégie pour le {{lower_type}}.
      *
      * @var array
      */
@@ -19,9 +19,9 @@ class AuthServiceProvider extends ServiceProvider
 
 
     /**
-     * Register any {{lower_type}} authentication / authorization services.
+     * Enregistrez n'importe quel service d'authentification/autorisation {{lower_type}}.
      *
-     * @param  \Two\Auth\Access\GateInterface  $gate
+     * @param  \Two\Auth\Contracts\Access\GateInterface  $gate
      * @return void
      */
     public function boot(Gate $gate)

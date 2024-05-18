@@ -13,7 +13,7 @@ use InvalidArgumentException;
 trait MigrationTrait
 {
     /**
-     * Require (once) all migration files for the supplied Package.
+     * Exiger (une fois) tous les fichiers de migration pour le package fourni.
      *
      * @param string $package
      */
@@ -32,7 +32,7 @@ trait MigrationTrait
     }
 
     /**
-     * Get migration directory path.
+     * Obtenez le chemin du répertoire de migration.
      *
      * @param string $slug
      *

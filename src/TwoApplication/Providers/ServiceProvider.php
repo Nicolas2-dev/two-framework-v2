@@ -7,10 +7,11 @@
  */
 namespace Two\TwoApplication\Providers;
 
-use BadMethodCallException;
 use ReflectionClass;
+use BadMethodCallException;
 
 use Two\Support\Str;
+use Two\TwoApplication\TwoApplication;
 
 
 abstract class ServiceProvider
@@ -44,7 +45,7 @@ abstract class ServiceProvider
      * @param  Two\TwoApplication\TwoApplication     $app
      * @return void
      */
-    public function __construct($app)
+    public function __construct(TwoApplication $app)
     {
         $this->app = $app;
     }

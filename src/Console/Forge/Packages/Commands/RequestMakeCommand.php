@@ -15,28 +15,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class RequestMakeCommand extends MakeCommand
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:request';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package Request class';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Request';
 
     /**
-     * Plugin folders to be created.
+     * Dossiers de plugins à créer.
      *
      * @var array
      */
@@ -45,7 +45,7 @@ class RequestMakeCommand extends MakeCommand
     );
 
     /**
-     * Plugin files to be created.
+     * Fichiers plugin à créer.
      *
      * @var array
      */
@@ -54,18 +54,18 @@ class RequestMakeCommand extends MakeCommand
     );
 
     /**
-     * Plugin stubs used to populate defined files.
+     * Stubs de plugin utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
     protected $listStubs = array(
         'default' => array(
-            'notification.stub',
+            'request.stub',
         ),
     );
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $filePath
      *
@@ -81,7 +81,7 @@ class RequestMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class RequestMakeCommand extends MakeCommand
     }
 
     /**
-     * Get stub content by key.
+     * Obtenez le contenu du stub par clé.
      *
      * @param int $key
      *
@@ -117,7 +117,7 @@ class RequestMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

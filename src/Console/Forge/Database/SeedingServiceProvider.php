@@ -16,14 +16,14 @@ use Two\Console\Forge\Database\Commands\Seeds\SeederMakeCommand;
 class SeedingServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
+     * Indique si le chargement du fournisseur est différé.
      *
      * @var bool
      */
     protected $defer = true;
 
     /**
-     * Register the service provider.
+     * Enregistrez le fournisseur de services.
      *
      * @return void
      */
@@ -42,7 +42,7 @@ class SeedingServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the seed console command.
+     * Enregistrez la commande de la console seed.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class SeedingServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the seeder generator command.
+     * Enregistrez la commande du générateur de semoir.
      *
      * @return void
      */
@@ -68,7 +68,7 @@ class SeedingServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Obtenez les services fournis par le fournisseur.
      *
      * @return array
      */

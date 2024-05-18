@@ -16,21 +16,21 @@ use Symfony\Component\Console\Input\InputOption;
 class StatusCommand extends BaseCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'migrate:status';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Show the status of each migration';
 
     /**
-     * The migrator instance.
+     * L'instance de migration.
      *
      * @var \Two\Console\Forge\Database\Migrations\Migrator
      */
@@ -38,7 +38,7 @@ class StatusCommand extends BaseCommand
 
 
     /**
-     * Create a new migration rollback command instance.
+     * Créez une nouvelle instance de commande d'annulation de migration.
      *
      * @param  \Two\Console\Forge\Database\Migrations\Migrator $migrator
      * @return \Two\Database\Console\Migrations\StatusCommand
@@ -51,7 +51,7 @@ class StatusCommand extends BaseCommand
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -86,7 +86,7 @@ class StatusCommand extends BaseCommand
     }
 
     /**
-     * Get all of the migration files.
+     * Obtenez tous les fichiers de migration.
      *
      * @param  string  $path
      * @return array
@@ -97,7 +97,7 @@ class StatusCommand extends BaseCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

@@ -16,21 +16,21 @@ class RetryCommand extends Command
 {
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:retry';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Retry a failed queue job';
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -55,7 +55,7 @@ class RetryCommand extends Command
     }
 
     /**
-     * Reset the payload attempts.
+     * Réinitialisez les tentatives de charge utile.
      *
      * @param  string  $payload
      * @return string
@@ -72,7 +72,7 @@ class RetryCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

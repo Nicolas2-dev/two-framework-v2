@@ -12,7 +12,7 @@ use ReflectionParameter;
 use ReflectionFunctionAbstract;
 
 use Two\Support\Arr;
-use Two\Support\Reflector;
+use Two\Container\Reflector;
 
 
 trait RouteDependencyResolverTrait

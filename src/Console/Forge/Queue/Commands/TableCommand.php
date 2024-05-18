@@ -15,21 +15,21 @@ use Two\Support\Str;
 class TableCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:table';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a migration for the queue jobs database table';
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
@@ -37,7 +37,7 @@ class TableCommand extends Command
 
 
     /**
-     * Create a new queue job table command instance.
+     * Créez une nouvelle instance de commande de table de travaux de file d'attente.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  \Two\Foundation\Composer    $composer
@@ -51,7 +51,7 @@ class TableCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class TableCommand extends Command
     }
 
     /**
-     * Create a base migration file for the table.
+     * Créez un fichier de migration de base pour la table.
      *
      * @param  string  $table
      * @return string

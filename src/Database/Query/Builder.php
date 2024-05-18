@@ -12,7 +12,7 @@ use BadMethodCallException;
 use InvalidArgumentException;
 
 use Two\Support\Str;
-use Two\Support\Collection;
+use Two\Collection\Collection;
 use Two\Pagination\Paginator;
 use Two\Database\Query\Grammar;
 use Two\Database\Query\Processor;

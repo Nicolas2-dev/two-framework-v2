@@ -2,7 +2,7 @@
 
 namespace {{namespace}};
 
-use Two\Auth\Access\HandlesAuthorizationTrait;
+use Two\Auth\Traits\HandlesAuthorizationTrait;
 
 
 class {{className}}
@@ -11,7 +11,7 @@ class {{className}}
 
 
     /**
-     * Create a new {{className}} instance.
+     * Créez une nouvelle instance {{className}}.
      *
      * @return void
      */

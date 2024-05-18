@@ -20,55 +20,55 @@ use Symfony\Component\Console\Input\InputOption;
 class RouteListCommand extends Command
 {
     /**
-    * The console command name.
-    *
-    * @var string
-    */
+     * Le nom de la commande de la console.
+     *
+     * @var string
+     */
     protected $name = 'routes:list';
 
     /**
-    * The console command description.
-    *
-    * @var string
-    */
+     * Description de la commande de la console.
+     *
+     * @var string
+     */
     protected $description = 'List all registered routes';
 
     /**
-    * The router instance.
-    *
-    * @var \Two\Routing\Router
-    */
+     * L'instance du routeur.
+     *
+     * @var \Two\Routing\Router
+     */
     protected $router;
 
     /**
-    * An array of all the registered routes.
-    *
-    * @var \Two\Routing\RouteCollection
-    */
+     * Un tableau de tous les itinéraires enregistrés.
+     *
+     * @var \Two\Routing\RouteCollection
+     */
     protected $routes;
 
     /**
-    * The table helper set.
-    *
-    * @var \Symfony\Component\Console\Helper\TableHelper
-    */
+     * L'ensemble d'aide à la table.
+     *
+     * @var \Symfony\Component\Console\Helper\TableHelper
+     */
     protected $table;
 
     /**
-    * The table headers for the command.
-    *
-    * @var array
-    */
+     * Les en-têtes de tableau pour la commande.
+     *
+     * @var array
+     */
     protected $headers = array(
         'Domain', 'Method', 'URI', 'Name', 'Action', 'Middleware'
     );
 
     /**
-    * Create a new route command instance.
-    *
-    * @param  \Two\Routing\Router  $router
-    * @return void
-    */
+     * Créez une nouvelle instance de commande de route.
+     *
+     * @param  \Two\Routing\Router  $router
+     * @return void
+     */
     public function __construct(Router $router)
     {
         parent::__construct();
@@ -79,10 +79,10 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Execute the console command.
-    *
-    * @return void
-    */
+     * Exécutez la commande de la console.
+     *
+     * @return void
+     */
     public function handle()
     {
         $this->table = new Table($this->output);
@@ -95,10 +95,10 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Compile the routes into a displayable format.
-    *
-    * @return array
-    */
+     * Compilez les itinéraires dans un format affichable.
+     *
+     * @return array
+     */
     protected function getRoutes()
     {
         $routes = $this->routes->getRoutes();
@@ -124,12 +124,12 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Get the route information for a given route.
-    *
-    * @param  string  $name
-    * @param  \Two\Routing\Route  $route
-    * @return array
-    */
+     * Obtenez les informations d'itinéraire pour un itinéraire donné.
+     *
+     * @param  string  $name
+     * @param  \Two\Routing\Route  $route
+     * @return array
+     */
     protected function getRouteInformation(Route $route)
     {
         $methods = implode('|', $route->methods());
@@ -149,11 +149,11 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Display the route information on the console.
-    *
-    * @param  array  $routes
-    * @return void
-    */
+     * Affichez les informations d'itinéraire sur la console.
+     *
+     * @param  array  $routes
+     * @return void
+     */
     protected function displayRoutes(array $routes)
     {
         $this->table->setHeaders($this->headers)->setRows($routes);
@@ -162,7 +162,7 @@ class RouteListCommand extends Command
     }
 
     /**
-     * Get before filters.
+     * Obtenez avant les filtres.
      *
      * @param  \Two\Routing\Route  $route
      * @return string
@@ -181,11 +181,11 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Filter the route by URI and / or name.
-    *
-    * @param  array  $route
-    * @return array|null
-    */
+     * Filtrez l'itinéraire par URI et/ou nom.
+     *
+     * @param  array  $route
+     * @return array|null
+     */
     protected function filterRoute(array $route)
     {
         if (($this->option('name') && ! str_contains($route['name'], $this->option('name'))) ||
@@ -197,10 +197,10 @@ class RouteListCommand extends Command
     }
 
     /**
-    * Get the console command options.
-    *
-    * @return array
-    */
+     * Obtenez les options de commande de la console.
+     *
+     * @return array
+     */
     protected function getOptions()
     {
         return array(

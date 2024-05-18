@@ -15,21 +15,21 @@ use Two\Filesystem\Filesystem;
 class MigrationCreator
 {
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The registered post create hooks.
+     * Le courrier recommandé crée des accroches.
      *
      * @var array
      */
     protected $postCreate = array();
 
     /**
-     * Create a new migration creator instance.
+     * Créez une nouvelle instance de créateur de migration.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @return void
@@ -40,7 +40,7 @@ class MigrationCreator
     }
 
     /**
-     * Create a new migration at the given path.
+     * Créez une nouvelle migration sur le chemin indiqué.
      *
      * @param  string  $name
      * @param  string  $path
@@ -52,9 +52,9 @@ class MigrationCreator
     {
         $path = $this->getPath($name, $path);
 
-        // First we will get the stub file for the migration, which serves as a type
-        // of template for the migration. Once we have those we will populate the
-        // various place-holders, save the file, and run the post create event.
+        // Nous obtiendrons d’abord le fichier stub pour la migration, qui sert de type
+        // du modèle pour la migration. Une fois que nous les aurons, nous remplirons le
+        // divers espaces réservés, enregistrez le fichier et exécutez l'événement post-création.
         $stub = $this->getStub($table, $create);
 
         $this->files->put($path, $this->populateStub($name, $stub, $table));
@@ -65,7 +65,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the migration stub file.
+     * Obtenez le fichier stub de migration.
      *
      * @param  string  $table
      * @param  bool    $create
@@ -77,9 +77,9 @@ class MigrationCreator
             return $this->files->get($this->getStubPath() .DS .'blank.stub');
         }
 
-        // We also have stubs for creating new tables and modifying existing tables
-        // to save the developer some typing when they are creating a new tables
-        // or modifying existing tables. We'll grab the appropriate stub here.
+        // Nous avons également des stubs pour créer de nouvelles tables et modifier des tables existantes
+        // pour éviter au développeur de taper lors de la création de nouvelles tables
+        // ou en modifiant les tables existantes. Nous allons récupérer le talon approprié ici.
         else {
             $stub = $create ? 'create.stub' : 'update.stub';
 
@@ -88,7 +88,7 @@ class MigrationCreator
     }
 
     /**
-     * Populate the place-holders in the migration stub.
+     * Remplissez les espaces réservés dans le talon de migration.
      *
      * @param  string  $name
      * @param  string  $stub
@@ -99,9 +99,9 @@ class MigrationCreator
     {
         $stub = str_replace('{{class}}', $this->getClassName($name), $stub);
 
-        // Here we will replace the table place-holders with the table specified by
-        // the developer, which is useful for quickly creating a tables creation
-        // or update migration from the console instead of typing it manually.
+        // Ici, nous remplacerons les espaces réservés du tableau par le tableau spécifié par
+        // le développeur, ce qui est utile pour créer rapidement une création de tables
+        // ou mettre à jour la migration depuis la console au lieu de la saisir manuellement.
         if (! is_null($table)) {
             $stub = str_replace('{{table}}', $table, $stub);
         }
@@ -110,7 +110,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the class name of a migration name.
+     * Obtenez le nom de classe d’un nom de migration.
      *
      * @param  string  $name
      * @return string
@@ -121,7 +121,7 @@ class MigrationCreator
     }
 
     /**
-     * Fire the registered post create hooks.
+     * Lancez le message enregistré et créez des crochets.
      *
      * @return void
      */
@@ -133,7 +133,7 @@ class MigrationCreator
     }
 
     /**
-     * Register a post migration create hook.
+     * Enregistrez un hook de création post-migration.
      *
      * @param  \Closure  $callback
      * @return void
@@ -144,7 +144,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the full path name to the migration.
+     * Obtenez le nom de chemin complet vers la migration.
      *
      * @param  string  $name
      * @param  string  $path
@@ -156,7 +156,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the date prefix for the migration.
+     * Obtenez le préfixe de date pour la migration.
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the path to the stubs.
+     * Obtenez le chemin d’accès aux talons.
      *
      * @return string
      */
@@ -176,7 +176,7 @@ class MigrationCreator
     }
 
     /**
-     * Get the filesystem instance.
+     * Obtenez l'instance du système de fichiers.
      *
      * @return \Two\Filesystem\Filesystem
      */

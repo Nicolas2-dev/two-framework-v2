@@ -13,21 +13,21 @@ use Two\Console\Commands\Command;
 class ScheduleRunCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'schedule:run';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Run the scheduled commands';
 
     /**
-     * The schedule instance.
+     * L’instance de planification.
      *
      * @var \Two\Console\Scheduling\Schedule
      */
@@ -35,7 +35,7 @@ class ScheduleRunCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param  \Two\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -48,7 +48,7 @@ class ScheduleRunCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */

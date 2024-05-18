@@ -19,28 +19,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class AssetPublishCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'asset:publish';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Publish a package's assets to the public directory";
 
     /**
-     * The asset dispatcher instance.
+     * L’instance du répartiteur d’actifs.
      *
      * @var \Two\Asssets\AssetDispatcher
      */
     protected $dispatcher;
 
     /**
-     * The asset publisher instance.
+     * Instance de l’éditeur d’actifs.
      *
      * @var \Two\Foundation\AssetPublisher
      */
@@ -48,7 +48,7 @@ class AssetPublishCommand extends Command
 
 
     /**
-     * Create a new asset publish command instance.
+     * Créez une nouvelle instance de commande de publication d’actifs.
      *
      * @param  \Two\Assets\AssetDispatcher $dispatcher
      * @param  \Two\Foundation\AssetPublisher  $assets
@@ -64,7 +64,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -76,7 +76,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Publish the assets for a given package name.
+     * Publiez les ressources pour un nom de package donné.
      *
      * @param  string  $package
      * @return void
@@ -99,7 +99,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Get the name of the package being published.
+     * Obtenez le nom du package en cours de publication.
      *
      * @return array
      */
@@ -119,7 +119,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Find all the asset hosting packages in the system.
+     * Trouvez tous les packages d’hébergement d’actifs dans le système.
      *
      * @return array
      */
@@ -138,7 +138,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Get the specified path to the files.
+     * Obtenez le chemin spécifié vers les fichiers.
      *
      * @return string
      */
@@ -152,7 +152,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -164,7 +164,7 @@ class AssetPublishCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

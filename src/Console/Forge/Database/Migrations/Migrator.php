@@ -15,42 +15,42 @@ use Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface;
 class Migrator
 {
     /**
-     * The migration repository implementation.
+     * La mise en œuvre du référentiel de migration.
      *
      * @var MigrationRepositoryInterface
      */
     protected $repository;
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The connection resolver instance.
+     * L'instance du résolveur de connexion.
      *
      * @var \Two\Database\Contracts\ConnectionResolverInterface
      */
     protected $resolver;
 
     /**
-     * The name of the default connection.
+     * Le nom de la connexion par défaut.
      *
      * @var string
      */
     protected $connection;
 
     /**
-     * The notes for the current operation.
+     * Les notes pour l'opération en cours.
      *
      * @var array
      */
     protected $notes = array();
 
     /**
-     * Create a new migrator instance.
+     * Créez une nouvelle instance de migrateur.
      *
      * @param  \Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface  $repository
      * @param  \Two\Database\Contracts\ConnectionResolverInterface  $resolver
@@ -67,7 +67,7 @@ class Migrator
     }
 
     /**
-     * Run the outstanding migrations at a given path.
+     * Exécutez les migrations en attente sur un chemin donné.
      *
      * @param  string  $path
      * @param  bool    $pretend
@@ -80,9 +80,9 @@ class Migrator
 
         $files = $this->getMigrationFiles($path);
 
-        // Once we grab all of the migration files for the path, we will compare them
-        // against the migrations that have already been run for this package then
-        // run each of the outstanding migrations against a database connection.
+        // Une fois que nous aurons récupéré tous les fichiers de migration pour le chemin, nous les comparerons
+        // contre les migrations déjà exécutées pour ce package alors
+        // exécute chacune des migrations en attente sur une connexion à une base de données.
         $ran = $this->repository->getRan();
 
         $migrations = array_diff($files, $ran);
@@ -93,7 +93,7 @@ class Migrator
     }
 
     /**
-     * Run an array of migrations.
+     * Exécutez une série de migrations.
      *
      * @param  array  $migrations
      * @param  bool   $pretend
@@ -104,9 +104,9 @@ class Migrator
     {
         $group = $group ?: 'app';
 
-        // First we will just make sure that there are any migrations to run. If there
-        // aren't, we will just make a note of it to the developer so they're aware
-        // that all of the migrations have been run against this database system.
+        // Tout d’abord, nous allons simplement nous assurer qu’il y a des migrations à exécuter. S'il y a
+        // ce n'est pas le cas, nous en prendrons simplement note au développeur pour qu'il en soit informé
+        // que toutes les migrations ont été exécutées sur ce système de base de données.
         if (count($migrations) === 0) {
             $this->note('<info>Nothing to migrate.</info>');
 
@@ -115,16 +115,16 @@ class Migrator
 
         $batch = $this->repository->getNextBatchNumber($group);
 
-        // Once we have the array of migrations, we will spin through them and run the
-        // migrations "up" so the changes are made to the databases. We'll then log
-        // that the migration was run so we don't repeat it next time we execute.
+        // Une fois que nous aurons l'éventail de migrations, nous les parcourrons et exécuterons le
+        // migrations "up" donc les modifications sont apportées aux bases de données. Nous nous connecterons ensuite
+        // que la migration a été exécutée afin que nous ne la répétions pas la prochaine fois que nous l'exécuterons.
         foreach ($migrations as $file) {
             $this->runUp($file, $batch, $pretend, $group);
         }
     }
 
     /**
-     * Run "up" a migration instance.
+     * Exécutez "up" une instance de migration.
      *
      * @param  string  $file
      * @param  int     $batch
@@ -134,9 +134,9 @@ class Migrator
      */
     protected function runUp($file, $batch, $pretend, $group)
     {
-        // First we will resolve a "real" instance of the migration class from this
-        // migration file name. Once we have the instances we can run the actual
-        // command such as "up" or "down", or we can just simulate the action.
+        // Nous allons d’abord résoudre une instance « réelle » de la classe de migration à partir de ce
+        // nom du fichier de migration. Une fois que nous avons les instances, nous pouvons exécuter le véritable
+        // commande telle que "up" ou "down", ou on peut simplement simuler l'action.
         $migration = $this->resolve($file);
 
         if ($pretend) {
@@ -145,16 +145,16 @@ class Migrator
 
         $migration->up();
 
-        // Once we have run a migrations class, we will log that it was run in this
-        // repository so that we don't try to run it next time we do a migration
-        // in the application. A migration repository keeps the migrate order.
+        // Une fois que nous aurons exécuté une classe de migrations, nous enregistrerons qu'elle a été exécutée dans ce
+        // référentiel pour ne pas essayer de l'exécuter la prochaine fois que nous effectuerons une migration
+        // Dans l'application. Un référentiel de migration conserve l'ordre de migration.
         $this->repository->log($file, $batch, $group);
 
         $this->note("<info>Migrated:</info> $file");
     }
 
     /**
-     * Rollback the last migration operation.
+     * Annulez la dernière opération de migration.
      *
      * @param  bool  $pretend
      * @param  string|null  $group
@@ -167,9 +167,9 @@ class Migrator
         //
         $this->notes = array();
 
-        // We want to pull in the last batch of migrations that ran on the previous
-        // migration operation. We'll then reverse those migrations and run each
-        // of them "down" to reverse the last migration "operation" which ran.
+        // Nous souhaitons récupérer le dernier lot de migrations exécutées lors de la précédente
+        // opération de migration. Nous annulerons ensuite ces migrations et les exécuterons chacune
+        // d'entre eux "down" pour annuler la dernière "opération" de migration exécutée.
         $migrations = $this->repository->getLast($group);
 
         if (count($migrations) === 0) {
@@ -178,9 +178,9 @@ class Migrator
             return count($migrations);
         }
 
-        // We need to reverse these migrations so that they are "downed" in reverse
-        // to what they run on "up". It lets us backtrack through the migrations
-        // and properly reverse the entire database schema operation that ran.
+        // Nous devons inverser ces migrations afin qu'elles soient « abattues » à l'envers.
+        // à ce sur quoi ils s'exécutent "up". Cela nous permet de revenir en arrière dans les migrations
+        // et inverse correctement l'intégralité de l'opération de schéma de base de données exécutée.
         foreach ($migrations as $migration) {
             $this->runDown((object) $migration, $pretend);
         }
@@ -189,7 +189,7 @@ class Migrator
     }
 
     /**
-     * Run "down" a migration instance.
+     * Exécutez « vers le bas » une instance de migration.
      *
      * @param  object  $migration
      * @param  bool    $pretend
@@ -199,9 +199,9 @@ class Migrator
     {
         $file = $migration->migration;
 
-        // First we will get the file name of the migration so we can resolve out an
-        // instance of the migration. Once we get an instance we can either run a
-        // pretend execution of the migration or we can run the real migration.
+        // Nous obtiendrons d'abord le nom du fichier de la migration afin de pouvoir résoudre un
+        // instance de la migration. Une fois que nous obtenons une instance, nous pouvons soit exécuter un
+        // simulation d'exécution de la migration ou nous pouvons exécuter la vraie migration.
         $instance = $this->resolve($file);
 
         if ($pretend) {
@@ -210,16 +210,16 @@ class Migrator
 
         $instance->down();
 
-        // Once we have successfully run the migration "down" we will remove it from
-        // the migration repository so it will be considered to have not been run
-        // by the application then will be able to fire by any later operation.
+        // Une fois que nous aurons exécuté avec succès la migration, nous la supprimerons de
+        // le dépôt de migration donc il sera considéré comme n'ayant pas été exécuté
+        // par l'application pourra alors se déclencher par toute opération ultérieure.
         $this->repository->delete($migration);
 
         $this->note("<info>Rolled back:</info> $file");
     }
 
     /**
-     * Get all of the migration files in a given path.
+     * Obtenez tous les fichiers de migration dans un chemin donné.
      *
      * @param  string  $path
      * @return array
@@ -228,9 +228,9 @@ class Migrator
     {
         $files = $this->files->glob($path .'/*_*.php');
 
-        // Once we have the array of files in the directory we will just remove the
-        // extension and take the basename of the file which is all we need when
-        // finding the migrations that haven't been run against the databases.
+        // Une fois que nous avons le tableau de fichiers dans le répertoire, nous supprimerons simplement le
+        // extension et prends le nom de base du fichier qui est tout ce dont nous avons besoin quand
+        // recherche les migrations qui n'ont pas été exécutées sur les bases de données.
         if ($files === false) return array();
 
         $files = array_map(function($file)
@@ -239,16 +239,16 @@ class Migrator
 
         }, $files);
 
-        // Once we have all of the formatted file names we will sort them and since
-        // they all start with a timestamp this should give us the migrations in
-        // the order they were actually created by the application developers.
+        // Une fois que nous aurons tous les noms de fichiers formatés, nous les trierons et puisque
+        // ils commencent tous par un horodatage, cela devrait nous donner les migrations dans
+        // l'ordre dans lequel ils ont été réellement créés par les développeurs d'applications.
         sort($files);
 
         return $files;
     }
 
     /**
-     * Require in all the migration files in a given path.
+     * Exiger dans tous les fichiers de migration dans un chemin donné.
      *
      * @param  string  $path
      * @param  array   $files
@@ -262,7 +262,7 @@ class Migrator
     }
 
     /**
-     * Pretend to run the migrations.
+     * Faites semblant d'exécuter les migrations.
      *
      * @param  object  $migration
      * @param  string  $method
@@ -278,7 +278,7 @@ class Migrator
     }
 
     /**
-     * Get all of the queries that would be run for a migration.
+     * Obtenez toutes les requêtes qui seraient exécutées pour une migration.
      *
      * @param  object  $migration
      * @param  string  $method
@@ -288,9 +288,10 @@ class Migrator
     {
         $connection = $migration->getConnection();
 
-        // Now that we have the connections we can resolve it and pretend to run the
-        // queries against the database returning the array of raw SQL statements
-        // that would get fired against the database system for this migration.
+        // Maintenant que nous avons les connexions, nous pouvons résoudre le problème et faire semblant d'exécuter le
+        // requêtes sur la base de données renvoyant le tableau d'instructions SQL brutes
+        // qui serait déclenché sur le système de base de données pour cette migration.
+
         $db = $this->resolveConnection($connection);
 
         return $db->pretend(function() use ($migration, $method)
@@ -300,7 +301,7 @@ class Migrator
     }
 
     /**
-     * Resolve a migration instance from a file.
+     * Résolvez une instance de migration à partir d'un fichier.
      *
      * @param  string  $file
      * @return object
@@ -315,7 +316,7 @@ class Migrator
     }
 
     /**
-     * Raise a note event for the migrator.
+     * Déclenchez un événement de note pour le migrateur.
      *
      * @param  string  $message
      * @return void
@@ -326,7 +327,7 @@ class Migrator
     }
 
     /**
-     * Get the notes for the last operation.
+     * Obtenez les notes de la dernière opération.
      *
      * @return array
      */
@@ -336,7 +337,7 @@ class Migrator
     }
 
     /**
-     * Resolve the database connection instance.
+     * Résolvez l’instance de connexion à la base de données.
      *
      * @param  string  $connection
      * @return \Two\Database\Connection
@@ -347,7 +348,7 @@ class Migrator
     }
 
     /**
-     * Set the default connection name.
+     * Définissez le nom de connexion par défaut.
      *
      * @param  string  $name
      * @return void
@@ -364,7 +365,7 @@ class Migrator
     }
 
     /**
-     * Get the migration repository instance.
+     * Obtenez l'instance du référentiel de migration.
      *
      * @return \Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface
      */
@@ -374,7 +375,7 @@ class Migrator
     }
 
     /**
-     * Determine if the migration repository exists.
+     * Déterminez si le référentiel de migration existe.
      *
      * @return bool
      */
@@ -384,7 +385,7 @@ class Migrator
     }
 
     /**
-     * Get the file system instance.
+     * Obtenez l'instance du système de fichiers.
      *
      * @return \Two\Filesystem\Filesystem
      */

@@ -36,7 +36,7 @@ class ConsoleServiceProvider extends ServiceProvider
 {
 
     /**
-     * Register the application services.
+     * Enregistrez les services d'application.
      */
     public function register()
     {
@@ -75,7 +75,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:list command.
+     * Enregistrez la commande Package:list.
      */
     protected function registerPackageListCommand()
     {
@@ -88,7 +88,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:migrate command.
+     * Enregistrez la commande Package:migrate.
      */
     protected function registerPackageMigrateCommand()
     {
@@ -101,7 +101,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:migrate:refresh command.
+     * Enregistrez la commande Package:migrate:refresh.
      */
     protected function registerPackageMigrateRefreshCommand()
     {
@@ -114,7 +114,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:migrate:reset command.
+     * Enregistrez la commande Package:migrate:reset.
      */
     protected function registerPackageMigrateResetCommand()
     {
@@ -127,7 +127,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:migrate:rollback command.
+     * Enregistrez la commande Package:migrate:rollback.
      */
     protected function registerPackageMigrateRollbackCommand()
     {
@@ -140,7 +140,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:migrate:reset command.
+     * Enregistrez la commande Package:migrate:reset.
      */
     protected function registerPackageMigrateStatusCommand()
     {
@@ -153,7 +153,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Package:seed command.
+     * Enregistrez la commande Package:seed.
      */
     protected function registerPackageSeedCommand()
     {
@@ -166,7 +166,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the module:list command.
+     * Enregistrez la commande module:list.
      */
     protected function registerPackageOptimizeCommand()
     {
@@ -179,7 +179,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package command.
+     * Enregistrez la commande make:package.
      */
     private function registerPackageMakeCommand()
     {
@@ -192,7 +192,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:console command.
+     * Enregistrez la commande make:package:console.
      */
     private function registerConsoleMakeCommand()
     {
@@ -205,7 +205,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:controller command.
+     * Enregistrez la commande make:package:controller.
      */
     private function registerControllerMakeCommand()
     {
@@ -218,7 +218,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:event command.
+     * Enregistrez la commande make:package:event.
      */
     private function registerEventMakeCommand()
     {
@@ -231,7 +231,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:job command.
+     * Enregistrez la commande make:package:job.
      */
     private function registerJobMakeCommand()
     {
@@ -244,7 +244,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:listener command.
+     * Enregistrez la commande make:package:listener.
      */
     private function registerListenerMakeCommand()
     {
@@ -257,7 +257,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:middleware command.
+     * Enregistrez la commande make:package:middleware.
      */
     private function registerMiddlewareMakeCommand()
     {
@@ -270,7 +270,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:model command.
+     * Enregistrez la commande make:package:model
      */
     private function registerModelMakeCommand()
     {
@@ -283,7 +283,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:notification command.
+     * Enregistrez la commande make:package:notification.
      */
     private function registerNotificationMakeCommand()
     {
@@ -296,7 +296,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:policy command.
+     * Enregistrez la commande make:package:policy.
      */
     private function registerPolicyMakeCommand()
     {
@@ -309,7 +309,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:module:provider command.
+     * Enregistrez la commande make:module:provider.
      */
     private function registerProviderMakeCommand()
     {
@@ -322,7 +322,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:migration command.
+     * Enregistrez la commande make:package:migration.
      */
     private function registerMigrationMakeCommand()
     {
@@ -335,7 +335,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:module:provider command.
+     * Enregistrez la commande make:module:provider.
      */
     private function registerRequestMakeCommand()
     {
@@ -348,7 +348,7 @@ class ConsoleServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the make:package:seeder command.
+     * Enregistrez la commande make:package:seeder.
      */
     private function registerSeederMakeCommand()
     {

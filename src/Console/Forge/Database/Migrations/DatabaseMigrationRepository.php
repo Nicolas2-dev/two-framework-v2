@@ -14,28 +14,28 @@ use Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface;
 class DatabaseMigrationRepository implements MigrationRepositoryInterface
 {
     /**
-     * The database connection resolver instance.
+     * Instance du résolveur de connexion à la base de données.
      *
      * @var \Two\Database\Contracts\ConnectionResolverInterface
      */
     protected $resolver;
 
     /**
-     * The name of the migration table.
+     * Le nom de la table de migration.
      *
      * @var string
      */
     protected $table;
 
     /**
-     * The name of the database connection to use.
+     * Le nom de la connexion à la base de données à utiliser.
      *
      * @var string
      */
     protected $connection;
 
     /**
-     * Create a new database migration repository instance.
+     * Créez une nouvelle instance de référentiel de migration de base de données.
      *
      * @param  \Two\Database\Contracts\ConnectionResolverInterface  $resolver
      * @param  string  $table
@@ -48,7 +48,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get the ran migrations.
+     * Obtenez les migrations exécutées.
      *
      * @return array
      */
@@ -58,7 +58,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get the last migration batch.
+     * Obtenez le dernier lot de migration.
      *
      * @param  string|null  $group
      *
@@ -74,7 +74,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Log that a migration was run.
+     * Enregistrez qu'une migration a été exécutée.
      *
      * @param  string  $file
      * @param  int     $batch
@@ -89,7 +89,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Remove a migration from the log.
+     * Supprimez une migration du journal.
      *
      * @param  object  $migration
      * @return void
@@ -100,7 +100,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get the next migration batch number.
+     * Obtenez le prochain numéro de lot de migration.
      *
      * @param  string  $group
      *
@@ -112,7 +112,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get the last migration batch number.
+     * Obtenez le dernier numéro de lot de migration.
      *
      * @param  string  $group
      *
@@ -126,7 +126,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Create the migration repository data store.
+     * Créez le magasin de données du référentiel de migration.
      *
      * @return void
      */
@@ -136,9 +136,9 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
 
         $schema->create($this->table, function($table)
         {
-            // The migrations table is responsible for keeping track of which of the
-            // migrations have actually run for the application. We'll create the
-            // table to hold the migration file's path as well as the batch ID.
+            // La table des migrations est chargée de garder la trace des
+            // les migrations ont effectivement été exécutées pour l'application. Nous allons créer le
+            // table contenant le chemin du fichier de migration ainsi que l'ID du lot.
             $table->increments('id');
             $table->string('migration');
             $table->integer('batch');
@@ -147,7 +147,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Determine if the migration repository exists.
+     * Déterminez si le référentiel de migration existe.
      *
      * @return bool
      */
@@ -159,7 +159,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get a query builder for the migration table.
+     * Obtenez un générateur de requêtes pour la table de migration.
      *
      * @return \Two\Database\Query\Builder
      */
@@ -169,7 +169,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Get the connection resolver instance.
+     * Obtenez l’instance du résolveur de connexion.
      *
      * @return \Two\Database\Contracts\ConnectionResolverInterface
      */
@@ -179,7 +179,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Resolve the database connection instance.
+     * Résolvez l’instance de connexion à la base de données.
      *
      * @return \Two\Database\Connection
      */
@@ -189,7 +189,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     }
 
     /**
-     * Set the information source to gather data.
+     * Définissez la source d’informations pour collecter des données.
      *
      * @param  string  $name
      * @return void

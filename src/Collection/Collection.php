@@ -5,7 +5,7 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\Support;
+namespace Two\Collection;
 
 use Closure;
 use Countable;
@@ -14,6 +14,7 @@ use ArrayIterator;
 use CachingIterator;
 use IteratorAggregate;
 
+use Two\Support\Arr;
 use Two\TwoApplication\Contracts\JsonableInterface;
 use Two\TwoApplication\Contracts\ArrayableInterface;
 
@@ -42,7 +43,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Créez une nouvelle instance de collection si la valeur n’en est pas déjà une.
      *
      * @param  mixed  $items
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public static function make($items)
     {
@@ -66,7 +67,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Réduisez les éléments de la collection en un seul tableau.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function collapse()
     {
@@ -82,8 +83,8 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Différez la collection avec les éléments donnés.
      *
-     * @param  \Two\Support\Collection|\Support\Contracts\ArrayableInterface|array  $items
-     * @return \Two\Support\Collection
+     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @return \Two\Collection\Collection
      */
     public function diff($items)
     {
@@ -94,7 +95,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Exécutez un rappel sur chaque élément.
      *
      * @param  Closure  $callback
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function each(Closure $callback)
     {
@@ -107,7 +108,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Récupère un élément imbriqué de la collection.
      *
      * @param  string  $key
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function fetch($key)
     {
@@ -118,7 +119,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Exécutez un filtre sur chacun des éléments.
      *
      * @param  Closure  $callback
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function filter(Closure $callback)
     {
@@ -198,7 +199,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Regroupez un tableau associatif par un champ ou une valeur de fermeture.
      *
      * @param  callable|string  $groupBy
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function groupBy($groupBy)
     {
@@ -245,8 +246,8 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Intersection de la collection avec les éléments donnés.
      *
-     * @param  \Two\Support\Collection|\Support\Contracts\ArrayableInterface|array  $items
-     * @return \Two\Support\Collection
+     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @return \Two\Collection\Collection
      */
     public function intersect($items)
     {
@@ -289,7 +290,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Exécutez une carte sur chacun des éléments.
      *
      * @param  Closure  $callback
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function map(Closure $callback)
     {
@@ -342,8 +343,8 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Fusionnez la collection avec les éléments donnés.
      *
-     * @param  \Two\Support\Collection|\Support\Contracts\ArrayableInterface|array  $items
-     * @return \Two\Support\Collection
+     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @return \Two\Collection\Collection
      */
     public function merge($items)
     {
@@ -434,7 +435,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Inverser l’ordre des articles.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function reverse()
     {
@@ -457,7 +458,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * @param  int   $offset
      * @param  int   $length
      * @param  bool  $preserveKeys
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function slice($offset, $length = null, $preserveKeys = false)
     {
@@ -469,7 +470,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      *
      * @param  int $size
      * @param  bool  $preserveKeys
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function chunk($size, $preserveKeys = false)
     {
@@ -487,7 +488,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Triez chaque élément avec un rappel.
      *
      * @param  Closure  $callback
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function sort(Closure $callback)
     {
@@ -502,7 +503,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * @param  \Closure|string  $callback
      * @param  int              $options
      * @param  bool             $descending
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function sortBy($callback, $options = SORT_REGULAR, $descending = false)
     {
@@ -538,7 +539,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      *
      * @param  \Closure|string  $callback
      * @param  int              $options
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function sortByDesc($callback, $options = SORT_REGULAR)
     {
@@ -551,7 +552,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * @param  int    $offset
      * @param  int    $length
      * @param  mixed  $replacement
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function splice($offset, $length = 0, $replacement = array())
     {
@@ -580,7 +581,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Prenez le premier ou le dernier {$limit} éléments.
      *
      * @param  int  $limit
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function take($limit = null)
     {
@@ -595,7 +596,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
      * Transformez chaque élément de la collection à l'aide d'un rappel.
      *
      * @param  Closure  $callback
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function transform(Closure $callback)
     {
@@ -619,7 +620,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Renvoie uniquement les éléments uniques du tableau de collection.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function unique()
     {
@@ -639,7 +640,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Réinitialisez les clés du tableau sous-jacent.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function values()
     {
@@ -789,7 +790,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Tableau de résultats d’éléments de Collection ou ArrayableInterface.
      *
-     * @param  \Two\Support\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
      * @return array
      */
     private function getArrayableItems($items)

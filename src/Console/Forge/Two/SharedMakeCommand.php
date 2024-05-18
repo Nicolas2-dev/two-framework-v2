@@ -17,28 +17,28 @@ use Symfony\Component\Console\Helper\ProgressBar;
 class SharedMakeCommand extends Command
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'shared:make';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create the standard Shared namespace';
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The name of the custom helpers file.
+     * Le nom du fichier d'assistance personnalisé.
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class SharedMakeCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param Two\Filesystem\Filesystem $files
      */
@@ -59,7 +59,7 @@ class SharedMakeCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -101,7 +101,7 @@ class SharedMakeCommand extends Command
     }
 
     /**
-     * Generate the folders.
+     * Générez les dossiers.
      *
      * @param string $type
      * @return void
@@ -115,7 +115,7 @@ class SharedMakeCommand extends Command
         $this->files->makeDirectory($path .DS .'Language');
         $this->files->makeDirectory($path .DS .'Support');
 
-        // Generate the Language folders.
+        // Générez les dossiers de langue.
         $languages = $this->container['config']->get('languages', array());
 
         foreach (array_keys($languages) as $code) {
@@ -126,7 +126,7 @@ class SharedMakeCommand extends Command
     }
 
     /**
-     * Generate the files.
+     * Générez les fichiers.
      *
      * @param string $type
      * @return void
@@ -134,7 +134,7 @@ class SharedMakeCommand extends Command
     protected function generateFiles($path)
     {
         //
-        // Generate the custom helpers file.
+        // Générez le fichier d'aide personnalisé.
 
         $content ='<?php
 
@@ -148,7 +148,7 @@ class SharedMakeCommand extends Command
         $this->files->put($filePath, $content);
 
         //
-        // Generate the Language files.
+        // Générez les fichiers de langue.
 
         $content ='<?php
 
@@ -165,7 +165,7 @@ return array (
     }
 
     /**
-     * Update the composer.json and run the Composer.
+     * Mettez à jour le composer.json et exécutez Composer.
      *
      * @param string $type
      * @return void
@@ -179,14 +179,14 @@ return array (
 
         $path = base_path($composerJson);
 
-        // Get the composer.json contents in a decoded form.
+        // Obtenez le contenu du composer.json sous une forme décodée.
         $config = json_decode(file_get_contents($path), true);
 
         if (! is_array($config)) {
             return;
         }
 
-        // Update the composer.json
+        // Mettre à jour le composer.json
         else if (! in_array($helpers, $files = Arr::get($config, "autoload.files", array()))) {
             array_push($files, $helpers);
 

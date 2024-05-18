@@ -21,22 +21,22 @@ use Symfony\Component\Process\PhpExecutableFinder;
 class Schedule
 {
     /**
-     * All of the events on the schedule.
+     * Tous les événements au programme.
      *
      * @var array
      */
     protected $events = array();
 
     /**
-     * The mutex implementation.
+     * L'implémentation du mutex.
      *
-     * @var \Two\Console\Scheduling\MutexInterface
+     * @var \Two\Console\Scheduling\Contracts\MutexInterface
      */
     protected $mutex;
 
 
     /**
-     * Create a new schedule instance.
+     * Créez une nouvelle instance de planification.
      *
      * @return void
      */
@@ -48,7 +48,7 @@ class Schedule
     }
 
     /**
-     * Add a new callback event to the schedule.
+     * Ajoutez un nouvel événement de rappel à la planification.
      *
      * @param  string  $callback
      * @param  array   $parameters
@@ -62,7 +62,7 @@ class Schedule
     }
 
     /**
-     * Add a new Forge command event to the schedule.
+     * Ajoutez un nouvel événement de commande Forge au planning.
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -86,7 +86,7 @@ class Schedule
     }
 
     /**
-     * Add a new command event to the schedule.
+     * Ajoutez un nouvel événement de commande à la planification.
      *
      * @param  string  $command
      * @param  array  $parameters
@@ -104,7 +104,7 @@ class Schedule
     }
 
     /**
-     * Compile parameters for a command.
+     * Compilez les paramètres d’une commande.
      *
      * @param  array  $parameters
      * @return string
@@ -123,7 +123,7 @@ class Schedule
     }
 
     /**
-     * Get all of the events on the schedule.
+     * Obtenez tous les événements inscrits au calendrier.
      *
      * @return array
      */
@@ -133,7 +133,7 @@ class Schedule
     }
 
     /**
-     * Get all of the events on the schedule that are due.
+     * Obtenez tous les événements du calendrier qui sont dus.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return array

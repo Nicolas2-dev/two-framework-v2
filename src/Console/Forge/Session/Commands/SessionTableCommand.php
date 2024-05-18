@@ -14,28 +14,28 @@ use Two\Filesystem\Filesystem;
 class SessionTableCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'session:table';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a migration for the Session database table';
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * Create a new session table command instance.
+     * Créez une nouvelle instance de commande de table de session.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @return void
@@ -48,7 +48,7 @@ class SessionTableCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -64,7 +64,7 @@ class SessionTableCommand extends Command
     }
 
     /**
-     * Create a base migration file for the session.
+     * Créez un fichier de migration de base pour la session.
      *
      * @return string
      */

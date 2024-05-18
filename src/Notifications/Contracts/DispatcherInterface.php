@@ -13,7 +13,7 @@ interface DispatcherInterface
     /**
      * Envoyez la notification donnée aux entités notifiables indiquées.
      *
-     * @param  \Two\Support\Collection|array|mixed  $notifiables
+     * @param  \Two\Collection\Collection|array|mixed  $notifiables
      * @param  mixed  $notification
      * @return void
      */

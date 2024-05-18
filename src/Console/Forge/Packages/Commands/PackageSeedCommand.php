@@ -20,14 +20,14 @@ class PackageSeedCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:seed';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class PackageSeedCommand extends Command
     protected $packages;
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param \Two\Packages\PackageManager $packages
      */
@@ -51,7 +51,7 @@ class PackageSeedCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -91,7 +91,7 @@ class PackageSeedCommand extends Command
     }
 
     /**
-     * Seed the specific Package.
+     * Amorcez le package spécifique.
      *
      * @param string $package
      *
@@ -107,7 +107,7 @@ class PackageSeedCommand extends Command
             return;
         }
 
-        // Prepare the call parameters.
+        // Préparez les paramètres d'appel.
         $params = array();
 
         if ($this->option('class')) {
@@ -128,7 +128,7 @@ class PackageSeedCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -140,7 +140,7 @@ class PackageSeedCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

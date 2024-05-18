@@ -16,21 +16,21 @@ use RuntimeException;
 class ViewClearCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'view:clear';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Clear all compiled View files";
 
     /**
-     * The File System instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
@@ -38,7 +38,7 @@ class ViewClearCommand extends Command
 
 
     /**
-     * Create a new View Clear Command instance.
+     * Créez une nouvelle instance de View Clear Command.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  string  $cachePath
@@ -53,7 +53,7 @@ class ViewClearCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */

@@ -14,21 +14,21 @@ class ListFailedCommand extends Command
 {
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:failed';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'List all of the failed queue jobs';
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -50,7 +50,7 @@ class ListFailedCommand extends Command
     }
 
     /**
-     * Parse the failed job row.
+     * Analysez la ligne du travail ayant échoué.
      *
      * @param  array  $failed
      * @return array

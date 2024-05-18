@@ -2,14 +2,14 @@
 
 namespace {{namespace}}\Providers;
 
-use Two\Support\ServiceProvider;
+use Two\TwoApplication\Providers\ServiceProvider;
 
 
 class PackageServiceProvider extends ServiceProvider
 {
 
     /**
-     * Bootstrap the Application Events.
+     * Amorcez les événements d’application.
      *
      * @return void
      */
@@ -17,18 +17,18 @@ class PackageServiceProvider extends ServiceProvider
     {
         $path = realpath(__DIR__ .'/../');
 
-        // Configure the Package.
+        // Configurez le package.
         $this->package('{{package}}', '{{slug}}', $path);
 
         //
     }
 
     /**
-     * Register the {{name}} Package Service Provider.
+     * Enregistrez le fournisseur de services de package {{name}}.
      *
-     * This service provider is a convenient place to register your packages
-     * services in the IoC container. If you wish, you may make additional
-     * methods or service providers to keep the code more focused and granular.
+     * Ce fournisseur de services est un endroit pratique pour enregistrer vos colis
+     * services dans le conteneur IoC. Si vous le souhaitez, vous pouvez faire des compléments
+     * méthodes ou prestataires de services pour garder le code plus ciblé et plus granulaire.
      *
      * @return void
      */

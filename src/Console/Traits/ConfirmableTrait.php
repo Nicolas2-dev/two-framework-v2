@@ -13,7 +13,7 @@ use Closure;
 trait ConfirmableTrait
 {
     /**
-     * Confirm before proceeding with the action
+     * Confirmez avant de poursuivre l'action
      *
      * @param  string    $warning
      * @param  \Closure  $callback
@@ -45,7 +45,7 @@ trait ConfirmableTrait
     }
 
     /**
-     * Get the default confirmation callback.
+     * Obtenez le rappel de confirmation par défaut.
      *
      * @return \Closure
      */

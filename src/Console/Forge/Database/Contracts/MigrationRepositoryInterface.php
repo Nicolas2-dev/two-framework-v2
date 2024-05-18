@@ -11,14 +11,14 @@ namespace Two\Console\Forge\Database\Contracts;
 interface MigrationRepositoryInterface
 {
     /**
-     * Get the ran migrations for a given package.
+     * Obtenez les migrations exécutées pour un package donné.
      *
      * @return array
      */
     public function getRan();
 
     /**
-     * Get the last migration batch.
+     * Obtenez le dernier lot de migration.
      *
      * @param  string  $group
      *
@@ -27,7 +27,7 @@ interface MigrationRepositoryInterface
     public function getLast($group);
 
     /**
-     * Log that a migration was run.
+     * Enregistrez qu'une migration a été exécutée.
      *
      * @param  string  $file
      * @param  int     $batch
@@ -37,7 +37,7 @@ interface MigrationRepositoryInterface
     public function log($file, $batch, $group);
 
     /**
-     * Remove a migration from the log.
+     * Supprimez une migration du journal.
      *
      * @param  object  $migration
      * @return void
@@ -45,7 +45,7 @@ interface MigrationRepositoryInterface
     public function delete($migration);
 
     /**
-     * Get the next migration batch number.
+     * Obtenez le prochain numéro de lot de migration.
      *
      * @param  string  $group
      *
@@ -54,21 +54,21 @@ interface MigrationRepositoryInterface
     public function getNextBatchNumber($group);
 
     /**
-     * Create the migration repository data store.
+     * Créez le magasin de données du référentiel de migration.
      *
      * @return void
      */
     public function createRepository();
 
     /**
-     * Determine if the migration repository exists.
+     * Déterminez si le référentiel de migration existe.
      *
      * @return bool
      */
     public function repositoryExists();
 
     /**
-     * Set the information source to gather data.
+     * Définissez la source d’informations pour collecter des données.
      *
      * @param  string  $name
      * @return void

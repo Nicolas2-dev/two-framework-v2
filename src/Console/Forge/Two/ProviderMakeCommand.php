@@ -13,21 +13,21 @@ use Two\Console\Commands\GeneratorCommand;
 class ProviderMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:provider';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Service Provider class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class ProviderMakeCommand extends GeneratorCommand
 
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -45,7 +45,7 @@ class ProviderMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string

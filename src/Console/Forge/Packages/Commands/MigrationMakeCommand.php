@@ -17,28 +17,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class MigrationMakeCommand extends MakeCommand
 {
     /**
-     * The name and signature of the console command.
+     * Le nom et la signature de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:migration';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package Migration file';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Migration';
 
     /**
-     * Package folders to be created.
+     * Dossiers de packages à créer.
      *
      * @var array
      */
@@ -47,7 +47,7 @@ class MigrationMakeCommand extends MakeCommand
     );
 
     /**
-     * Package files to be created.
+     * Fichiers de package à créer.
      *
      * @var array
      */
@@ -56,7 +56,7 @@ class MigrationMakeCommand extends MakeCommand
     );
 
     /**
-     * Package signature option.
+     * Option de signature du package.
      *
      * @var array
      */
@@ -66,7 +66,7 @@ class MigrationMakeCommand extends MakeCommand
     );
 
     /**
-     * Package stubs used to populate defined files.
+     * Stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -83,7 +83,7 @@ class MigrationMakeCommand extends MakeCommand
     );
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $FilePath
      *
@@ -98,7 +98,7 @@ class MigrationMakeCommand extends MakeCommand
     }
 
     /**
-     * Resolve Container after getting input option.
+     * Résolvez le conteneur après avoir obtenu l’option de saisie.
      *
      * @param string $option
      *
@@ -110,7 +110,7 @@ class MigrationMakeCommand extends MakeCommand
     }
 
     /**
-     * Make FileName.
+     * Créez un nom de fichier.
      *
      * @param string $filePath
      *
@@ -122,7 +122,7 @@ class MigrationMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -144,7 +144,7 @@ class MigrationMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -157,7 +157,7 @@ class MigrationMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

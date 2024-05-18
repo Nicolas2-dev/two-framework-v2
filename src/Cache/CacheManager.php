@@ -7,7 +7,6 @@
  */
 namespace Two\Cache;
 
-use Two\Support\Manager;
 use Two\Cache\Apc\ApcStore;
 use Two\Cache\Apc\ApcWrapper;
 use Two\Cache\file\FileStore;
@@ -17,6 +16,7 @@ use Two\Cache\Store\ArrayStore;
 use Two\Cache\Datanase\DatabaseStore;
 use Two\Cache\Contracts\StoreInterface;
 use Two\Cache\Memcached\MemcachedStore;
+use Two\TwoApplication\Manager;
 
 
 class CacheManager extends Manager

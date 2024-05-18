@@ -10,7 +10,7 @@ class DatabaseSeeder extends Seeder
 {
 
     /**
-     * Run the Database Seeds.
+     * Exécutez les graines de base de données.
      *
      * @return void
      */

@@ -2,11 +2,11 @@
 
 namespace {{namespace}};
 
-use Two\Bus\QueueableTrait;
-use Two\Foundation\Bus\DispatchableTrait;
-use Two\Queue\ShouldQueueInterface;
-use Two\Queue\SerializesModelsTrait;
-use Two\Queue\InteractsWithQueueTrait;
+use Two\Bus\Traits\QueueableTrait;
+use Two\\Bus\Traits\DispatchableTrait;
+use Two\Queue\Contracts\ShouldQueueInterface;
+use Two\Queue\Traits\SerializesModelsTrait;
+use Two\Queue\Traits\InteractsWithQueueTrait;
 
 
 class {{className}} implements ShouldQueueInterface
@@ -15,7 +15,7 @@ class {{className}} implements ShouldQueueInterface
 
 
     /**
-     * Create a new job instance.
+     * Créez une nouvelle instance de travail.
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class {{className}} implements ShouldQueueInterface
     }
 
     /**
-     * Execute the job.
+     * Exécutez le travail.
      *
      * @return void
      */

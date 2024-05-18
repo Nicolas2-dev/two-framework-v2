@@ -8,7 +8,7 @@
 namespace Two\Notifications;
 
 use Two\Database\ORM\Model;
-use Two\Support\Collection;
+use Two\collection\Collection;
 use Two\Queue\Contracts\ShouldQueueInterface;
 use Two\Notifications\ChannelManager;
 use Two\Bus\Dispatcher as BusDispatcher;

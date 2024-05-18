@@ -20,28 +20,28 @@ class SubscribeCommand extends Command
 {
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:subscribe';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Subscribe a URL to an Iron.io push queue';
 
     /**
-     * The queue meta information from Iron.io.
+     * Les méta-informations de la file d'attente d'Iron.io.
      *
      * @var object
      */
     protected $meta;
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      *
@@ -62,7 +62,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the queue options.
+     * Obtenez les options de file d’attente.
      *
      * @return array
      */
@@ -74,7 +74,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the push type for the queue.
+     * Obtenez le type de push pour la file d'attente.
      *
      * @return string
      */
@@ -93,7 +93,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the current subscribers for the queue.
+     * Obtenez les abonnés actuels pour la file d’attente.
      *
      * @return array
      */
@@ -107,7 +107,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the current subscriber list.
+     * Obtenez la liste actuelle des abonnés.
      *
      * @return array
      */
@@ -124,7 +124,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the queue information from Iron.io.
+     * Obtenez les informations sur la file d’attente auprès d’Iron.io.
      *
      * @return object
      */
@@ -136,7 +136,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -149,7 +149,7 @@ class SubscribeCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

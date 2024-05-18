@@ -20,21 +20,21 @@ class ConfigPublishCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'config:publish';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Publish a package's configuration to the application";
 
     /**
-     * The config publisher instance.
+     * L'instance de l'éditeur de configuration.
      *
      * @var \Two\Foundation\ConfigPublisher
      */
@@ -42,7 +42,7 @@ class ConfigPublishCommand extends Command
 
 
     /**
-     * Create a new configuration publish command instance.
+     * Créez une nouvelle instance de commande de publication de configuration.
      *
      * @param  \Two\Foundation\ConfigPublisher  $config
      * @return void
@@ -55,7 +55,7 @@ class ConfigPublishCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -76,7 +76,7 @@ class ConfigPublishCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -88,7 +88,7 @@ class ConfigPublishCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

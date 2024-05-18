@@ -15,21 +15,21 @@ use Two\Filesystem\Filesystem;
 class ViewPublisher
 {
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The destination of the view files.
+     * La destination des fichiers de vue.
      *
      * @var string
      */
     protected $publishPath;
 
     /**
-     * The path to the application's packages.
+     * Le chemin d'accès aux packages de l'application.
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class ViewPublisher
 
 
     /**
-     * Create a new view publisher instance.
+     * Créez une nouvelle instance d'éditeur de vues.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  string  $publishPath
@@ -51,7 +51,7 @@ class ViewPublisher
     }
 
     /**
-     * Publish view files from a given path.
+     * Publier les fichiers de vue à partir d'un chemin donné.
      *
      * @param  string  $package
      * @param  string  $source
@@ -67,7 +67,7 @@ class ViewPublisher
     }
 
     /**
-     * Publish the view files for a package.
+     * Publiez les fichiers de vue pour un package.
      *
      * @param  string  $package
      * @param  string  $packagePath
@@ -81,7 +81,7 @@ class ViewPublisher
     }
 
     /**
-     * Get the source views directory to publish.
+     * Obtenez le répertoire des vues sources à publier.
      *
      * @param  string  $package
      * @param  string  $packagePath
@@ -101,7 +101,7 @@ class ViewPublisher
     }
 
     /**
-     * Create the destination directory if it doesn't exist.
+     * Créez le répertoire de destination s'il n'existe pas.
      *
      * @param  string  $destination
      * @return void
@@ -114,7 +114,7 @@ class ViewPublisher
     }
 
     /**
-     * Set the default package path.
+     * Définissez le chemin du package par défaut.
      *
      * @param  string  $packagePath
      * @return void

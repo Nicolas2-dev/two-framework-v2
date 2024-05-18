@@ -644,7 +644,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
      *
      * @param  mixed  $id
      * @param  array  $columns
-     * @return \Two\Support\Collection|static|null
+     * @return \Two\Collection\Collection|static|null
      */
     public static function find($id, $columns = array('*'))
     {
@@ -660,7 +660,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
      *
      * @param  mixed  $id
      * @param  array  $columns
-     * @return \Two\Support\Collection|static
+     * @return \Two\Collection\Collection|static
      */
     public static function findOrNew($id, $columns = array('*'))
     {
@@ -674,7 +674,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
      *
      * @param  mixed  $id
      * @param  array  $columns
-     * @return \Two\Support\Collection|static
+     * @return \Two\Collection\Collection|static
      *
      * @throws \Two\Database\Execption\ModelNotFoundException
      */

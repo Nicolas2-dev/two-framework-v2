@@ -20,7 +20,7 @@ class SendQueuedNotifications implements ShouldQueueInterface
     /**
      * Les entités notifiables qui doivent recevoir la notification.
      *
-     * @var \Two\Support\Collection
+     * @var \Two\Collection\Collection
      */
     protected $notifiables;
 
@@ -42,7 +42,7 @@ class SendQueuedNotifications implements ShouldQueueInterface
     /**
      * Créez une nouvelle instance de travail.
      *
-     * @param  \Two\Support\Collection  $notifiables
+     * @param  \Two\Collection\Collection  $notifiables
      * @param  \Two\Notifications\Notification  $notification
      * @param  array  $channels
      * @return void

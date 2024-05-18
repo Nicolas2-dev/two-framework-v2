@@ -8,7 +8,7 @@
 namespace Two\Console\Forge\Two;
 
 use Two\Console\Commands\Command;
-use Two\Support\Composer;
+use Two\TwoApplication\Composer;
 
 use Symfony\Component\Console\Input\InputOption;
 
@@ -16,28 +16,28 @@ use Symfony\Component\Console\Input\InputOption;
 class OptimizeCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'two:optimize';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Optimize the Framework for better performance";
 
     /**
-     * The composer instance.
+     * L'instance du compositeur.
      *
      * @var \Two\Foundation\Composer
      */
     protected $composer;
 
     /**
-     * Create a new optimize command instance.
+     * Créez une nouvelle instance de commande d'optimisation.
      *
      * @param  \Two\Foundation\Composer  $composer
      * @return void
@@ -50,7 +50,7 @@ class OptimizeCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -68,7 +68,7 @@ class OptimizeCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

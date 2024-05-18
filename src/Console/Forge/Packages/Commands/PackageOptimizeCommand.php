@@ -13,21 +13,21 @@ use Two\Console\Commands\Command;
 class PackageOptimizeCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:optimize';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Optimize the packages cache for better performance';
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */

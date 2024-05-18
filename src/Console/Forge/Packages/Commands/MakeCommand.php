@@ -16,70 +16,70 @@ use Two\Support\Str;
 class MakeCommand extends CommandGenerator
 {
     /**
-     * Package folders to be created.
+     * Dossiers de packages à créer.
      *
      * @var array
      */
     protected $listFolders = array();
 
     /**
-     * Package files to be created.
+     * Fichiers de package à créer.
      *
      * @var array
      */
     protected $listFiles = array();
 
     /**
-     * Package signature option.
+     * Option de signature du package.
      *
      * @var array
      */
     protected $signOption = array();
 
     /**
-     * Package stubs used to populate defined files.
+     * Stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
     protected $listStubs = array();
 
     /**
-     * The Packages instance.
+     * L'instance des packages.
      *
      * @var \Two\Packages\PackageManager
      */
     protected $packages;
 
     /**
-     * The Packages path.
+     * Le chemin des packages.
      *
      * @var string
      */
     protected $packagePath;
 
     /**
-     * The Packages info.
+     * Les informations sur les forfaits.
      *
      * @var Two\Support\Collection;
      */
     protected $packageInfo;
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var Filesystem
      */
     protected $files;
 
     /**
-     * Array to store the configuration details.
+     * Tableau pour stocker les détails de configuration.
      *
      * @var array
      */
     protected $data;
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
@@ -87,7 +87,7 @@ class MakeCommand extends CommandGenerator
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param Filesystem $files
      * @param \Two\Packages\PackageManager    $package
@@ -103,7 +103,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -120,7 +120,7 @@ class MakeCommand extends CommandGenerator
             $this->packages->where('slug', $slug)
         );
 
-        // Check for a proper type of the
+        // Vérifiez le type approprié de
         $type = $this->packageInfo->get('type');
 
         if (($type != 'package') && ($type != 'module')) {
@@ -138,7 +138,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * generate the console command.
+     * générer la commande console.
      *
      * @return mixed
      */
@@ -185,7 +185,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $FilePath
      *
@@ -197,7 +197,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Resolve Container after getting input option.
+     * Résolvez le conteneur après avoir obtenu l’option de saisie.
      *
      * @param string $option
      *
@@ -209,7 +209,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Parse slug name of the Package.
+     * Analyser le nom du slug du package.
      *
      * @param string $slug
      *
@@ -221,7 +221,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Parse class name of the Package.
+     * Analyser le nom de la classe du package.
      *
      * @param string $slug
      *
@@ -248,7 +248,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Make FilePath.
+     * Créez FilePath.
      *
      * @param string $folder
      * @param string $name
@@ -271,7 +271,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Make FileName.
+     * Créez un nom de fichier.
      *
      * @param string $filePath
      *
@@ -283,7 +283,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Build the directory for the class if necessary.
+     * Créez le répertoire de la classe si nécessaire.
      *
      * @param string $path
      *
@@ -297,7 +297,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Get Namespace of the current file.
+     * Récupère l'espace de noms du fichier actuel.
      *
      * @param string $file
      *
@@ -323,7 +323,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Get the configured Package base namespace.
+     * Obtenez l’espace de noms de base du package configuré.
      *
      * @return string
      */
@@ -337,7 +337,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Get stub content by key.
+     * Obtenez le contenu du stub par clé.
      *
      * @param int $key
      *
@@ -353,7 +353,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Get stubs path.
+     * Obtenez le chemin des stubs.
      *
      * @return string
      */
@@ -363,7 +363,7 @@ class MakeCommand extends CommandGenerator
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */

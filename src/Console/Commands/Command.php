@@ -20,42 +20,42 @@ use Symfony\Component\Console\Question\ConfirmationQuestion;
 class Command extends \Symfony\Component\Console\Command\Command
 {
     /**
-     * The Two application instance.
+     * L'instance de deux applications.
      *
      * @var Two\TwoApplication\TwoApplication
      */
     protected $container;
 
     /**
-     * The input interface implementation.
+     * L’implémentation de l’interface d’entrée.
      *
      * @var \Symfony\Component\Console\Input\InputInterface
      */
     protected $input;
 
     /**
-     * The output interface implementation.
+     * L’implémentation de l’interface de sortie.
      *
      * @var \Symfony\Component\Console\Output\OutputInterface
      */
     protected $output;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description;
 
     /**
-     * Create a new console command instance.
+     * Créez une nouvelle instance de commande de console.
      *
      * @return void
      */
@@ -63,24 +63,24 @@ class Command extends \Symfony\Component\Console\Command\Command
     {
         parent::__construct($this->name);
 
-        // We will go ahead and set the name, description, and parameters on console
-        // commands just to make things a little easier on the developer. This is
-        // so they don't have to all be manually specified in the constructors.
+        // Nous allons continuer et définir le nom, la description et les paramètres sur la console
+        // commandes juste pour rendre les choses un peu plus faciles pour le développeur. C'est
+        // afin qu'ils n'aient pas besoin d'être tous spécifiés manuellement dans les constructeurs.
         $this->setDescription($this->description);
 
         $this->specifyParameters();
     }
 
     /**
-     * Specify the arguments and options on the command.
+     * Spécifiez les arguments et les options de la commande.
      *
      * @return void
      */
     protected function specifyParameters()
     {
-        // We will loop through all of the arguments and options for the command and
-        // set them all on the base command instance. This specifies what can get
-        // passed into these commands as "parameters" to control the execution.
+        // Nous allons parcourir tous les arguments et options de la commande et
+        // les définit tous sur l'instance de commande de base. Ceci précise ce qui peut obtenir
+        // passé dans ces commandes en tant que "paramètres" pour contrôler l'exécution.
         foreach ($this->getArguments() as $arguments) {
             call_user_func_array(array($this, 'addArgument'), $arguments);
         }
@@ -91,7 +91,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Run the console command.
+     * Exécutez la commande console.
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -110,7 +110,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -125,7 +125,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Call another console command.
+     * Appelez une autre commande de console.
      *
      * @param  string  $command
      * @param  array   $arguments
@@ -141,7 +141,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Call another console command silently.
+     * Appelez une autre commande de console en silence.
      *
      * @param  string  $command
      * @param  array   $arguments
@@ -157,7 +157,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the value of a command argument.
+     * Obtenez la valeur d'un argument de commande.
      *
      * @param  string  $key
      * @return string|array
@@ -172,7 +172,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the value of a command option.
+     * Obtenez la valeur d'une option de commande.
      *
      * @param  string  $key
      * @return string|array
@@ -187,7 +187,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Confirm a question with the user.
+     * Confirmez une question avec l'utilisateur.
      *
      * @param  string  $question
      * @param  bool    $default
@@ -203,7 +203,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Prompt the user for input.
+     * Inviter l'utilisateur à entrer des données.
      *
      * @param  string  $question
      * @param  string  $default
@@ -219,7 +219,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Prompt the user for input with auto completion.
+     * Inviter l’utilisateur à saisir une saisie avec saisie semi-automatique.
      *
      * @param  string  $question
      * @param  array   $choices
@@ -238,7 +238,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Prompt the user for input but hide the answer from the console.
+     * Inviter l'utilisateur à saisir sa réponse mais masquer la réponse de la console.
      *
      * @param  string  $question
      * @param  bool    $fallback
@@ -256,7 +256,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Give the user a single choice from an array of answers.
+     * Donnez à l'utilisateur un choix unique parmi un éventail de réponses.
      *
      * @param  string  $question
      * @param  array   $choices
@@ -277,7 +277,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Format input to textual table
+     * Formater l'entrée dans un tableau textuel
      *
      * @param  array   $headers
      * @param  array   $rows
@@ -292,7 +292,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Write a string as information output.
+     * Écrivez une chaîne comme sortie d'informations.
      *
      * @param  string  $string
      * @return void
@@ -303,7 +303,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Write a string as standard output.
+     * Écrivez une chaîne comme sortie standard.
      *
      * @param  string  $string
      * @return void
@@ -314,7 +314,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Write a string as comment output.
+     * Écrivez une chaîne comme sortie de commentaire.
      *
      * @param  string  $string
      * @return void
@@ -325,7 +325,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Write a string as question output.
+     * Écrivez une chaîne comme sortie de question.
      *
      * @param  string  $string
      * @return void
@@ -336,7 +336,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Write a string as error output.
+     * Écrivez une chaîne comme sortie d'erreur.
      *
      * @param  string  $string
      * @return void
@@ -347,7 +347,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -357,7 +357,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */
@@ -367,7 +367,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the output implementation.
+     * Obtenez l’implémentation de sortie.
      *
      * @return \Symfony\Component\Console\Output\OutputInterface
      */
@@ -377,7 +377,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Get the Two application instance.
+     * Obtenez l’instance de deux applications.
      *
      * @return Two\TwoApplication\TwoApplication
      */
@@ -387,7 +387,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     }
 
     /**
-     * Set the Two application instance.
+     * Définissez l’instance de deux applications.
      *
      * @param  Two\TwoApplication\TwoApplication  $Two
      * @return void

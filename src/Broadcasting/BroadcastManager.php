@@ -167,9 +167,9 @@ class BroadcastManager implements FactoryInterface
      */
     protected function createQuasarDriver(array $config)
     {
-        $container = $this->resolveUser();
+        //$container = $this->resolveUser();
 
-        return new QuasarBroadcaster($container, $config);
+        return new QuasarBroadcaster($this->app, $config);
     }
 
     /**
@@ -185,9 +185,9 @@ class BroadcastManager implements FactoryInterface
         // Créez une instance Pusher.
         $pusher = new Pusher($config['key'], $config['secret'], $config['app_id'], $options);
 
-        $container = $this->resolveContainer();
+        //$container = $this->resolveContainer();
 
-        return new PusherBroadcaster($container, $pusher);
+        return new PusherBroadcaster($this->app, $pusher);
     }
 
     /**
@@ -203,9 +203,9 @@ class BroadcastManager implements FactoryInterface
         // Créez une instance de base de données Redis.
         $redis = $this->app->make('redis');
 
-        $container = $this->resolveContainer();
+        //$container = $this->resolveContainer();
 
-        return new RedisBroadcaster($container, $redis, $connection);
+        return new RedisBroadcaster($this->app, $redis, $connection);
     }
 
     /**
@@ -218,9 +218,9 @@ class BroadcastManager implements FactoryInterface
     {
         $logger = $this->app->make('Psr\Log\LoggerInterface');
 
-        $container = $this->resolveContainer();
+        //$container = $this->resolveContainer();
 
-        return new LogBroadcaster($container, $logger);
+        return new LogBroadcaster($this->app, $logger);
     }
 
     /**
@@ -231,9 +231,9 @@ class BroadcastManager implements FactoryInterface
      */
     protected function createNullDriver(array $config)
     {
-        $container = $this->resolveContainer();
+        //$container = $this->resolveContainer();
 
-        return new NullBroadcaster($container);
+        return new NullBroadcaster($this->app);
     }
 
     /**

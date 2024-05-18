@@ -7,9 +7,9 @@
  */
 namespace Two\View;
 
-use InvalidArgumentException;
-
 use Two\Support\Str;
+
+use InvalidArgumentException;
 use Two\Filesystem\Filesystem;
 use Two\View\Contracts\ViewFinderInterface;
 

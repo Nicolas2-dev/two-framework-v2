@@ -8,7 +8,7 @@ use Closure;
 class {{className}}
 {
     /**
-     * Handle an incoming request.
+     * Gérer une demande entrante.
      *
      * @param  \Two\Http\Request  $request
      * @param  \Closure  $next

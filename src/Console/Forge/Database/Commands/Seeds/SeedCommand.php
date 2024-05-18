@@ -20,28 +20,28 @@ class SeedCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'db:seed';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Seed the database with records';
 
     /**
-     * The connection resolver instance.
+     * L'instance du résolveur de connexion.
      *
      * @var \Two\Database\Contracts\ConnectionResolverInterface
      */
     protected $resolver;
 
     /**
-     * Create a new database seed command instance.
+     * Créez une nouvelle instance de commande de départ de base de données.
      *
      * @param  \Two\Database\Contracts\ConnectionResolverInterface  $resolver
      * @return void
@@ -54,7 +54,7 @@ class SeedCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class SeedCommand extends Command
     }
 
     /**
-     * Get a seeder instance from the container.
+     * Obtenez une instance de seeder à partir du conteneur.
      *
      * @return \Two\Database\Seeder
      */
@@ -90,7 +90,7 @@ class SeedCommand extends Command
     }
 
     /**
-     * Get the name of the database connection to use.
+     * Obtenez le nom de la connexion à la base de données à utiliser.
      *
      * @return string
      */
@@ -102,7 +102,7 @@ class SeedCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

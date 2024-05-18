@@ -7,138 +7,140 @@
  */
 namespace Two\Console\Scheduling\Event;
 
-use Closure;
+
 use LogicException;
 
 use Two\Mail\Mailer;
 use Two\Container\Container;
 use Two\Support\ProcessUtils;
-use Two\Console\Scheduling\Contracts\MutexInterface as Mutex;
 use Two\TwoApplication\TwoApplication;
+use Two\Console\Scheduling\Contracts\MutexInterface as Mutex;
+
+use Closure;
+use Carbon\Carbon;
+
+use Cron\CronExpression;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\PhpExecutableFinder;
-
-use Carbon\Carbon;
-use Cron\CronExpression;
 
 
 class Event
 {
     /**
-     * The command string.
+     * La chaîne de commande.
      *
      * @var string
      */
     public $command;
 
     /**
-     * The cron expression representing the event's frequency.
+     * L'expression cron représentant la fréquence de l'événement.
      *
      * @var string
      */
     public $expression = '* * * * * *';
 
     /**
-     * The timezone the date should be evaluated on.
+     * Le fuseau horaire sur lequel la date doit être évaluée.
      *
      * @var \DateTimeZone|string
      */
     public $timezone;
 
     /**
-     * The user the command should run as.
+     * L'utilisateur sous lequel la commande doit être exécutée.
      *
      * @var string
      */
     public $user;
 
     /**
-     * The list of environments the command should run under.
+     * La liste des environnements dans lesquels la commande doit s'exécuter.
      *
      * @var array
      */
     public $environments = array();
 
     /**
-     * Indicates if the command should run in maintenance mode.
+     * Indique si la commande doit s'exécuter en mode maintenance.
      *
      * @var bool
      */
     public $evenInMaintenanceMode = false;
 
     /**
-     * Indicates if the command should not overlap itself.
+     * Indique si la commande ne doit pas se chevaucher.
      *
      * @var bool
      */
     public $withoutOverlapping = false;
 
     /**
-     * The amount of time the mutex should be valid.
+     * La durée pendant laquelle le mutex doit être valide.
      *
      * @var int
      */
     public $expiresAt = 1440;
 
     /**
-     * Indicates if the command should run in background.
+     * Indique si la commande doit s'exécuter en arrière-plan.
      *
      * @var bool
      */
     public $runInBackground = false;
 
     /**
-     * The filter callback.
+     * Le rappel du filtre.
      *
      * @var \Closure
      */
     protected $filter;
 
     /**
-     * The reject callback.
+     * Le rappel de rejet.
      *
      * @var \Closure
      */
     protected $reject;
 
     /**
-     * The location that output should be sent to.
+     * L'emplacement vers lequel la sortie doit être envoyée.
      *
      * @var string
      */
     public $output = '/dev/null';
 
     /**
-     * Indicates whether output should be appended.
+     * Indique si la sortie doit être ajoutée.
      *
      * @var bool
      */
     protected $shouldAppendOutput = false;
 
     /**
-     * The array of callbacks to be run before the event is started.
+     * Tableau de rappels à exécuter avant le démarrage de l'événement.
      *
      * @var array
      */
     protected $beforeCallbacks = array();
 
     /**
-     * The array of callbacks to be run after the event is finished.
+     * Tableau de rappels à exécuter une fois l'événement terminé.
      *
      * @var array
      */
     protected $afterCallbacks = array();
 
     /**
-     * The human readable description of the event.
+     * La description lisible par l’homme de l’événement.
      *
      * @var string
      */
     public $description;
 
     /**
-     * The mutex implementation.
+     * L'implémentation du mutex.
      *
      * @var \Two\Console\Scheduling\Contracts\MutexInterface
      */
@@ -146,7 +148,7 @@ class Event
 
 
     /**
-     * Create a new event instance.
+     * Créez une nouvelle instance d'événement.
      *
      * @param  \Two\Console\Scheduling\Contracts\MutexInterface  $mutex
      * @param  string  $command
@@ -161,7 +163,7 @@ class Event
     }
 
     /**
-     * Get the default output depending on the OS.
+     * Obtenez la sortie par défaut en fonction du système d'exploitation.
      *
      * @return string
      */
@@ -171,7 +173,7 @@ class Event
     }
 
     /**
-     * Run the given event.
+     * Exécutez l'événement donné.
      *
      * @param  \Two\Container\Container  $container
      * @return void
@@ -190,7 +192,7 @@ class Event
     }
 
     /**
-     * Run the command in the background.
+     * Exécutez la commande en arrière-plan.
      *
      * @param  \Two\Container\Container  $container
      * @return void
@@ -199,7 +201,7 @@ class Event
     {
         $this->callBeforeCallbacks($container);
 
-        $process = new Process($this->buildCommand(), base_path(), null, null, null);
+        $process = new Process([$this->buildCommand()], base_path(), null, null, null);
 
         $process->disableOutput();
 
@@ -207,7 +209,7 @@ class Event
     }
 
     /**
-     * Run the command in the foreground.
+     * Exécutez la commande au premier plan.
      *
      * @param  \Two\Container\Container  $container
      * @return void
@@ -216,7 +218,7 @@ class Event
     {
         $this->callBeforeCallbacks($container);
 
-        $process = new Process($this->buildCommand(), base_path(), null, null, null);
+        $process = new Process([$this->buildCommand()], base_path(), null, null, null);
 
         $process->run();
 
@@ -224,7 +226,7 @@ class Event
     }
 
     /**
-     * Call all of the "before" callbacks for the event.
+     * Appelez tous les rappels « avant » pour l'événement.
      *
      * @param  \Two\Container\Container  $container
      * @return void
@@ -237,7 +239,7 @@ class Event
     }
 
     /**
-     * Call all of the "after" callbacks for the event.
+     * Appelez tous les rappels « après » pour l’événement.
      *
      * @param  \Two\Container\Container  $container
      * @return void
@@ -250,7 +252,7 @@ class Event
     }
 
     /**
-     * Build the command string.
+     * Construisez la chaîne de commande.
      *
      * @return string
      */
@@ -266,7 +268,7 @@ class Event
     }
 
     /**
-     * Build a command string with mutex.
+     * Créez une chaîne de commande avec mutex.
      *
      * @return string
      */
@@ -295,7 +297,7 @@ class Event
     }
 
     /**
-     * Get the mutex path for the scheduled command.
+     * Obtenez le chemin mutex pour la commande planifiée.
      *
      * @return string
      */
@@ -305,7 +307,7 @@ class Event
     }
 
     /**
-     * Determine if the given event should run based on the Cron expression.
+     * Déterminez si l'événement donné doit s'exécuter en fonction de l'expression Cron.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return bool
@@ -320,7 +322,7 @@ class Event
     }
 
     /**
-     * Determine if the Cron expression passes.
+     * Déterminez si l’expression Cron réussit.
      *
      * @return bool
      */
@@ -336,7 +338,7 @@ class Event
     }
 
     /**
-     * Determine if the filters pass for the event.
+     * Déterminez si les filtres réussissent pour l’événement.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return bool
@@ -351,7 +353,7 @@ class Event
     }
 
     /**
-     * Determine if the event runs in the given environment.
+     * Déterminez si l’événement s’exécute dans l’environnement donné.
      *
      * @param  string  $environment
      * @return bool
@@ -362,7 +364,7 @@ class Event
     }
 
     /**
-     * Determine if the event runs in maintenance mode.
+     * Déterminez si l’événement s’exécute en mode maintenance.
      *
      * @return bool
      */
@@ -372,7 +374,7 @@ class Event
     }
 
     /**
-     * The Cron expression representing the event's frequency.
+     * L'expression Cron représentant la fréquence de l'événement.
      *
      * @param  string  $expression
      * @return $this
@@ -385,7 +387,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run hourly.
+     * Planifiez l'événement pour qu'il se déroule toutes les heures.
      *
      * @return $this
      */
@@ -395,7 +397,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run daily.
+     * Planifiez l'événement pour qu'il se déroule quotidiennement.
      *
      * @return $this
      */
@@ -405,7 +407,7 @@ class Event
     }
 
     /**
-     * Schedule the command at a given time.
+     * Planifiez la commande à une heure donnée.
      *
      * @param  string  $time
      * @return $this
@@ -416,7 +418,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run daily at a given time (10:00, 19:30, etc).
+     * Planifiez l'événement pour qu'il se déroule quotidiennement à une heure donnée (10h00, 19h30, etc.).
      *
      * @param  string  $time
      * @return $this
@@ -434,7 +436,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run twice daily.
+     * Planifiez l'événement pour qu'il se déroule deux fois par jour.
      *
      * @param  int  $first
      * @param  int  $second
@@ -448,7 +450,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run weekly.
+     * Planifiez l’événement pour qu’il se déroule chaque semaine.
      *
      * @return $this
      */
@@ -458,7 +460,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run weekly on a given day and time.
+     * Planifiez l’événement pour qu’il se déroule chaque semaine à un jour et à une heure donnés.
      *
      * @param  int  $day
      * @param  string  $time
@@ -472,7 +474,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run monthly.
+     * Planifiez l’événement pour qu’il se déroule mensuellement.
      *
      * @return $this
      */
@@ -482,7 +484,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run yearly.
+     * Planifiez l’événement pour qu’il se déroule chaque année.
      *
      * @return $this
      */
@@ -492,7 +494,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run every minute.
+     * Planifiez l'événement pour qu'il se déroule toutes les minutes.
      *
      * @return $this
      */
@@ -502,7 +504,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run every five minutes.
+     * Planifiez l'événement pour qu'il se déroule toutes les cinq minutes.
      *
      * @return $this
      */
@@ -512,7 +514,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run every ten minutes.
+     * Planifiez l'événement pour qu'il se déroule toutes les dix minutes.
      *
      * @return $this
      */
@@ -522,7 +524,7 @@ class Event
     }
 
     /**
-     * Schedule the event to run every thirty minutes.
+     * Planifiez l'événement pour qu'il se déroule toutes les trente minutes.
      *
      * @return $this
      */
@@ -532,7 +534,7 @@ class Event
     }
 
     /**
-     * Set the days of the week the command should run on.
+     * Définissez les jours de la semaine pendant lesquels la commande doit être exécutée.
      *
      * @param  array|mixed  $days
      * @return $this
@@ -545,7 +547,7 @@ class Event
     }
 
     /**
-     * Set the timezone the date should be evaluated on.
+     * Définissez le fuseau horaire sur lequel la date doit être évaluée.
      *
      * @param  \DateTimeZone|string  $timezone
      * @return $this
@@ -558,7 +560,7 @@ class Event
     }
 
     /**
-     * State that the command should run in background.
+     * Indiquez que la commande doit s'exécuter en arrière-plan.
      *
      * @return $this
      */
@@ -570,7 +572,7 @@ class Event
     }
 
     /**
-     * Set which user the command should run as.
+     * Définissez sous quel utilisateur la commande doit être exécutée.
      *
      * @param  string  $user
      * @return $this
@@ -583,7 +585,7 @@ class Event
     }
 
     /**
-     * Limit the environments the command should run in.
+     * Limitez les environnements dans lesquels la commande doit s'exécuter.
      *
      * @param  array|mixed  $environments
      * @return $this
@@ -596,7 +598,7 @@ class Event
     }
 
     /**
-     * State that the command should run even in maintenance mode.
+     * Indiquez que la commande doit s’exécuter même en mode maintenance.
      *
      * @return $this
      */
@@ -608,7 +610,7 @@ class Event
     }
 
     /**
-     * Do not allow the event to overlap each other.
+     * Ne laissez pas les événements se chevaucher.
      *
      * @param  int  $expiresAt
      * @return $this
@@ -630,7 +632,7 @@ class Event
     }
 
     /**
-     * Register a callback to further filter the schedule.
+     * Enregistrez un rappel pour filtrer davantage le calendrier.
      *
      * @param  \Closure  $callback
      * @return $this
@@ -643,7 +645,7 @@ class Event
     }
 
     /**
-     * Register a callback to further filter the schedule.
+     * Enregistrez un rappel pour filtrer davantage le calendrier.
      *
      * @param  \Closure  $callback
      * @return $this
@@ -656,7 +658,7 @@ class Event
     }
 
     /**
-     * Send the output of the command to a given location.
+     * Envoyez la sortie de la commande à un emplacement donné.
      *
      * @param  string  $location
      * @param  bool  $append
@@ -672,7 +674,7 @@ class Event
     }
 
     /**
-     * Append the output of the command to a given location.
+     * Ajoutez la sortie de la commande à un emplacement donné.
      *
      * @param  string  $location
      * @return $this
@@ -683,7 +685,7 @@ class Event
     }
 
     /**
-     * E-mail the results of the scheduled operation.
+     * Envoyez par e-mail les résultats de l’opération programmée.
      *
      * @param  array|mixed  $addresses
      * @param  bool  $onlyIfOutputExists
@@ -706,7 +708,7 @@ class Event
     }
 
     /**
-     * E-mail the results of the scheduled operation if it produces output.
+     * Envoyez par courrier électronique les résultats de l’opération planifiée si elle produit une sortie.
      *
      * @param  array|mixed  $addresses
      * @return $this
@@ -719,7 +721,7 @@ class Event
     }
 
     /**
-     * Ensure that output is being captured for email.
+     * Assurez-vous que le résultat est capturé pour le courrier électronique.
      *
      * @return void
      */
@@ -733,7 +735,7 @@ class Event
     }
 
     /**
-     * E-mail the output of the event to the recipients.
+     * Envoyez par courrier électronique le résultat de l’événement aux destinataires.
      *
      * @param  \Two\Contracts\Mail\Mailer  $mailer
      * @param  array  $addresses
@@ -759,7 +761,7 @@ class Event
     }
 
     /**
-     * Get the e-mail subject line for output results.
+     * Obtenez la ligne d'objet de l'e-mail pour les résultats de sortie.
      *
      * @return string
      */
@@ -773,7 +775,7 @@ class Event
     }
 
     /**
-     * Register a callback to be called before the operation.
+     * Enregistrez un rappel à appeler avant l'opération.
      *
      * @param  \Closure  $callback
      * @return $this
@@ -786,7 +788,7 @@ class Event
     }
 
     /**
-     * Register a callback to be called after the operation.
+     * Enregistrez un rappel à rappeler après l'opération.
      *
      * @param  \Closure  $callback
      * @return $this
@@ -797,7 +799,7 @@ class Event
     }
 
     /**
-     * Register a callback to be called after the operation.
+     * Enregistrez un rappel à rappeler après l'opération.
      *
      * @param  \Closure  $callback
      * @return $this
@@ -810,7 +812,7 @@ class Event
     }
 
     /**
-     * Set the human-friendly description of the event.
+     * Définissez la description conviviale de l’événement.
      *
      * @param  string  $description
      * @return $this
@@ -821,7 +823,7 @@ class Event
     }
 
     /**
-     * Set the human-friendly description of the event.
+     * Définissez la description conviviale de l’événement.
      *
      * @param  string  $description
      * @return $this
@@ -834,7 +836,7 @@ class Event
     }
 
     /**
-     * Splice the given value into the given position of the expression.
+     * Collez la valeur donnée dans la position donnée de l'expression.
      *
      * @param  int  $position
      * @param  string  $value
@@ -853,7 +855,7 @@ class Event
     }
 
     /**
-     * Get the summary of the event for display.
+     * Obtenez le résumé de l’événement pour l’afficher.
      *
      * @return string
      */
@@ -867,7 +869,7 @@ class Event
     }
 
     /**
-     * Get the Cron expression for the event.
+     * Obtenez l'expression Cron pour l'événement.
      *
      * @return string
      */
@@ -877,7 +879,7 @@ class Event
     }
 
     /**
-     * Set the mutex implementation to be used.
+     * Définissez l’implémentation du mutex à utiliser.
      *
      * @param  \Two\Console\Scheduling\Contracts\MutexInterface  $mutex
      * @return $this

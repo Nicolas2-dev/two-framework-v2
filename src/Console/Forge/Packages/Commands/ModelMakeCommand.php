@@ -15,28 +15,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class ModelMakeCommand extends MakeCommand
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:model';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package Model class';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Model';
 
     /**
-     * Package folders to be created.
+     * Dossiers de packages à créer.
      *
      * @var array
      */
@@ -45,7 +45,7 @@ class ModelMakeCommand extends MakeCommand
     );
 
     /**
-     * Package files to be created.
+     * Fichiers de package à créer.
      *
      * @var array
      */
@@ -54,7 +54,7 @@ class ModelMakeCommand extends MakeCommand
     );
 
     /**
-     * Package stubs used to populate defined files.
+     * Stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -65,7 +65,7 @@ class ModelMakeCommand extends MakeCommand
     );
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $filePath
      *
@@ -80,7 +80,7 @@ class ModelMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class ModelMakeCommand extends MakeCommand
 
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

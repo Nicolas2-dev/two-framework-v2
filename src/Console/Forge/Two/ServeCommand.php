@@ -15,21 +15,21 @@ use Symfony\Component\Console\Input\InputOption;
 class ServeCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'two:serve';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Serve the Application on the PHP development server";
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -51,7 +51,7 @@ class ServeCommand extends Command
     }
 
     /**
-     * Check the current PHP version is >= 5.4.
+     * Vérifiez que la version actuelle de PHP est >= 8.2.
      *
      * @return void
      *
@@ -59,13 +59,13 @@ class ServeCommand extends Command
      */
     protected function checkPhpVersion()
     {
-        if (version_compare(PHP_VERSION, '5.5.0', '<')) {
+        if (version_compare(PHP_VERSION, '8.2.0', '<')) {
             throw new \Exception('This PHP binary is not version 5.5 or greater.');
         }
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

@@ -18,14 +18,14 @@ use Two\Console\Scheduling\Contracts\MutexInterface as Mutex;
 class CallbackEvent extends Event
 {
     /**
-     * The callback to call.
+     * Le rappel pour appeler.
      *
      * @var string
      */
     protected $callback;
 
     /**
-     * The parameters to pass to the method.
+     * Les paramètres à transmettre à la méthode.
      *
      * @var array
      */
@@ -33,7 +33,7 @@ class CallbackEvent extends Event
 
 
     /**
-     * Create a new event instance.
+     * Créez une nouvelle instance d'événement.
      *
      * @param  \Two\Console\Scheduling\Contracts\MutexInterface  $mutex
      * @param  string  $callback
@@ -54,7 +54,7 @@ class CallbackEvent extends Event
     }
 
     /**
-     * Run the given event.
+     * Exécutez l'événement donné.
      *
      * @param  \Two\Container\Container  $container
      * @return mixed
@@ -87,7 +87,7 @@ class CallbackEvent extends Event
     }
 
     /**
-     * Remove the mutex file from disk.
+     * Supprimez le fichier mutex du disque.
      *
      * @return void
      */
@@ -99,7 +99,7 @@ class CallbackEvent extends Event
     }
 
     /**
-     * Do not allow the event to overlap each other.
+     * Ne laissez pas les événements se chevaucher.
      *
      * @param  int  $expiresAt
      * @return $this
@@ -123,7 +123,7 @@ class CallbackEvent extends Event
     }
 
     /**
-     * Get the mutex path for the scheduled command.
+     * Obtenez le chemin mutex pour la commande planifiée.
      *
      * @return string
      */
@@ -133,7 +133,7 @@ class CallbackEvent extends Event
     }
 
     /**
-     * Get the summary of the event for display.
+     * Obtenez le résumé de l’événement pour l’afficher.
      *
      * @return string
      */

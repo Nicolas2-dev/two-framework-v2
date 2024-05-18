@@ -2,8 +2,8 @@
 
 namespace {{namespace}};
 
-use Two\Bus\QueueableTrait;
-use Two\Queue\ShouldQueueInterface;
+use Two\Bus\Traits\QueueableTrait;
+use Two\Queue\Contracts\ShouldQueueInterface;
 
 use Two\Notifications\Messages\MailMessage;
 use Two\Notifications\Notification;
@@ -15,7 +15,7 @@ class {{className}} extends Notification
 
 
     /**
-     * Create a new {{className}} instance.
+     * Créez une nouvelle instance {{className}}.
      *
      * @return void
      */
@@ -25,7 +25,7 @@ class {{className}} extends Notification
     }
 
     /**
-     * Get the notification's delivery channels.
+     * Obtenez les canaux de livraison de la notification.
      *
      * @param  mixed  $notifiable
      * @return array
@@ -36,7 +36,7 @@ class {{className}} extends Notification
     }
 
     /**
-     * Get the mail representation of the notification.
+     * Obtenez la représentation postale de la notification.
      *
      * @param  mixed  $notifiable
      * @return \Two\Notifications\Messages\MailMessage
@@ -44,13 +44,13 @@ class {{className}} extends Notification
     public function toMail($notifiable)
     {
         return with(new MailMessage)
-            ->line('The introduction to the notification.')
-            ->action('Notification Action', 'https://www.Twoframework.com')
-            ->line('Thank you for using our application!');
+            ->line('L\'introduction à la notification.')
+            ->action('Action de notification', 'https://www.Twoframework.com')
+            ->line('Merci d\'utiliser notre application !');
     }
 
     /**
-     * Get the array representation of the notification.
+     * Obtenez la représentation matricielle de la notification.
      *
      * @param  mixed  $notifiable
      * @return array

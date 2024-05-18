@@ -18,14 +18,14 @@ class RefreshCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'migrate:refresh';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
@@ -33,7 +33,7 @@ class RefreshCommand extends Command
 
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -49,9 +49,9 @@ class RefreshCommand extends Command
             '--database' => $database, '--force' => $force
         ));
 
-        // The refresh command is essentially just a brief aggregate of a few other of
-        // the migration commands and just provides a convenient wrapper to execute
-        // them in succession. We'll also see if we need to re-seed the database.
+        // La commande d'actualisation n'est essentiellement qu'un bref agrégat de quelques autres
+        // les commandes de migration et fournit simplement un wrapper pratique à exécuter
+        // les successivement. Nous verrons également si nous devons ré-amorcer la base de données.
         $this->call('migrate', array(
             '--database' => $database, '--force' => $force
         ));
@@ -62,7 +62,7 @@ class RefreshCommand extends Command
     }
 
     /**
-     * Determine if the developer has requested database seeding.
+     * Déterminez si le développeur a demandé l’amorçage de la base de données.
      *
      * @return bool
      */
@@ -72,7 +72,7 @@ class RefreshCommand extends Command
     }
 
     /**
-     * Run the database seeder command.
+     * Exécutez la commande seeder de base de données.
      *
      * @param  string  $database
      * @return void
@@ -85,7 +85,7 @@ class RefreshCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

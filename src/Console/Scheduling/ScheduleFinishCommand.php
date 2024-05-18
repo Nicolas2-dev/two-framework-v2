@@ -15,21 +15,21 @@ use Symfony\Component\Console\Input\InputArgument;
 class ScheduleFinishCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'schedule:finish';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Handle the completion of a scheduled command';
 
     /**
-     * The schedule instance.
+     * L’instance de planification.
      *
      * @var \Two\Console\Scheduling\Schedule
      */
@@ -37,7 +37,7 @@ class ScheduleFinishCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param  \Two\Console\Scheduling\Schedule  $schedule
      * @return void
@@ -50,7 +50,7 @@ class ScheduleFinishCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -70,7 +70,7 @@ class ScheduleFinishCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

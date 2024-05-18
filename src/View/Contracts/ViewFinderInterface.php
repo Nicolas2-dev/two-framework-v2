@@ -27,4 +27,29 @@ interface ViewFinderInterface
      */
     public function addExtension($extension);
 
+    /**
+     * Ajoutez un emplacement au chercheur.
+     *
+     * @param  string  $location
+     * @return void
+     */
+    public function addLocation($location);
+
+    /**
+     * Ajoutez un indice d'espace de noms au chercheur.
+     *
+     * @param  string  $namespace
+     * @param  string|array  $hints
+     * @return void
+     */
+    public function addNamespace($namespace, $hints);
+
+    /**
+     * Ajoutez un chemin spécifié par son espace de noms.
+     *
+     * @param  string  $namespace
+     * @return void
+     */
+    public function overridesFrom($namespace);
+
 }

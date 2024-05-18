@@ -17,28 +17,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class MakeMigrationCommand extends BaseCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:migration';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new migration file';
 
     /**
-     * The migration creator instance.
+     * Instance du créateur de migration.
      *
      * @var \Two\Console\Forge\Database\Migrations\MigrationCreator
      */
     protected $creator;
 
     /**
-     * The path to the packages directory (vendor).
+     * Le chemin d'accès au répertoire des packages (fournisseur).
      *
      * @var string
      */
@@ -46,7 +46,8 @@ class MakeMigrationCommand extends BaseCommand
 
 
     /**
-     * Create a new migration install command instance.
+     * Créez une nouvelle instance de commande d'installation de migration.
+
      *
      * @param  \Two\Console\Forge\Database\Migrations\MigrationCreator  $creator
      * @param  string  $packagePath
@@ -62,15 +63,15 @@ class MakeMigrationCommand extends BaseCommand
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
     public function handle()
     {
-        // It's possible for the developer to specify the tables to modify in this
-        // schema operation. The developer may also specify if this table needs
-        // to be freshly created so we can create the appropriate migrations.
+        // Il est possible pour le développeur de préciser les tables à modifier dans cet
+        // opération de schéma. Le développeur peut également préciser si cette table nécessite
+        // doit être fraîchement créé afin que nous puissions créer les migrations appropriées.
         $name = $this->input->getArgument('name');
 
         $table = $this->input->getOption('table');
@@ -81,16 +82,16 @@ class MakeMigrationCommand extends BaseCommand
             $table = $create;
         }
 
-        // Now we are ready to write the migration out to disk. Once we've written
-        // the migration out, we will optimize for the entire framework to make
-        // sure that the migrations are registered by the class loaders.
+        // Nous sommes maintenant prêts à écrire la migration sur le disque. Une fois que nous avons écrit
+        // la migration sortante, nous optimiserons pour que l'ensemble du framework soit réalisé
+        // sûr que les migrations sont enregistrées par les chargeurs de classes.
         $this->writeMigration($name, $table, $create);
 
         $this->call('optimize');
     }
 
     /**
-     * Write the migration file to disk.
+     * Écrivez le fichier de migration sur le disque.
      *
      * @param  string  $name
      * @param  string  $table
@@ -107,7 +108,7 @@ class MakeMigrationCommand extends BaseCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -119,7 +120,7 @@ class MakeMigrationCommand extends BaseCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

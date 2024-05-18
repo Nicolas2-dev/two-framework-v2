@@ -19,21 +19,21 @@ class RollbackCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'migrate:rollback';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Rollback the last database migration';
 
     /**
-     * The migrator instance.
+     * L'instance de migration.
      *
      * @var \Two\Console\Forge\Database\Migrations\Migrator
      */
@@ -41,7 +41,7 @@ class RollbackCommand extends Command
 
 
     /**
-     * Create a new migration rollback command instance.
+     * Créez une nouvelle instance de commande d'annulation de migration.
      *
      * @param  \Two\Console\Forge\Database\Migrations\Migrator  $migrator
      * @return void
@@ -54,7 +54,7 @@ class RollbackCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -68,16 +68,16 @@ class RollbackCommand extends Command
 
         $this->migrator->rollback($pretend);
 
-        // Once the migrator has run we will grab the note output and send it out to
-        // the console screen, since the migrator itself functions without having
-        // any instances of the OutputInterface contract passed into the class.
+        // Une fois le migrateur exécuté, nous récupérerons la sortie de la note et l'enverrons à
+        // l'écran de la console, puisque le migrateur lui-même fonctionne sans avoir
+        // toutes les instances du contrat OutputInterface transmises à la classe.
         foreach ($this->migrator->getNotes() as $note) {
             $this->output->writeln($note);
         }
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

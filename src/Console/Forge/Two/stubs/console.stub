@@ -11,21 +11,21 @@ use Symfony\Component\Console\Input\InputArgument;
 class {{className}} extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = '{{command}}';
 
     /**
-     * The Console Command description.
+     * Description de la commande de console.
      *
      * @var string
      */
     protected $description = 'Command description.';
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @return void
      */
@@ -35,7 +35,7 @@ class {{className}} extends Command
     }
 
     /**
-     * Execute the Console Command.
+     * Exécutez la commande de console.
      *
      * @return mixed
      */
@@ -45,7 +45,7 @@ class {{className}} extends Command
     }
 
     /**
-     * Get the Console Command arguments.
+     * Obtenez les arguments de la commande de console.
      *
      * @return array
      */
@@ -57,7 +57,7 @@ class {{className}} extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

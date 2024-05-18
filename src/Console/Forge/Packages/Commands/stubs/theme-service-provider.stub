@@ -9,7 +9,7 @@ class ThemeServiceProvider extends ServiceProvider
 {
 
     /**
-     * Bootstrap the Application Events.
+     * Amorcez les événements d’application.
      *
      * @return void
      */
@@ -17,19 +17,19 @@ class ThemeServiceProvider extends ServiceProvider
     {
         $path = realpath(__DIR__ .'/../');
 
-        // Configure the Package.
+        // Configurez le package.
         $this->package('{{package}}', '{{slug}}', $path);
 
-        // Bootstrap the Theme.
+        // Amorcez le thème.
         require $path .DS .'Bootstrap.php';
     }
 
     /**
-     * Register the {{name}} Theme Service Provider.
+     * Enregistrez le fournisseur de services thématiques {{name}}.
      *
-     * This service provider is a convenient place to register your themes
-     * services in the IoC container. If you wish, you may make additional
-     * methods or service providers to keep the code more focused and granular.
+     * Ce fournisseur de services est un endroit pratique pour enregistrer vos thèmes
+     * services dans le conteneur IoC. Si vous le souhaitez, vous pouvez faire des compléments
+     * méthodes ou prestataires de services pour garder le code plus ciblé et plus granulaire.
      *
      * @return void
      */

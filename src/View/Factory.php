@@ -8,12 +8,12 @@
 namespace Two\View;
 
 use Closure;
-use BadMethodCallException;
-use InvalidArgumentException;
-
 use Two\View\View;
 use Two\Events\Dispatcher;
+
+use BadMethodCallException;
 use Two\Container\Container;
+use InvalidArgumentException;
 use Two\View\Engines\EngineResolver;
 use Two\View\Contracts\ViewFinderInterface;
 use Two\TwoApplication\Contracts\ArrayableInterface as Arrayable;

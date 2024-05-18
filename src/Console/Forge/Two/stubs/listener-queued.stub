@@ -2,8 +2,8 @@
 
 namespace {{namespace}};
 
-use Two\Queue\ShouldQueueInterface;
-use Two\Queue\InteractsWithQueueTrait;
+use Two\Queue\Contracts\ShouldQueueInterface;
+use Two\Queue\Traits\InteractsWithQueueTrait;
 
 use {{fullEvent}};
 
@@ -14,7 +14,7 @@ class {{className}} implements ShouldQueueInterface
 
 
     /**
-     * Create the event listener.
+     * Créez l'écouteur d'événement.
      *
      * @return void
      */
@@ -24,7 +24,7 @@ class {{className}} implements ShouldQueueInterface
     }
 
     /**
-     * Handle the event.
+     * Gérer l'événement.
      *
      * @param  {{fullEvent}}  $event
      * @return void

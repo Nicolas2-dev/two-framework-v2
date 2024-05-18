@@ -15,35 +15,35 @@ use Two\Console\Commands\Command;
 class ClearCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'cache:clear';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = "Flush the Application cache";
 
     /**
-     * The Cache Manager instance.
+     * L'instance du gestionnaire de cache.
      *
      * @var \Two\Cache\CacheManager
      */
     protected $cache;
 
     /**
-     * The File System instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * Create a new Cache Clear Command instance.
+     * Créez une nouvelle instance de commande Cache Clear.
      *
      * @param  \Two\Cache\CacheManager  $cache
      * @param  \Two\Filesystem\Filesystem  $files
@@ -58,7 +58,7 @@ class ClearCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */

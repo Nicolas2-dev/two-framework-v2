@@ -15,21 +15,21 @@ use Two\Filesystem\Filesystem;
 class AssetPublisher
 {
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The path where assets should be published.
+     * Chemin vers lequel les actifs doivent être publiés.
      *
      * @var string
      */
     protected $publishPath;
 
     /**
-     * The path where packages are located.
+     * Le chemin où se trouvent les packages.
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class AssetPublisher
 
 
     /**
-     * Create a new asset publisher instance.
+     * Créez une nouvelle instance d'éditeur d'actifs.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  string  $publishPath
@@ -51,7 +51,7 @@ class AssetPublisher
     }
 
     /**
-     * Copy all assets from a given path to the publish path.
+     * Copiez toutes les ressources d'un chemin donné vers le chemin de publication.
      *
      * @param  string  $name
      * @param  string  $source
@@ -79,7 +79,7 @@ class AssetPublisher
     }
 
     /**
-     * Publish a given package's assets to the publish path.
+     * Publiez les ressources d'un package donné dans le chemin de publication.
      *
      * @param  string  $package
      * @param  string  $packagePath
@@ -93,7 +93,7 @@ class AssetPublisher
     }
 
     /**
-     * Set the default package path.
+     * Définissez le chemin du package par défaut.
      *
      * @param  string  $packagePath
      * @return void

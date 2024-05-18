@@ -14,7 +14,7 @@ class BaseCommand extends Command
 {
 
     /**
-     * Get the path to the migration directory.
+     * Obtenez le chemin d'accès au répertoire de migration.
      *
      * @return string
      */
@@ -22,9 +22,9 @@ class BaseCommand extends Command
     {
         $path = $this->input->getOption('path');
 
-        // First, we will check to see if a path option has been defined. If it has
-        // we will use the path relative to the root of this installation folder
-        // so that migrations may be run for any path within the applications.
+        // Tout d’abord, nous vérifierons si une option de chemin a été définie. S'il a
+        // nous utiliserons le chemin relatif à la racine de ce dossier d'installation
+        // afin que les migrations puissent être exécutées pour n'importe quel chemin au sein des applications.
         if (! is_null($path)) {
             return $this->container['path.base'] .DS .$path;
         }

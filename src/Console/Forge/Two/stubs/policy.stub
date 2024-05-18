@@ -14,7 +14,7 @@ class {{className}}
 
 
     /**
-     * Determine whether the user can view the {{pluralModel}} list.
+     * Déterminez si l'utilisateur peut afficher la liste {{pluralModel}}.
      *
      * @param  \{{fullUserModel}}  $authUser
      * @return mixed
@@ -25,7 +25,7 @@ class {{className}}
     }
 
     /**
-     * Determine whether the user can view the {{camelModel}}.
+     * Déterminez si l'utilisateur peut afficher le {{camelModel}}.
      *
      * @param  \{{fullUserModel}}  $authUser
      * @param  \{{fullModel}}  ${{camelModel}}
@@ -37,7 +37,7 @@ class {{className}}
     }
 
     /**
-     * Determine whether the user can create {{pluralModel}}.
+     * Déterminez si l'utilisateur peut créer {{pluralModel}}.
      *
      * @param  \{{fullUserModel}}  $authUser
      * @return mixed
@@ -48,7 +48,7 @@ class {{className}}
     }
 
     /**
-     * Determine whether the user can update the {{camelModel}}.
+     * Déterminez si l'utilisateur peut mettre à jour le {{camelModel}}.
      *
      * @param  \{{fullUserModel}}  $authUser
      * @param  \{{fullModel}}  ${{camelModel}}
@@ -60,7 +60,7 @@ class {{className}}
     }
 
     /**
-     * Determine whether the user can delete the {{camelModel}}.
+     * Déterminez si l'utilisateur peut supprimer le {{camelModel}}.
      *
      * @param  \{{fullUserModel}}  $authUser
      * @param  \{{fullModel}}  ${{camelModel}}

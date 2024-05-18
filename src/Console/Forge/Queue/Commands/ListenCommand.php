@@ -18,28 +18,28 @@ class ListenCommand extends Command
 {
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:listen';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Listen to a given queue';
 
     /**
-     * The queue listener instance.
+     * Instance d'écoute de file d'attente.
      *
      * @var \Two\Queue\Listener
      */
     protected $listener;
 
     /**
-     * Create a new queue listen command.
+     * Créez une nouvelle commande d'écoute de file d'attente.
      *
      * @param  \Two\Queue\Listener  $listener
      * @return void
@@ -52,7 +52,7 @@ class ListenCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -62,18 +62,18 @@ class ListenCommand extends Command
 
         $delay = $this->input->getOption('delay');
 
-        // The memory limit is the amount of memory we will allow the script to occupy
-        // before killing it and letting a process manager restart it for us, which
-        // is to protect us against any memory leaks that will be in the scripts.
+        // La limite de mémoire est la quantité de mémoire que nous autoriserons le script à occuper
+        // avant de le tuer et de laisser un gestionnaire de processus le redémarrer pour nous, ce qui
+        // est de nous protéger contre les éventuelles fuites de mémoire qui seront dans les scripts.
         $memory = $this->input->getOption('memory');
 
         $connection = $this->input->getArgument('connection');
 
         $timeout = $this->input->getOption('timeout');
 
-        // We need to get the right queue for the connection which is set in the queue
-        // configuration file for the application. We will pull it based on the set
-        // connection being run for the queue operation currently being executed.
+        // Nous devons obtenir la bonne file d'attente pour la connexion qui est définie dans la file d'attente
+        // fichier de configuration de l'application. Nous le tirerons en fonction de l'ensemble
+        // connexion en cours d'exécution pour l'opération de file d'attente en cours d'exécution.
         $queue = $this->getQueue($connection);
 
         $this->listener->listen(
@@ -82,7 +82,7 @@ class ListenCommand extends Command
     }
 
     /**
-     * Get the name of the queue connection to listen on.
+     * Obtenez le nom de la connexion de file d’attente sur laquelle écouter.
      *
      * @param  string  $connection
      * @return string
@@ -100,7 +100,7 @@ class ListenCommand extends Command
     }
 
     /**
-     * Set the options on the queue listener.
+     * Définissez les options sur l'écouteur de file d'attente.
      *
      * @return void
      */
@@ -119,7 +119,7 @@ class ListenCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -131,7 +131,7 @@ class ListenCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

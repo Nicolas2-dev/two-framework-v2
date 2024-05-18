@@ -24,14 +24,14 @@ class PackageMigrateResetCommand extends Command
     use MigrationTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:migrate:reset';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -53,7 +53,7 @@ class PackageMigrateResetCommand extends Command
     protected $files;
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param PackageManager  $packages
      * @param Filesystem     $files
@@ -69,7 +69,7 @@ class PackageMigrateResetCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -103,11 +103,11 @@ class PackageMigrateResetCommand extends Command
     }
 
     /**
-     * Run the migration reset for the specified Package.
+     * Exécutez la réinitialisation de la migration pour le package spécifié.
      *
-     * Migrations should be reset in the reverse order that they were
-     * migrated up as. This ensures the database is properly reversed
-     * without conflict.
+     * Les migrations doivent être réinitialisées dans l'ordre inverse de celui où elles ont été
+     * migré vers le haut en tant que. Cela garantit que la base de données est correctement inversée
+     *sans conflit.
      *
      * @param string $slug
      *
@@ -138,7 +138,7 @@ class PackageMigrateResetCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -150,7 +150,7 @@ class PackageMigrateResetCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

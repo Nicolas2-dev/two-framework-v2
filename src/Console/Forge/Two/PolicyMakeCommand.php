@@ -16,21 +16,21 @@ use Symfony\Component\Console\Input\InputOption;
 class PolicyMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:policy';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Policy class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class PolicyMakeCommand extends GeneratorCommand
 
 
     /**
-     * Build the class with the given name.
+     * Construisez la classe avec le nom donné.
      *
      * @param  string  $name
      * @return string
@@ -55,7 +55,7 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Replace the User model namespace.
+     * Remplacez l'espace de noms du modèle utilisateur.
      *
      * @param  string  $stub
      * @return string
@@ -76,7 +76,7 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Replace the model for the given stub.
+     * Remplacez le modèle pour le stub donné.
      *
      * @param  string  $stub
      * @param  string  $model
@@ -108,7 +108,7 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -122,7 +122,7 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string
@@ -133,7 +133,7 @@ class PolicyMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

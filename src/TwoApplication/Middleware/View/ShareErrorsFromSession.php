@@ -5,11 +5,11 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\View\Middleware;
+namespace Two\TwoApplication\Middleware\View;
 
 use Closure;
 
-use Two\Support\ViewErrorBag;
+use Two\View\ViewErrorBag;
 use Two\View\Factory as ViewFactory;
 
 

@@ -15,28 +15,28 @@ use Symfony\Component\Console\Input\InputArgument;
 class ProviderMakeCommand extends MakeCommand
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make:provider';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new package Service Provider class';
 
     /**
-     * String to store the command type.
+     * Chaîne pour stocker le type de commande.
      *
      * @var string
      */
     protected $type = 'Provider';
 
     /**
-     * package folders to be created.
+     * dossiers de packages à créer.
      *
      * @var array
      */
@@ -45,7 +45,7 @@ class ProviderMakeCommand extends MakeCommand
     );
 
     /**
-     * package files to be created.
+     * fichiers de package à créer.
      *
      * @var array
      */
@@ -54,7 +54,7 @@ class ProviderMakeCommand extends MakeCommand
     );
 
     /**
-     * package stubs used to populate defined files.
+     * stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -65,7 +65,7 @@ class ProviderMakeCommand extends MakeCommand
     );
 
     /**
-     * Resolve Container after getting file path.
+     * Résolvez le conteneur après avoir obtenu le chemin du fichier.
      *
      * @param string $filePath
      *
@@ -80,7 +80,7 @@ class ProviderMakeCommand extends MakeCommand
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -104,7 +104,7 @@ class ProviderMakeCommand extends MakeCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */

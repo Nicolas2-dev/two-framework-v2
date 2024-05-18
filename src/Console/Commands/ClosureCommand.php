@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ClosureCommand extends Command
 {
     /**
-     * The command callback.
+     * Le rappel de commande.
      *
      * @var \Closure
      */
@@ -32,7 +32,7 @@ class ClosureCommand extends Command
 
     
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param  string  $signature
      * @param  Closure  $callback
@@ -50,7 +50,7 @@ class ClosureCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @param  \Symfony\Component\Console\Input\InputInterface  $input
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
@@ -77,7 +77,7 @@ class ClosureCommand extends Command
     }
 
     /**
-     * Set the description for the command.
+     * Définissez la description de la commande.
      *
      * @param  string  $description
      * @return $this

@@ -13,7 +13,7 @@ use Two\Console\Scheduling\Event\Event;
 interface MutexInterface
 {
     /**
-     * Attempt to obtain a mutex for the given event.
+     * Tentative d'obtenir un mutex pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Events\Event  $event
      * @return bool
@@ -21,7 +21,7 @@ interface MutexInterface
     public function create(Event $event);
 
     /**
-     * Determine if a mutex exists for the given event.
+     * Déterminez si un mutex existe pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Event\Event  $event
      * @return bool
@@ -29,7 +29,7 @@ interface MutexInterface
     public function exists(Event $event);
 
     /**
-     * Clear the mutex for the given event.
+     * Effacez le mutex pour l'événement donné.
      *
      * @param  \Two\Console\Scheduling\Event\Event  $event
      * @return void

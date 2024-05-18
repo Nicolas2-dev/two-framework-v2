@@ -21,21 +21,21 @@ use Symfony\Component\Console\Helper\ProgressBar;
 class PackageMakeCommand extends Command
 {
     /**
-     * The name of the console command.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'package:make';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Package';
 
     /**
-     * Package folders to be created.
+     * Dossiers de packages à créer.
      *
      * @var array
      */
@@ -59,6 +59,7 @@ class PackageMakeCommand extends Command
             'assets/images/',
             'assets/js/',
             'src/',
+            'src/Blocks/',
             'src/Config/',
             'src/Controllers/',
             'src/Database/',
@@ -68,6 +69,7 @@ class PackageMakeCommand extends Command
             'src/Models/',
             'src/Providers/',
             'src/Routes/',
+            'src/Support/',
             'src/Views/',
         ),
         'module' => array(
@@ -76,6 +78,7 @@ class PackageMakeCommand extends Command
             'Assets/images/',
             'Assets/js/',
             'Config/',
+            'Blocks/',
             'Controllers/',
             'Database/',
             'Database/Migrations/',
@@ -84,6 +87,7 @@ class PackageMakeCommand extends Command
             'Models/',
             'Providers/',
             'Routes/',
+            'Support/',
             'Views/',
         ),
         'theme' =>  array(
@@ -103,7 +107,7 @@ class PackageMakeCommand extends Command
     );
 
     /**
-     * Package files to be created.
+     * Fichiers de package à créer.
      *
      * @var array
      */
@@ -116,6 +120,7 @@ class PackageMakeCommand extends Command
             'composer.json'
         ),
         'extended' => array(
+            'src/Blocks/Boxe.php',
             'src/Config/Config.php',
             'src/Database/Seeds/DatabaseSeeder.php',
             'src/Providers/AuthServiceProvider.php',
@@ -124,12 +129,16 @@ class PackageMakeCommand extends Command
             'src/Providers/RouteServiceProvider.php',
             'src/Routes/Api.php',
             'src/Routes/Web.php',
+            'src/Routes/Admin.php',
+            'src/Routes/Assets.php',
+            'src/Support/helpers.php',
             'src/Bootstrap.php',
             'src/Events.php',
             'README.md',
             'composer.json'
         ),
         'module' => array(
+            'Blocks/Boxe.php',
             'Config/Config.php',
             'Database/Seeds/DatabaseSeeder.php',
             'Providers/AuthServiceProvider.php',
@@ -138,6 +147,9 @@ class PackageMakeCommand extends Command
             'Providers/RouteServiceProvider.php',
             'Routes/Api.php',
             'Routes/Web.php',
+            'Routes/Admin.php',
+            'Routes/Assets.php',
+            'Support/helpers.php',
             'Bootstrap.php',
             'Events.php',
             'README.md',
@@ -154,7 +166,7 @@ class PackageMakeCommand extends Command
     );
 
     /**
-     * Package stubs used to populate defined files.
+     * Stubs de package utilisés pour remplir les fichiers définis.
      *
      * @var array
      */
@@ -167,7 +179,7 @@ class PackageMakeCommand extends Command
             'composer'
         ),
         'extended' => array(
-            'config',
+            'boxe',
             'seeder',
             'auth-service-provider',
             'event-service-provider',
@@ -175,12 +187,16 @@ class PackageMakeCommand extends Command
             'route-service-provider',
             'api-routes',
             'web-routes',
+            'admin-routes',
+            'assets-routes',
+            'helpers',            
             'bootstrap',
             'events',
             'readme',
             'composer'
         ),
         'module' => array(
+            'boxe',
             'config',
             'seeder',
             'auth-service-provider',
@@ -189,6 +205,9 @@ class PackageMakeCommand extends Command
             'route-service-provider',
             'api-routes',
             'web-routes',
+            'admin-routes',
+            'assets-routes',
+            'helpers',            
             'bootstrap',
             'events',
             'readme',
@@ -205,21 +224,21 @@ class PackageMakeCommand extends Command
     );
 
     /**
-     * The Packages instance.
+     * L'instance des packages.
      *
      * @var \Two\Packages\PackageManager
      */
     protected $packages;
 
     /**
-     * The filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * Array to store the configuration details.
+     * Tableau pour stocker les détails de configuration.
      *
      * @var array
      */
@@ -227,7 +246,7 @@ class PackageMakeCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param Filesystem $files
      * @param \Two\Packages\PackageManager    $packages
@@ -242,7 +261,7 @@ class PackageMakeCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -313,7 +332,7 @@ class PackageMakeCommand extends Command
     }
 
     /**
-     * Step 1: Configure Package.
+     * Étape 1 : Configurer le package.
      *
      * @param  string  $type
      * @return mixed
@@ -388,7 +407,7 @@ class PackageMakeCommand extends Command
     }
 
     /**
-     * Generate the Package.
+     * Générez le package.
      */
     protected function generate($type)
     {
@@ -437,7 +456,7 @@ class PackageMakeCommand extends Command
     }
 
     /**
-     * Generate defined Package folders.
+     * Générez des dossiers de packages définis.
      *
      * @param string $type
      * @return void
@@ -472,7 +491,7 @@ class PackageMakeCommand extends Command
 
         $this->files->makeDirectory($packagePath);
 
-        // Generate the Package directories.
+        // Générez les répertoires du package.
         $packageFolders = $this->packageFolders[$mode];
 
         foreach ($packageFolders as $folder) {
@@ -481,7 +500,7 @@ class PackageMakeCommand extends Command
             $this->files->makeDirectory($path);
         }
 
-        // Generate the Language inner directories.
+        // Générez les répertoires internes de langue.
         $languageFolders = $this->getLanguagePaths($slug, $type);
 
         foreach ($languageFolders as $folder) {
@@ -492,7 +511,7 @@ class PackageMakeCommand extends Command
     }
 
     /**
-     * Generate defined Package files.
+     * Générez des fichiers de package définis.
      *
      * @param string $type
      * @return void
@@ -537,7 +556,7 @@ class PackageMakeCommand extends Command
             );
         }
 
-        // Generate the Language files
+        // Générer les fichiers de langue
         $content ='<?php
 
 return array (
@@ -553,7 +572,7 @@ return array (
     }
 
     /**
-     * Generate .gitkeep files within generated folders.
+     * Générez des fichiers .gitkeep dans les dossiers générés.
      *
      * @param string $type
      * @return void
@@ -593,28 +612,28 @@ return array (
     }
 
     /**
-     * Update the composer.json and run the Composer.
+     * Mettez à jour le composer.json et exécutez Composer.
      *
      * @param string $type
      * @return void
      */
     protected function updateComposerJson($type)
     {
-        // If the generated package is a Module.
+        // Si le package généré est un Module.
         if ($type == 'module') {
             $namespace = 'Modules\\';
 
             $directory = 'modules/';
         }
 
-        // If the generated package is a Theme.
+        // Si le package généré est un Theme.
         else if ($type == 'theme') {
             $namespace = 'Themes\\';
 
             $directory = 'themes/';
         }
 
-        // Standard processing for the Packages.
+        // Traitement standard pour les Colis.
         else {
             $namespace = $this->data['namespace'] .'\\';
 
@@ -625,14 +644,14 @@ return array (
 
         $path = base_path($composerJson);
 
-        // Get the composer.json contents in a decoded form.
+        // Obtenez le contenu du composer.json sous une forme décodée.
         $config = json_decode(file_get_contents($path), true);
 
         if (! is_array($config)) {
             return;
         }
 
-        // Update the composer.json
+        // Mettre à jour le composer.json
         else if (! Arr::has($config, "autoload.psr-4.$namespace")) {
             Arr::set($config, "autoload.psr-4.$namespace", $directory);
 
@@ -643,7 +662,7 @@ return array (
     }
 
     /**
-     * Get the path to the Package.
+     * Obtenez le chemin d’accès au package.
      *
      * @param string $slug
      *
@@ -659,7 +678,7 @@ return array (
     }
 
     /**
-     * Get the path to the Package.
+     * Obtenez le chemin d’accès au package.
      *
      * @param string $slug
      *
@@ -675,7 +694,7 @@ return array (
     }
 
     /**
-     * Get the path to the Package.
+     * Obtenez le chemin d’accès au package.
      *
      * @param string $slug
      *
@@ -710,7 +729,7 @@ return array (
     }
 
     /**
-     * Get destination file.
+     * Obtenez le fichier de destination.
      *
      * @param string $file
      * @param string $packagePath
@@ -725,7 +744,7 @@ return array (
     }
 
     /**
-     * Get stub content by key.
+     * Obtenez le contenu du stub par clé.
      *
      * @param int $key
      * @param bool $mode
@@ -747,7 +766,7 @@ return array (
     }
 
     /**
-     * Replace placeholder text with correct values.
+     * Remplacez le texte de l'espace réservé par des valeurs correctes.
      *
      * @return string
      */
@@ -787,7 +806,7 @@ return array (
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -799,7 +818,7 @@ return array (
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

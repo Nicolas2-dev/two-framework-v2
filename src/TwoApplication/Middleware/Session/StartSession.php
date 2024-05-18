@@ -5,7 +5,7 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\Session\Middleware;
+namespace Two\TwoApplication\Middleware\Session;
 
 use Closure;
 

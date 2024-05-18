@@ -16,21 +16,21 @@ use Symfony\Component\Console\Input\InputArgument;
 class ConsoleMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:console';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Forge command';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class ConsoleMakeCommand extends GeneratorCommand
 
 
     /**
-     * Replace the class name for the given stub.
+     * Remplacez le nom de classe pour le stub donné.
      *
      * @param  string  $stub
      * @param  string  $name
@@ -52,7 +52,7 @@ class ConsoleMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -62,7 +62,7 @@ class ConsoleMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string
@@ -73,7 +73,7 @@ class ConsoleMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -85,7 +85,7 @@ class ConsoleMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

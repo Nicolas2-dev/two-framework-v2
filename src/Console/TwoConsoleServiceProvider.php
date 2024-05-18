@@ -8,14 +8,14 @@
 namespace Two\Console;
 
 use Two\Console\Forge;
-use Two\Support\Composer;
+use Two\TwoApplication\Composer;
 use Two\TwoApplication\Providers\ServiceProvider;
 
 
 class TwoConsoleServiceProvider extends ServiceProvider
 {
     /**
-     * Indique si le chargement du fournisseur est différé.
+     * Indiquez si le chargement du fournisseur est différé.
      *
      * @var bool
      */

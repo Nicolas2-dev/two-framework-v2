@@ -9,7 +9,7 @@ use Two\Broadcasting\Contracts\ShouldBroadcastInterface;
 
 use Two\Broadcasting\Traists\InteractsWithSocketsTrait;
 use Two\Foundation\Events\DispatchableTrait;
-use Two\Queue\SerializesModelsTrait;
+use Two\Queue\Traits\SerializesModelsTrait;
 
 
 class {{className}}
@@ -18,7 +18,7 @@ class {{className}}
 
 
     /**
-     * Create a new Event instance.
+     * Créez une nouvelle instance d'événement.
      *
      * @return void
      */
@@ -28,7 +28,7 @@ class {{className}}
     }
 
     /**
-     * Get the channels the event should be broadcast on.
+     * Obtenez les chaînes sur lesquelles l'événement doit être diffusé.
      *
      * @return array
      */

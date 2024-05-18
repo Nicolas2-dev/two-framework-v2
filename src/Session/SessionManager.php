@@ -7,7 +7,7 @@
  */
 namespace Two\Session;
 
-use Two\Support\Manager;
+use Two\TwoApplication\Manager;
 
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\NullSessionHandler;
 

@@ -14,14 +14,14 @@ use Two\TwoApplication\TwoApplication;
 class Forge
 {
     /**
-     * The application instance.
+     * L'instance d'application.
      *
      * @var Two\TwoApplication\TwoApplication
      */
     protected $app;
 
     /**
-     * The forge console instance.
+     * L'instance de console Forge.
      *
      * @var  \Two\Console\Console
      */
@@ -29,7 +29,7 @@ class Forge
 
 
     /**
-     * Create a new forge command runner instance.
+     * Créez une nouvelle instance d'exécuteur de commandes Forge.
      *
      * @param  Two\TwoApplication\TwoApplication  $app
      * @return void
@@ -40,7 +40,7 @@ class Forge
     }
 
     /**
-     * Get the forge console instance.
+     * Obtenez l'instance de console Forge.
      *
      * @return \Two\Console\Console
      */
@@ -58,7 +58,7 @@ class Forge
     }
 
     /**
-     * Dynamically pass all missing methods to console forge.
+     * Transmettez dynamiquement toutes les méthodes manquantes à console forge.
      *
      * @param  string  $method
      * @param  array   $parameters

@@ -8,7 +8,7 @@ use Two\Support\ServiceProvider;
 class {{className}} extends ServiceProvider
 {
     /**
-     * Indicates if loading of the Provider is deferred.
+     * Indique si le chargement du Provider est différé.
      *
      * @var bool
      */
@@ -16,7 +16,7 @@ class {{className}} extends ServiceProvider
 
 
     /**
-     * Bootstrap the application services.
+     * Amorcez les services d’application.
      *
      * @return void
      */
@@ -26,7 +26,7 @@ class {{className}} extends ServiceProvider
     }
 
     /**
-     * Register the application services.
+     * Enregistrez les services d'application.
      *
      * @return void
      */

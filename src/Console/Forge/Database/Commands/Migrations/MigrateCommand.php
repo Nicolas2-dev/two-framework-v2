@@ -19,34 +19,34 @@ class MigrateCommand extends BaseCommand
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'migrate';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Run the database migrations';
 
     /**
-     * The migrator instance.
+     * L'instance de migration.
      *
      * @var \Two\Console\Forge\Database\Migrations\Migrator
      */
     protected $migrator;
 
     /**
-     * The path to the packages directory (vendor).
+     * Le chemin d'accès au répertoire des packages (fournisseur).
      */
     protected $packagePath;
 
 
     /**
-     * Create a new migration command instance.
+     * Créez une nouvelle instance de commande de migration.
      *
      * @param  \Two\Console\Forge\Database\Migrations\Migrator  $migrator
      * @param  string  $packagePath
@@ -61,7 +61,7 @@ class MigrateCommand extends BaseCommand
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -71,32 +71,32 @@ class MigrateCommand extends BaseCommand
 
         $this->prepareDatabase();
 
-        // The pretend option can be used for "simulating" the migration and grabbing
-        // the SQL queries that would fire if the migration were to be run against
-        // a database for real, which is helpful for double checking migrations.
+        // L'option simulation peut être utilisée pour "simuler" la migration et la capture
+        // les requêtes SQL qui se déclencheraient si la migration devait être exécutée sur
+        // une base de données réelle, utile pour vérifier les migrations.
         $pretend = $this->input->getOption('pretend');
 
         $path = $this->getMigrationPath();
 
         $this->migrator->run($path, $pretend);
 
-        // Once the migrator has run we will grab the note output and send it out to
-        // the console screen, since the migrator itself functions without having
-        // any instances of the OutputInterface contract passed into the class.
+        // Une fois le migrateur exécuté, nous récupérerons la sortie de la note et l'enverrons à
+        // l'écran de la console, puisque le migrateur lui-même fonctionne sans avoir
+        // toutes les instances du contrat OutputInterface transmises à la classe.
         foreach ($this->migrator->getNotes() as $note) {
             $this->output->writeln($note);
         }
 
-        // Finally, if the "seed" option has been given, we will re-run the database
-        // seed task to re-populate the database, which is convenient when adding
-        // a migration and a seed at the same time, as it is only this command.
+        // Enfin, si l'option "seed" a été donnée, nous relancerons la base de données
+        // tâche de départ pour repeupler la base de données, ce qui est pratique lors de l'ajout
+        // une migration et une graine à la fois, puisqu'il s'agit uniquement de cette commande.
         if ($this->input->getOption('seed')) {
             $this->call('db:seed', array('--force' => true));
         }
     }
 
     /**
-     * Prepare the migration database for running.
+     * Préparez la base de données de migration pour son exécution.
      *
      * @return void
      */
@@ -112,7 +112,7 @@ class MigrateCommand extends BaseCommand
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

@@ -15,14 +15,14 @@ use Two\Filesystem\Filesystem;
 class KeyGenerateCommand extends Command
 {
     /**
-     * The Console Command name.
+     * Le nom de la commande de console.
      *
      * @var string
      */
     protected $name = 'key:generate';
 
     /**
-     * The Console Command description.
+     * Description de la commande de console.
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class KeyGenerateCommand extends Command
 
     
     /**
-     * Create a new Key Generator command.
+     * Créez une nouvelle commande Key Generator.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @return void
@@ -48,7 +48,7 @@ class KeyGenerateCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -68,7 +68,7 @@ class KeyGenerateCommand extends Command
     }
 
     /**
-     * Get the key file and contents.
+     * Obtenez le fichier clé et son contenu.
      *
      * @return array
      */
@@ -82,7 +82,7 @@ class KeyGenerateCommand extends Command
     }
 
     /**
-     * Generate a random key for the application.
+     * Générez une clé aléatoire pour l'application.
      *
      * @return string
      */

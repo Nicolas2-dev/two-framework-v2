@@ -20,14 +20,14 @@ class PackageMigrateRefreshCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:migrate:refresh';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class PackageMigrateRefreshCommand extends Command
     protected $packages;
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param PackageManager  $package
      */
@@ -51,7 +51,7 @@ class PackageMigrateRefreshCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -87,7 +87,7 @@ class PackageMigrateRefreshCommand extends Command
     }
 
     /**
-     * Determine if the developer has requested database seeding.
+     * Déterminez si le développeur a demandé l’amorçage de la base de données.
      *
      * @return bool
      */
@@ -97,7 +97,7 @@ class PackageMigrateRefreshCommand extends Command
     }
 
     /**
-     * Run the Package seeder command.
+     * Exécutez la commande Package seeder.
      *
      * @param string $database
      */
@@ -110,7 +110,7 @@ class PackageMigrateRefreshCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -122,7 +122,7 @@ class PackageMigrateRefreshCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

@@ -7,7 +7,7 @@ use Two\Database\Migrations\Migration;
 class {{class}} extends Migration
 {
     /**
-     * Run the migrations.
+     * Exécutez les migrations.
      *
      * @return void
      */
@@ -20,7 +20,7 @@ class {{class}} extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Inversez les migrations.
      *
      * @return void
      */

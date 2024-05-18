@@ -16,21 +16,21 @@ use Symfony\Component\Console\Input\InputOption;
 class InstallCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'migrate:install';
 
     /**
-     * The console command description.
+     * La description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create the migration repository';
 
     /**
-     * The repository instance.
+     * L'instance du référentiel.
      *
      * @var \Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface
      */
@@ -38,7 +38,7 @@ class InstallCommand extends Command
 
 
     /**
-     * Create a new migration install command instance.
+     * Créez une nouvelle instance de commande d'installation de migration.
      *
      * @param  \Two\Console\Forge\Database\Contracts\MigrationRepositoryInterface  $repository
      * @return void
@@ -51,7 +51,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -65,7 +65,7 @@ class InstallCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

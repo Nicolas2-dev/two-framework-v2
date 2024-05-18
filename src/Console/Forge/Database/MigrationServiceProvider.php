@@ -24,14 +24,14 @@ use Two\Console\Forge\Database\Commands\Migrations\MakeMigrationCommand;
 class MigrationServiceProvider extends ServiceProvider
 {
     /**
-     * Indicates if loading of the provider is deferred.
+     * Indique si le chargement du fournisseur est différé.
      *
      * @var bool
      */
     protected $defer = true;
 
     /**
-     * Register the service provider.
+     * Enregistrez le fournisseur de services.
      *
      * @return void
      */
@@ -45,7 +45,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the migration repository service.
+     * Enregistrez le service de référentiel de migration.
      *
      * @return void
      */
@@ -60,7 +60,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the migrator service.
+     * Enregistrez le service de migration.
      *
      * @return void
      */
@@ -75,7 +75,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register all of the migration commands.
+     * Enregistrez toutes les commandes de migration.
      *
      * @return void
      */
@@ -96,7 +96,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "migrate" migration command.
+     * Enregistrez la commande de migration « migrate ».
      *
      * @return void
      */
@@ -111,7 +111,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "rollback" migration command.
+     * Enregistrez la commande de migration "rollback".
      *
      * @return void
      */
@@ -124,7 +124,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "reset" migration command.
+     * Enregistrez la commande de migration "reset".
      *
      * @return void
      */
@@ -137,7 +137,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "refresh" migration command.
+     * Enregistrez la commande de migration « actualiser ».
      *
      * @return void
      */
@@ -150,7 +150,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "status" migration command.
+     * Enregistrez la commande de migration « statut ».
      *
      * @return void
      */
@@ -163,7 +163,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "install" migration command.
+     * Enregistrez la commande de migration « installer ».
      *
      * @return void
      */
@@ -176,7 +176,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the "install" migration command.
+     * Enregistrez la commande de migration « installer ».
      *
      * @return void
      */
@@ -198,7 +198,7 @@ class MigrationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Get the services provided by the provider.
+     * Obtenez les services fournis par le fournisseur.
      *
      * @return array
      */

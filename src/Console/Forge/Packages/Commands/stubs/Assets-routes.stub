@@ -1,0 +1,16 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Module Assets Routes
+|--------------------------------------------------------------------------
+|
+| C'est ici que vous pouvez enregistrer tous les itinéraires pour le {{lower_type}}.
+| C'est un jeu d'enfant. Dites simplement à Two les URI auxquels il doit répondre
+| et donnez-lui la fermeture à exécuter lorsque cet URI est demandé.
+|
+*/
+
+use Two\Http\Request;
+use Two\Support\Facades\Config;
+

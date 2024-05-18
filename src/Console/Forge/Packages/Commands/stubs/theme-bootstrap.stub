@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Which CSS files should be loaded by the Content Editors?
+ * Quels fichiers CSS doivent être chargés par les éditeurs de contenu ?
  */
 Event::listen('content.editor.stylesheets.{{slug}}', function ()
 {

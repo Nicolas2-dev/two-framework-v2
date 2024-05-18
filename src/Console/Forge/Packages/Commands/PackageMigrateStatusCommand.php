@@ -21,14 +21,14 @@ class PackageMigrateStatusCommand extends Command
     use MigrationTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:migrate:status';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class PackageMigrateStatusCommand extends Command
     protected $packages;
 
     /**
-     * The migrator instance.
+     * L'instance de migration.
      *
      * @var \Two\Database\Migrations\Migrator
      */
@@ -48,7 +48,7 @@ class PackageMigrateStatusCommand extends Command
 
 
     /**
-     * Create a new migration rollback command instance.
+     * Créez une nouvelle instance de commande d'annulation de migration.
      *
      * @param  \Two\Database\Migrations\Migrator $migrator
      * @return \Two\Database\Console\Migrations\StatusCommand
@@ -62,7 +62,7 @@ class PackageMigrateStatusCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -119,7 +119,7 @@ class PackageMigrateStatusCommand extends Command
     }
 
     /**
-     * Get all of the migration files.
+     * Obtenez tous les fichiers de migration.
      *
      * @param  string  $path
      * @return array
@@ -132,7 +132,7 @@ class PackageMigrateStatusCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -144,7 +144,7 @@ class PackageMigrateStatusCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

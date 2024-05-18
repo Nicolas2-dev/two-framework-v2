@@ -7,7 +7,7 @@
  */
 namespace Two\Database\ORM;
 
-use Two\Support\Collection as BaseCollection;
+use Two\Collection\Collection as BaseCollection;
 
 
 class Collection extends BaseCollection
@@ -245,7 +245,7 @@ class Collection extends BaseCollection
      *
      * @param  string  $value
      * @param  string|null  $key
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function pluck($value, $key = null)
     {
@@ -255,7 +255,7 @@ class Collection extends BaseCollection
     /**
      * Obtenez une instance de collection Support de base à partir de cette collection.
      *
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     public function toBase()
     {

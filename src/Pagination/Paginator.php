@@ -12,7 +12,7 @@ use ArrayAccess;
 use JsonSerializable;
 use IteratorAggregate;
 
-use Two\Support\Collection;
+use Two\Collection\Collection;
 use Two\Support\HtmlString;
 use Two\TwoApplication\Contracts\JsonableInterface;
 use Two\TwoApplication\Contracts\ArrayableInterface;

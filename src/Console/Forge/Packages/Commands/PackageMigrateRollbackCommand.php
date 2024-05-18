@@ -23,14 +23,14 @@ class PackageMigrateRollbackCommand extends Command
     use MigrationTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:migrate:rollback';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -48,7 +48,7 @@ class PackageMigrateRollbackCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param \Two\Packages\PackageManager $packages
      */
@@ -61,7 +61,7 @@ class PackageMigrateRollbackCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -89,7 +89,7 @@ class PackageMigrateRollbackCommand extends Command
     }
 
     /**
-     * Run the migration rollback for the specified Package.
+     * Exécutez la restauration de la migration pour le package spécifié.
      *
      * @param string $slug
      *
@@ -119,7 +119,7 @@ class PackageMigrateRollbackCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -131,7 +131,7 @@ class PackageMigrateRollbackCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

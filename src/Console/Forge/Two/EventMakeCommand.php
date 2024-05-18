@@ -13,21 +13,21 @@ use Two\Console\Commands\GeneratorCommand;
 class EventMakeCommand extends GeneratorCommand
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'make:event';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Create a new Event class';
 
     /**
-     * The type of class being generated.
+     * Le type de classe générée.
      *
      * @var string
      */
@@ -35,7 +35,7 @@ class EventMakeCommand extends GeneratorCommand
 
 
     /**
-     * Determine if the class already exists.
+     * Déterminez si la classe existe déjà.
      *
      * @param  string  $rawName
      * @return bool
@@ -46,7 +46,7 @@ class EventMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the stub file for the generator.
+     * Obtenez le fichier stub du générateur.
      *
      * @return string
      */
@@ -56,7 +56,7 @@ class EventMakeCommand extends GeneratorCommand
     }
 
     /**
-     * Get the default namespace for the class.
+     * Obtenez l'espace de noms par défaut pour la classe.
      *
      * @param  string  $rootNamespace
      * @return string

@@ -10,7 +10,7 @@ namespace Two\Database\ORM\Relations;
 use Two\Database\ORM\Model;
 use Two\Database\ORM\Builder;
 use Two\Database\ORM\Collection;
-use Two\Support\Collection as BaseCollection;
+use Two\Collection\Collection as BaseCollection;
 
 
 class MorphTo extends BelongsTo

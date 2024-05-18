@@ -21,14 +21,14 @@ class PackageMigrateCommand extends Command
     use ConfirmableTrait;
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:migrate';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -46,7 +46,7 @@ class PackageMigrateCommand extends Command
 
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param Migrator $migrator
      * @param PackageManager  $package
@@ -60,7 +60,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -100,7 +100,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Run migrations for the specified Package.
+     * Exécutez des migrations pour le package spécifié.
      *
      * @param string $slug
      *
@@ -132,7 +132,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Get migration directory path.
+     * Obtenez le chemin du répertoire de migration.
      *
      * @param string $slug
      *
@@ -148,7 +148,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Prepare the migration database for running.
+     * Préparez la base de données de migration pour son exécution.
      */
     protected function prepareDatabase()
     {
@@ -162,7 +162,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -174,7 +174,7 @@ class PackageMigrateCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

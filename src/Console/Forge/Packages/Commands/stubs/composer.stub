@@ -1,7 +1,7 @@
 {
     "name": "{{lower_package}}",
     "type": "Two-package",
-    "description": "{{name}} is a package for Two Framework",
+    "description": "{{name}} est un package pour Two Framework",
     "license": "{{license}}",
     "authors": [
         {

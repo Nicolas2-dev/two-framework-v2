@@ -16,21 +16,21 @@ use Two\Config\Repository as Config;
 class ConfigPublisher
 {
     /**
-     * The Filesystem instance.
+     * L'instance du système de fichiers.
      *
      * @var \Two\Filesystem\Filesystem
      */
     protected $files;
 
     /**
-     * The Config Repository instance.
+     * L'instance du référentiel de configuration.
      *
      * @var \Two\Config\Repository
      */
     protected $config;
 
     /**
-     * The destination of the config files.
+     * La destination des fichiers de configuration.
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class ConfigPublisher
 
 
     /**
-     * Create a new configuration publisher instance.
+     * Créez une nouvelle instance d'éditeur de configuration.
      *
      * @param  \Two\Filesystem\Filesystem  $files
      * @param  string  $publishPath
@@ -54,7 +54,7 @@ class ConfigPublisher
     }
 
     /**
-     * Publish configuration files from a given path.
+     * Publier les fichiers de configuration à partir d'un chemin donné.
      *
      * @param  string  $package
      * @param  string  $source
@@ -70,7 +70,7 @@ class ConfigPublisher
     }
 
     /**
-     * Publish the configuration files for a package.
+     * Publiez les fichiers de configuration d'un package.
      *
      * @param  string  $package
      * @param  string  $packagePath
@@ -84,7 +84,7 @@ class ConfigPublisher
     }
 
     /**
-     * Get the source configuration directory to publish.
+     * Obtenez le répertoire de configuration source à publier.
      *
      * @param  string  $package
      * @return string
@@ -105,7 +105,7 @@ class ConfigPublisher
     }
 
     /**
-     * Create the destination directory if it doesn't exist.
+     * Créez le répertoire de destination s'il n'existe pas.
      *
      * @param  string  $destination
      * @return void
@@ -118,7 +118,7 @@ class ConfigPublisher
     }
 
     /**
-     * Determine if a given package has already been published.
+     * Déterminez si un package donné a déjà été publié.
      *
      * @param  string  $package
      * @return bool
@@ -131,7 +131,7 @@ class ConfigPublisher
     }
 
     /**
-     * Get the target destination path for the configuration files.
+     * Obtenez le chemin de destination cible pour les fichiers de configuration.
      *
      * @param  string  $package
      * @return string

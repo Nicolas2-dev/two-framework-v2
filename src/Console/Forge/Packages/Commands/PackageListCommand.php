@@ -17,14 +17,14 @@ use Symfony\Component\Console\Input\InputOption;
 class PackageListCommand extends Command
 {
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'package:list';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
@@ -36,14 +36,14 @@ class PackageListCommand extends Command
     protected $packages;
 
     /**
-     * The table headers for the command.
+     * Les en-têtes de tableau pour la commande.
      *
      * @var array
      */
     protected $headers = ['Package', 'Slug', 'Order', 'Location', 'Type', 'Status'];
 
     /**
-     * Create a new command instance.
+     * Créez une nouvelle instance de commande.
      *
      * @param \Two\Packages\PackageManager $package
      */
@@ -55,7 +55,7 @@ class PackageListCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return mixed
      */
@@ -81,7 +81,7 @@ class PackageListCommand extends Command
     }
 
     /**
-     * Get all Packages.
+     * Obtenez tous les forfaits.
      *
      * @return array
      */
@@ -103,7 +103,7 @@ class PackageListCommand extends Command
     }
 
     /**
-     * Returns Package manifest information.
+     * Renvoie les informations du manifeste du package.
      *
      * @param string $package
      *
@@ -132,7 +132,7 @@ class PackageListCommand extends Command
     }
 
     /**
-     * Display the Package information on the console.
+     * Affichez les informations sur le package sur la console.
      *
      * @param array $packages
      */
@@ -142,7 +142,7 @@ class PackageListCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */

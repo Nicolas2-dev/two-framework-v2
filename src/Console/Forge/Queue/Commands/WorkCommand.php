@@ -21,28 +21,28 @@ class WorkCommand extends Command
 {
 
     /**
-     * The console command name.
+     * Le nom de la commande de la console.
      *
      * @var string
      */
     protected $name = 'queue:work';
 
     /**
-     * The console command description.
+     * Description de la commande de la console.
      *
      * @var string
      */
     protected $description = 'Process the next job on a queue';
 
     /**
-     * The queue worker instance.
+     * Instance de travail de file d’attente.
      *
      * @var \Two\Queue\Worker
      */
     protected $worker;
 
     /**
-     * Create a new queue listen command.
+     * Créez une nouvelle commande d'écoute de file d'attente.
      *
      * @param  \Two\Queue\Worker  $worker
      * @return void
@@ -55,7 +55,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Execute the console command.
+     * Exécutez la commande de la console.
      *
      * @return void
      */
@@ -67,28 +67,28 @@ class WorkCommand extends Command
             return;
         }
 
-        // We'll listen to the processed and failed events so we can write information
-        // to the console as jobs are processed, which will let the developer watch
-        // which jobs are coming through a queue and be informed on its progress.
+        // Nous écouterons les événements traités et ayant échoué afin de pouvoir écrire des informations
+        // à la console au fur et à mesure que les tâches sont traitées, ce qui permettra au développeur de surveiller
+        // quels travaux arrivent dans une file d'attente et soyez informé de sa progression.
 
         $this->listenForEvents();
 
-        // Get the Config Repository instance.
+        // Obtenez l'instance du référentiel de configuration.
         $config = $this->container['config'];
 
         $connection = $this->argument('connection') ?: $config->get('queue.default');
 
         $delay = $this->option('delay');
 
-        // The memory limit is the amount of memory we will allow the script to occupy
-        // before killing it and letting a process manager restart it for us, which
-        // is to protect us against any memory leaks that will be in the scripts.
+        // La limite de mémoire est la quantité de mémoire que nous autoriserons le script à occuper
+        // avant de le tuer et de laisser un gestionnaire de processus le redémarrer pour nous, ce qui
+        // est de nous protéger contre les éventuelles fuites de mémoire qui seront dans les scripts.
 
         $memory = $this->option('memory');
 
-        // We need to get the right queue for the connection which is set in the queue
-        // configuration file for the application. We will pull it based on the set
-        // connection being run for the queue operation currently being executed.
+        // Nous devons obtenir la bonne file d'attente pour la connexion qui est définie dans la file d'attente
+        // fichier de configuration de l'application. Nous le tirerons en fonction de l'ensemble
+        // connexion en cours d'exécution pour l'opération de file d'attente en cours d'exécution.
 
         $queue = $this->option('queue') ?: $config->get(
             "queue.connections.{$connection}.queue", 'default'
@@ -98,7 +98,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Listen for the queue events in order to update the console output.
+     * Écoutez les événements de file d'attente afin de mettre à jour la sortie de la console.
      *
      * @return void
      */
@@ -123,7 +123,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Run the worker instance.
+     * Exécutez l'instance de travail.
      *
      * @param  string  $connection
      * @param  string  $queue
@@ -153,7 +153,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Write the status output for the queue worker.
+     * Écrivez la sortie d'état du gestionnaire de file d'attente.
      *
      * @param  \Two\Queue\Job  $job
      * @param  string  $status
@@ -172,7 +172,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Format the status output for the queue worker.
+     * Formatez la sortie d'état du gestionnaire de file d'attente.
      *
      * @param  \Two\Queue\Job  $job
      * @param  string  $status
@@ -189,7 +189,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Determine if the worker should run in maintenance mode.
+     * Déterminez si le travailleur doit s’exécuter en mode maintenance.
      *
      * @return bool
      */
@@ -203,7 +203,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Get the console command arguments.
+     * Obtenez les arguments de la commande de la console.
      *
      * @return array
      */
@@ -215,7 +215,7 @@ class WorkCommand extends Command
     }
 
     /**
-     * Get the console command options.
+     * Obtenez les options de commande de la console.
      *
      * @return array
      */
