@@ -10,7 +10,7 @@ namespace Two\Console\Scheduling;
 use Two\Console\Scheduling\Schedule;
 use Two\Console\Scheduling\ScheduleRunCommand;
 use Two\Console\Scheduling\ScheduleFinishCommand;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class ScheduleServiceProvider extends ServiceProvider

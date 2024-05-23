@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Routing;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Routing\Commands\RouteListCommand;
 use Two\Console\Forge\Routing\Commands\ControllerMakeCommand;
 use Two\Console\Forge\Routing\Commands\MiddlewareMakeCommand;

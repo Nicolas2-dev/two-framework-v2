@@ -36,7 +36,7 @@ trait GuardHelpersTrait
      *
      * @return \Two\Auth\Contracts\UserInterface
      *
-     * @throws \Two\Auth\Execption\AuthenticationException
+     * @throws \Two\Auth\Exception\AuthenticationException
      */
     public function authenticate()
     {

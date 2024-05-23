@@ -12,7 +12,8 @@ use Exception;
 use Throwable;
 
 use Two\Http\Request;
-use Two\TwoApplication\Pipeline as BasePipeline;
+
+use Two\Application\Pipeline as BasePipeline;
 use Two\Exceptions\Exception\FatalThrowableError;
 use Two\Exceptions\Contracts\HandlerInterface as ExceptionHandler;
 

@@ -10,17 +10,17 @@ namespace Two\Packages;
 use Exception;
 use LogicException;
 
-use Two\TwoApplication\TwoApplication;
-use Two\Packages\Exception\ProviderMissingException;
-use Two\Packages\Repository;
 use Two\Support\Arr;
 use Two\Support\Str;
+use Two\Application\Two;
+use Two\Packages\Repository;
+use Two\Packages\Exception\ProviderMissingException;
 
 
 class PackageManager
 {
     /**
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -33,9 +33,9 @@ class PackageManager
     /**
      * Créez une nouvelle instance du gestionnaire de packages.
      *
-     * @param Application $app
+     * @param \Two\Application\Two $app
      */
-    public function __construct(TwoApplication $app, Repository $repository)
+    public function __construct(Two $app, Repository $repository)
     {
         $this->app = $app;
 

@@ -7,7 +7,7 @@
  */
 namespace Two\Support;
 
-use Two\TwoApplication\Contracts\HtmlableInterface;
+use Two\Application\Contracts\HtmlableInterface;
 
 
 class HtmlString implements HtmlableInterface

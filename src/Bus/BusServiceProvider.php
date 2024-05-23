@@ -7,7 +7,7 @@
  */
 namespace Two\Bus;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class BusServiceProvider extends ServiceProvider

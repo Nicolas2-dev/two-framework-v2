@@ -11,7 +11,7 @@ namespace Two\Auth\Contracts;
 interface UserProviderInterface
 {
     /**
-     * Récupérez un utilisateur par son identifiant unique.
+     * Retrieve a user by their unique identifier.
      *
      * @param  mixed  $identifier
      * @return \Two\Auth\Contracts\UserInterface|null
@@ -19,7 +19,7 @@ interface UserProviderInterface
     public function retrieveById($identifier);
 
     /**
-     * Récupérez un utilisateur grâce à son identifiant unique et son jeton « se souvenir de moi ».
+     * Retrieve a user by by their unique identifier and "remember me" token.
      *
      * @param  mixed   $identifier
      * @param  string  $token
@@ -28,7 +28,7 @@ interface UserProviderInterface
     public function retrieveByToken($identifier, $token);
 
     /**
-     * Mettez à jour le jeton « Se souvenir de moi » pour l'utilisateur donné dans le stockage.
+     * Update the "remember me" token for the given user in storage.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $token
@@ -37,7 +37,7 @@ interface UserProviderInterface
     public function updateRememberToken(UserInterface $user, $token);
 
     /**
-     * Récupérez un utilisateur à l'aide des informations d'identification fournies.
+     * Retrieve a user by the given credentials.
      *
      * @param  array  $credentials
      * @return \Two\Auth\Contracts\UserInterface|null
@@ -45,7 +45,7 @@ interface UserProviderInterface
     public function retrieveByCredentials(array $credentials);
 
     /**
-     * Validez un utilisateur par rapport aux informations d'identification fournies.
+     * Validate a user against the given credentials.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  array  $credentials

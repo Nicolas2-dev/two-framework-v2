@@ -16,7 +16,7 @@ use Two\Container\Container;
 use InvalidArgumentException;
 use Two\View\Engines\EngineResolver;
 use Two\View\Contracts\ViewFinderInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface as Arrayable;
+use Two\Application\Contracts\ArrayableInterface as Arrayable;
 
 
 class Factory

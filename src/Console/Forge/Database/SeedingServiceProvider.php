@@ -8,7 +8,7 @@
 namespace Two\Console\Forge\Database;
 
 use Two\Database\Seeder;
-use Two\TwoApplication\Providers\ServiceProvider;
+use \Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Database\Commands\Seeds\SeedCommand;
 use Two\Console\Forge\Database\Commands\Seeds\SeederMakeCommand;
 

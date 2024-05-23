@@ -8,7 +8,7 @@
 namespace Two\Http;
 
 use Two\Http\ResponseTrait;
-use Two\TwoApplication\Contracts\JsonableInterface;
+use Two\Application\Contracts\JsonableInterface;
 
 use Symfony\Component\HttpFoundation\JsonResponse as SymfonyJsonResponse;
 

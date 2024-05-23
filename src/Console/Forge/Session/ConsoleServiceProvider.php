@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Session;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Session\Commands\SessionTableCommand;
 
 

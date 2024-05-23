@@ -8,8 +8,8 @@
 namespace Two\Validation\Traits;
 
 use Two\Validation\Validator;
-use Two\Validation\Execption\ValidationException;
-use Two\Validation\Execption\UnAuthorizedException;
+use Two\Validation\Exception\ValidationException;
+use Two\Validation\Exception\UnAuthorizedException;
 
 
 /**

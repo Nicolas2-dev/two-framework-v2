@@ -8,7 +8,8 @@
 namespace Two\Cookie;
 
 use Two\Cookie\CookieJar;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class CookieServiceProvider extends ServiceProvider

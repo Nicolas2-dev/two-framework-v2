@@ -11,7 +11,7 @@ use Two\Mail\Transport\LogTransport;
 use Two\Mail\Transport\MailgunTransport;
 use Two\Mail\Transport\MandrillTransport;
 use Two\Mail\Transport\SesTransport;
-use Two\Support\Manager;
+use Two\Application\Manager;
 
 use Aws\Ses\SesClient;
 

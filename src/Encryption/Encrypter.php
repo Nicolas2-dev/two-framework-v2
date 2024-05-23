@@ -10,8 +10,8 @@ namespace Two\Encryption;
 use RuntimeException;
 
 use Two\Support\Str;
-use Two\Encryption\Execption\EncryptException;
-use Two\Encryption\Execption\DecryptException;
+use Two\Encryption\Exception\EncryptException;
+use Two\Encryption\Exception\DecryptException;
 
 
 class Encrypter
@@ -73,7 +73,7 @@ class Encrypter
      * @param  string $value
      * @return string
      *
-     * @throws \Two\Encryption\Execption\EncryptException
+     * @throws \Two\Encryption\Exception\EncryptException
      */
     public function encrypt($value)
     {
@@ -96,7 +96,7 @@ class Encrypter
      * @param  string $payload
      * @return string
      *
-     * @throws \Two\Encryption\Execption\DecryptException
+     * @throws \Two\Encryption\Exception\DecryptException
      */
     public function decrypt($payload)
     {
@@ -141,7 +141,7 @@ class Encrypter
      * @param  string $payload
      * @return array
      *
-     * @throws \Two\Encryption\Execption\DecryptException
+     * @throws \Two\Encryption\Exception\DecryptException
      */
     protected function getJsonPayload($payload)
     {

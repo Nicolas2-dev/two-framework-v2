@@ -30,7 +30,7 @@ trait HandlesAuthorizationTrait
      * @param  string  $message
      * @return void
      *
-     * @throws \Two\Auth\Execption\UnauthorizedException
+     * @throws \Two\Auth\Exception\UnauthorizedException
      */
     protected function deny($message = null)
     {

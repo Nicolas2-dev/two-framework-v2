@@ -11,7 +11,7 @@ use Closure;
 use RuntimeException;
 
 use Two\Container\Container;
-use Two\TwoApplication\Pipeline;
+use Two\Application\Pipeline;
 use Two\Queue\contracts\QueueInterface;
 use Two\Queue\Contracts\ShouldQueueInterface;
 use Two\Bus\Contracts\QueueingDispatcherInterface;

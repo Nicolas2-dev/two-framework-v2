@@ -2,7 +2,7 @@
 
 namespace {{namespace}};
 
-use Two\TwoApplication\Http\FormRequest;
+use Two\Application\Http\FormRequest;
 
 
 class {{className}} extends FormRequest

@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Packages;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Packages\Commands\JobMakeCommand;
 use Two\Console\Forge\Packages\Commands\EventMakeCommand;
 use Two\Console\Forge\Packages\Commands\ModelMakeCommand;

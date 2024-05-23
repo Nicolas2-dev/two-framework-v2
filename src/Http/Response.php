@@ -11,8 +11,8 @@ use ArrayObject;
 use Exception;
 
 use Two\Http\ResponseTrait;
-use Two\TwoApplication\Contracts\JsonableInterface;
-use Two\TwoApplication\Contracts\RenderableInterface;
+use Two\Application\Contracts\JsonableInterface;
+use Two\Application\Contracts\RenderableInterface;
 
 use Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 

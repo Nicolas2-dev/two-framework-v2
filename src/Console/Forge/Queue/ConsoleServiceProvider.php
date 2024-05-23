@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Queue;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Queue\Commands\RetryCommand;
 use Two\Console\Forge\Queue\Commands\TableCommand;
 use Two\Console\Forge\Queue\Commands\ListFailedCommand;

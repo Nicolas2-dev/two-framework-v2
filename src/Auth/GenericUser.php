@@ -8,13 +8,13 @@
 namespace Two\Auth;
 
 use Two\Auth\Contracts\UserInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class GenericUser implements UserInterface, ArrayableInterface
 {
     /**
-     * Tous les attributs de l'utilisateur.
+     * All of the user's attributes.
      *
      * @var array
      */
@@ -22,7 +22,7 @@ class GenericUser implements UserInterface, ArrayableInterface
 
 
     /**
-     * Créez un nouvel objet utilisateur générique.
+     * Create a new generic User object.
      *
      * @param  array  $attributes
      * @return void
@@ -33,7 +33,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Convertissez l'instance de modèle en tableau.
+     * Convert the Model instance to an array.
      *
      * @return array
      */
@@ -43,7 +43,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Obtenez l'identifiant unique de l'utilisateur.
+     * Get the unique identifier for the user.
      *
      * @return mixed
      */
@@ -53,7 +53,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Obtenez le mot de passe de l'utilisateur.
+     * Get the password for the user.
      *
      * @return string
      */
@@ -63,7 +63,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Obtenez la valeur du jeton pour la session « Se souvenir de moi ».
+     * Get the token value for the "remember me" session.
      *
      * @return string
      */
@@ -75,7 +75,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Définissez la valeur du jeton pour la session « Se souvenir de moi ».
+     * Set the token value for the "remember me" session.
      *
      * @param  string  $value
      * @return void
@@ -88,7 +88,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Obtenez le nom de colonne pour le jeton « se souvenir de moi ».
+     * Get the column name for the "remember me" token.
      *
      * @return string
      */
@@ -98,7 +98,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Accédez dynamiquement aux attributs de l'utilisateur.
+     * Dynamically access the user's attributes.
      *
      * @param  string  $key
      * @return mixed
@@ -111,7 +111,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Définissez dynamiquement un attribut sur l'utilisateur.
+     * Dynamically set an attribute on the user.
      *
      * @param  string  $key
      * @param  mixed   $value
@@ -123,7 +123,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Vérifiez dynamiquement si une valeur est définie sur l'utilisateur.
+     * Dynamically check if a value is set on the user.
      *
      * @param  string  $key
      * @return bool
@@ -134,7 +134,7 @@ class GenericUser implements UserInterface, ArrayableInterface
     }
 
     /**
-     * Désactivez dynamiquement une valeur sur l'utilisateur.
+     * Dynamically unset a value on the user.
      *
      * @param  string  $key
      * @return void

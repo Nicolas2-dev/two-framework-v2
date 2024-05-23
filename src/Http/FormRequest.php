@@ -189,7 +189,7 @@ class FormRequest extends Request implements ValidatesWhenResolved
      * Définissez l'instance du redirecteur.
      *
      * @param  \Two\Routing\Redirector  $redirector
-     * @return \Two\TwoApplication\Http\FormRequest
+     * @return \Two\Application\Http\FormRequest
      */
     public function setRedirector(Redirector $redirector)
     {

@@ -7,8 +7,6 @@
  */
 namespace Two\Auth;
 
-use RuntimeException;
-
 use Two\Cookie\CookieJar;
 use Two\Events\Dispatcher;
 use Two\Auth\Contracts\UserInterface;
@@ -26,65 +24,65 @@ class SessionGuard implements GuardInterface
     use GuardHelpersTrait;
 
     /**
-     * Le nom de la Garde. Généralement « session ».
+     * The name of the Guard. Typically "session".
      *
-     * Correspond au nom du pilote dans la configuration d'authentification.
+     * Corresponds to driver name in authentication configuration.
      *
      * @var string
      */
     protected $name;
 
     /**
-     * L'utilisateur que nous avons tenté de récupérer pour la dernière fois.
+     * The user we last attempted to retrieve.
      *
      * @var \Two\Auth\Contracts\UserInterface
      */
     protected $lastAttempted;
 
     /**
-     * Indique si l'utilisateur a été authentifié via un cookie de rappel.
+     * Indicates if the user was authenticated via a recaller cookie.
      *
      * @var bool
      */
     protected $viaRemember = false;
 
     /**
-     * Le magasin de sessions utilisé par le gardien.
+     * The session store used by the guard.
      *
      * @var \Two\Session\Store
      */
     protected $session;
 
     /**
-     * Le service de création de deux cookies.
+     * The Two cookie creator service.
      *
      * @var \Two\Cookie\CookieJar
      */
     protected $cookie;
 
     /**
-     * L’instance de requête.
+     * The request instance.
      *
      * @var \Symfony\Component\HttpFoundation\Request
      */
     protected $request;
 
     /**
-     * L'instance du répartiteur d'événements.
+     * The event dispatcher instance.
      *
      * @var \Two\Events\Dispatcher
      */
     protected $events;
 
     /**
-     * Indique si la méthode de déconnexion a été appelée.
+     * Indicates if the logout method has been called.
      *
      * @var bool
      */
     protected $loggedOut = false;
 
     /**
-     * Indique si une récupération de jeton utilisateur a été tentée.
+     * Indicates if a token user retrieval has been attempted.
      *
      * @var bool
      */
@@ -92,7 +90,7 @@ class SessionGuard implements GuardInterface
 
 
     /**
-     * Créez un nouveau garde d'authentification.
+     * Create a new authentication guard.
      *
      * @param  \Two\Auth\Contracts\UserProviderInterface  $provider
      * @param  \Two\Session\Store  $session
@@ -112,7 +110,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l'utilisateur actuellement authentifié.
+     * Get the currently authenticated user.
      *
      * @return \Two\Auth\Contracts\UserInterface|null
      */
@@ -122,27 +120,27 @@ class SessionGuard implements GuardInterface
             return;
         }
 
-        // Si nous avons déjà récupéré l'utilisateur pour la requête en cours, nous pouvons simplement
-        // le renvoie immédiatement. Nous ne voulons pas extraire les données utilisateur à chaque fois.
-        // requête dans la méthode car cela ralentirait considérablement une application.
+        // If we have already retrieved the user for the current request we can just
+        // return it back immediately. We do not want to pull the user data every
+        // request into the method because that would tremendously slow an app.
         if (! is_null($this->user)) {
             return $this->user;
         }
 
         $id = $this->session->get($this->getName());
 
-        // Nous allons d'abord essayer de charger l'utilisateur en utilisant l'identifiant dans la session si
-        // il en existe un. Sinon, nous rechercherons un cookie "se souvenir de moi" dans ce
-        // demande, et s'il en existe une, tente de récupérer l'utilisateur en l'utilisant.
+        // First we will try to load the user using the identifier in the session if
+        // one exists. Otherwise we will check for a "remember me" cookie in this
+        // request, and if one exists, attempt to retrieve the user using that.
         $user = null;
 
         if (! is_null($id)) {
             $user = $this->provider->retrieveByID($id);
         }
 
-        // Si l'utilisateur est nul, mais que nous déchiffrons un cookie "rappelant", nous pouvons tenter de
-        // récupère les données utilisateur sur ce cookie qui sert de cookie de mémorisation sur
-        // L'application. Une fois que nous avons un utilisateur, nous pouvons le renvoyer à l'appelant.
+        // If the user is null, but we decrypt a "recaller" cookie we can attempt to
+        // pull the user data on that cookie which serves as a remember cookie on
+        // the application. Once we have a user we can return it to the caller.
         $recaller = $this->getRecaller();
 
         if (is_null($user) && ! is_null($recaller)) {
@@ -153,7 +151,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l'ID de l'utilisateur actuellement authentifié.
+     * Get the ID for the currently authenticated user.
      *
      * @return int|null
      */
@@ -173,7 +171,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Validez les informations d'identification d'un utilisateur.
+     * Validate a user's credentials.
      *
      * @param  array  $credentials
      * @return bool
@@ -184,7 +182,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Extrayez un utilisateur du référentiel par son ID de rappel.
+     * Pull a user from the repository by its recaller ID.
      *
      * @param  string  $recaller
      * @return mixed
@@ -203,7 +201,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le cookie de rappel déchiffré pour la demande.
+     * Get the decrypted recaller cookie for the request.
      *
      * @return string|null
      */
@@ -215,7 +213,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l'ID utilisateur du cookie de rappel.
+     * Get the user ID from the recaller cookie.
      *
      * @return string
      */
@@ -229,7 +227,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Déterminez si le cookie de rappel est dans un format valide.
+     * Determine if the recaller cookie is in a valid format.
      *
      * @param  string  $recaller
      * @return bool
@@ -246,7 +244,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Connectez un utilisateur à l'application sans sessions ni cookies.
+     * Log a user into the application without sessions or cookies.
      *
      * @param  array  $credentials
      * @return bool
@@ -263,7 +261,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Essayez de vous authentifier à l'aide de HTTP Basic Auth.
+     * Attempt to authenticate using HTTP Basic Auth.
      *
      * @param  string  $field
      * @param  \Symfony\Component\HttpFoundation\Request  $request
@@ -277,9 +275,9 @@ class SessionGuard implements GuardInterface
 
         $request = $request ?: $this->getRequest();
 
-        // Si un nom d'utilisateur est défini sur la requête HTTP de base, nous reviendrons sans
-        // interrompant le cycle de vie de la requête. Sinon, nous devrons générer un
-        // requête indiquant que les informations d'identification fournies n'étaient pas valides pour la connexion.
+        // If a username is set on the HTTP basic request, we will return out without
+        // interrupting the request lifecycle. Otherwise, we'll need to generate a
+        // request indicating that the given credentials were invalid for login.
         if ($this->attemptBasic($request, $field)) {
             return;
         }
@@ -288,7 +286,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Effectuez une tentative de connexion HTTP Basic sans état.
+     * Perform a stateless HTTP Basic login attempt.
      *
      * @param  string  $field
      * @param  \Symfony\Component\HttpFoundation\Request  $request
@@ -304,7 +302,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Essayez de vous authentifier à l'aide de l'authentification de base.
+     * Attempt to authenticate using basic authentication.
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  string  $field
@@ -320,7 +318,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le tableau d’informations d’identification pour une requête HTTP Basic.
+     * Get the credential array for a HTTP Basic request.
      *
      * @param  \Symfony\Component\HttpFoundation\Request  $request
      * @param  string  $field
@@ -332,7 +330,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez la réponse pour l’authentification de base.
+     * Get the response for basic authentication.
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -344,7 +342,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Tentative d'authentifier un utilisateur à l'aide des informations d'identification fournies.
+     * Attempt to authenticate a user using the given credentials.
      *
      * @param  array  $credentials
      * @param  bool   $remember
@@ -357,9 +355,9 @@ class SessionGuard implements GuardInterface
 
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
-        // Si une implémentation de UserInterface a été renvoyée, nous demanderons au fournisseur
-        // pour valider l'utilisateur par rapport aux informations d'identification données, et s'il est dans
-        // fait valide, nous connecterons les utilisateurs à l'application et retournerons vrai.
+        // If an implementation of UserInterface was returned, we'll ask the provider
+        // to validate the user against the given credentials, and if they are in
+        // fact valid we'll log the users into the application and return true.
         if (! $this->hasValidCredentials($user, $credentials)) {
             return false;
         }
@@ -372,7 +370,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Déterminez si l'utilisateur correspond aux informations d'identification.
+     * Determine if the user matches the credentials.
      *
      * @param  mixed  $user
      * @param  array  $credentials
@@ -384,7 +382,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Déclenchez l'événement de tentative avec les arguments.
+     * Fire the attempt event with the arguments.
      *
      * @param  array  $credentials
      * @param  bool   $remember
@@ -401,7 +399,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Enregistrez un écouteur d’événement de tentative d’authentification.
+     * Register an authentication attempt event listener.
      *
      * @param  mixed  $callback
      * @return void
@@ -414,7 +412,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Connectez un utilisateur à l'application.
+     * Log a user into the application.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  bool  $remember
@@ -424,18 +422,18 @@ class SessionGuard implements GuardInterface
     {
         $this->updateSession($user->getAuthIdentifier());
 
-        // Si l'utilisateur doit être "mémorisé" en permanence par l'application, nous le ferons
-        // met en file d'attente un cookie permanent qui contient la copie cryptée de l'utilisateur
-        // identifiant. Nous le décrypterons ensuite plus tard pour récupérer les utilisateurs.
+        // If the user should be permanently "remembered" by the application we will
+        // queue a permanent cookie that contains the encrypted copy of the user
+        // identifier. We will then decrypt this later to retrieve the users.
         if ($remember) {
             $this->createRememberTokenIfDoesntExist($user);
 
             $this->queueRecallerCookie($user);
         }
 
-        // Si nous avons une instance de répartiteur d'événements définie, nous déclencherons un événement afin que
-        // tous les auditeurs se connecteront aux événements d'authentification et exécuteront des actions
-        // basé sur les événements de connexion et de déconnexion déclenchés par les instances de garde.
+        // If we have an event dispatcher instance set we will fire an event so that
+        // any listeners will hook into the authentication events and run actions
+        // based on the login and logout events fired from the guard instances.
         if (isset($this->events)) {
             $this->events->dispatch('auth.login', array($user, $remember));
         }
@@ -444,7 +442,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Mettez à jour la session avec l'ID donné.
+     * Update the session with the given ID.
      *
      * @param  string  $id
      * @return void
@@ -457,7 +455,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Connectez-vous à l'ID utilisateur donné dans l'application.
+     * Log the given user ID into the application.
      *
      * @param  mixed  $id
      * @param  bool   $remember
@@ -475,7 +473,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Connectez-vous à l'ID utilisateur donné dans l'application sans sessions ni cookies.
+     * Log the given user ID into the application without sessions or cookies.
      *
      * @param  mixed  $id
      * @return bool
@@ -490,7 +488,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Mettez le cookie de rappel en file d'attente dans le pot à biscuits.
+     * Queue the recaller cookie into the cookie jar.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @return void
@@ -505,7 +503,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Créez un cookie Remember Me pour un identifiant donné.
+     * Create a remember me cookie for a given ID.
      *
      * @param  string  $value
      * @return \Symfony\Component\HttpFoundation\Cookie
@@ -518,7 +516,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Déconnectez l’utilisateur de l’application.
+     * Log the user out of the application.
      *
      * @return void
      */
@@ -526,9 +524,9 @@ class SessionGuard implements GuardInterface
     {
         $user = $this->user();
 
-        // Si nous avons une instance de répartiteur d'événements, nous pouvons déclencher l'événement de déconnexion
-        // afin que tout traitement ultérieur puisse être effectué. Cela permet au développeur d'être
-        // écoute à chaque fois qu'un utilisateur se déconnecte manuellement de cette application.
+        // If we have an event dispatcher instance, we can fire off the logout event
+        // so any further processing can be done. This allows the developer to be
+        // listening for anytime a user signs out of this application manually.
         $this->clearUserDataFromStorage();
 
         if (! is_null($this->user)) {
@@ -539,16 +537,16 @@ class SessionGuard implements GuardInterface
             $this->events->dispatch('auth.logout', array($user));
         }
 
-        // Une fois que nous aurons déclenché l'événement de déconnexion, nous effacerons la mémoire des utilisateurs.
-        // ils ne sont donc plus disponibles car l'utilisateur n'est plus considéré comme
-        // étant connecté à cette application et ne devrait pas être disponible ici.
+        // Once we have fired the logout event we will clear the users out of memory
+        // so they are no longer available as the user is no longer considered as
+        // being signed into this application and should not be available here.
         $this->user = null;
 
         $this->loggedOut = true;
     }
 
     /**
-     * Supprimez les données utilisateur de la session et des cookies.
+     * Remove the user data from the session and cookies.
      *
      * @return void
      */
@@ -562,7 +560,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Actualisez le jeton de mémorisation pour l'utilisateur.
+     * Refresh the remember token for the user.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @return void
@@ -575,7 +573,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Créez un nouveau jeton de mémorisation pour l'utilisateur s'il n'en existe pas déjà un.
+     * Create a new remember token for the user if one doesn't already exist.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @return void
@@ -590,7 +588,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l'instance de créateur de cookie utilisée par le gardien.
+     * Get the cookie creator instance used by the guard.
      *
      * @return \Two\Cookie\CookieJar
      *
@@ -599,14 +597,14 @@ class SessionGuard implements GuardInterface
     public function getCookieJar()
     {
         if (! isset($this->cookie)) {
-            throw new RuntimeException("Cookie jar has not been set.");
+            throw new \RuntimeException("Cookie jar has not been set.");
         }
 
         return $this->cookie;
     }
 
     /**
-     * Définissez l'instance de créateur de cookie utilisée par le gardien.
+     * Set the cookie creator instance used by the guard.
      *
      * @param  \Two\Cookie\CookieJar  $cookie
      * @return void
@@ -617,7 +615,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l’instance du répartiteur d’événements.
+     * Get the event dispatcher instance.
      *
      * @return \Two\Events\Dispatcher
      */
@@ -627,7 +625,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Définissez l’instance du répartiteur d’événements.
+     * Set the event dispatcher instance.
      *
      * @param  \Two\Events\Dispatcher
      * @return void
@@ -638,7 +636,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le magasin de sessions utilisé par le garde.
+     * Get the session store used by the guard.
      *
      * @return \Two\Session\Store
      */
@@ -648,7 +646,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le fournisseur d'utilisateurs utilisé par le gardien.
+     * Get the user provider used by the guard.
      *
      * @return \Two\Auth\Contracts\UserProviderInterface
      */
@@ -658,7 +656,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Définissez le fournisseur d'utilisateurs utilisé par le gardien.
+     * Set the user provider used by the guard.
      *
      * @param  \Two\Auth\Contracts\UserProviderInterface  $provider
      * @return void
@@ -669,7 +667,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Renvoie l'utilisateur actuellement mis en cache de l'application.
+     * Return the currently cached user of the application.
      *
      * @return \Two\Auth\Contracts\UserInterface|null
      */
@@ -679,7 +677,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Définissez l'utilisateur actuel de l'application.
+     * Set the current user of the application.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @return void
@@ -694,7 +692,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l’instance de requête actuelle.
+     * Get the current request instance.
      *
      * @return \Symfony\Component\HttpFoundation\Request
      */
@@ -704,7 +702,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Définissez l’instance de requête actuelle.
+     * Set the current request instance.
      *
      * @param  \Symfony\Component\HttpFoundation\Request
      * @return $this
@@ -717,7 +715,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le dernier utilisateur que nous avons tenté de nous authentifier.
+     * Get the last user we attempted to authenticate.
      *
      * @return \Two\Auth\Contracts\UserInterface
      */
@@ -727,7 +725,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez un identifiant unique pour la valeur de la session d'authentification.
+     * Get a unique identifier for the auth session value.
      *
      * @return string
      */
@@ -737,7 +735,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le nom du cookie utilisé pour stocker le « rappel ».
+     * Get the name of the cookie used to store the "recaller".
      *
      * @return string
      */
@@ -747,7 +745,7 @@ class SessionGuard implements GuardInterface
     }
 
     /**
-     * Déterminez si l'utilisateur a été authentifié via le cookie « se souvenir de moi ».
+     * Determine if the user was authenticated via "remember me" cookie.
      *
      * @return bool
      */

@@ -7,48 +7,49 @@
  */
 namespace Two\Auth;
 
-use Closure;
-use InvalidArgumentException;
-
-use Two\Auth\TokenGuard;
+use Two\Auth\DatabaseUserProvider;
+use Two\Auth\ExtendedUserProvider;
 use Two\Auth\RequestGuard;
 use Two\Auth\SessionGuard;
-use Two\Auth\DatabaseUserProvider;
-use Two\TwoApplication\TwoApplication;
+use Two\Auth\TokenGuard;
+use Two\Application\Two;
+
+use Closure;
+use InvalidArgumentException;
 
 
 class AuthManager
 {
     /**
-     * L'instance d'application.
+     * The application instance.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two;
      */
     protected $app;
 
     /**
-     * Les créateurs de pilotes personnalisés enregistrés.
+     * The registered custom driver creators.
      *
      * @var array
      */
     protected $customCreators = array();
 
     /**
-     * Les créateurs de fournisseurs personnalisés enregistrés.
+     * The registered custom provider creators.
      *
      * @var array
      */
     protected $customProviderCreators = array();
 
     /**
-     * Le tableau des "pilotes" créés.
+     * The array of created "drivers".
      *
      * @var array
      */
     protected $guards = array();
 
     /**
-     * Le résolveur utilisateur partagé par divers services.
+     * The user resolver shared by various services.
      *
      * Determines the default user for Request, and the UserInterface.
      *
@@ -58,12 +59,12 @@ class AuthManager
 
 
     /**
-     * Créez une nouvelle instance de gestionnaire.
+     * Create a new manager instance.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two;  $app
      * @return void
      */
-    public function __construct(TwoApplication $app)
+    public function __construct(Two $app)
     {
         $this->app = $app;
 
@@ -74,7 +75,7 @@ class AuthManager
     }
 
     /**
-     * Essayez d'obtenir le garde de la cache locale.
+     * Attempt to get the guard from the local cache.
      *
      * @param  string  $name
      * @return \Two\Auth\Guard
@@ -91,7 +92,7 @@ class AuthManager
     }
 
     /**
-     * Résolvez le garde donné.
+     * Resolve the given guard.
      *
      * @param  string  $name
      * @return \Two\Auth\Guard
@@ -120,7 +121,7 @@ class AuthManager
     }
 
     /**
-     * Appelez un créateur de pilotes personnalisés.
+     * Call a custom driver creator.
      *
      * @param  string  $name
      * @param  array  $config
@@ -146,9 +147,9 @@ class AuthManager
 
         $guard = new SessionGuard($name, $provider, $this->app['session.store']);
 
-        // Lorsque vous utilisez la fonctionnalité Se souvenir de moi des services d'authentification, nous
-        // il faudra définir l'instance de chiffrement du garde, ce qui permet
-        // Valeurs de cookies sécurisées et cryptées à générer pour ces cookies.
+        // When using the remember me functionality of the authentication services we
+        // will need to be set the encryption instance of the guard, which allows
+        // secure, encrypted cookie values to get generated for those cookies.
         if (method_exists($guard, 'setCookieJar')) {
             $guard->setCookieJar($this->app['cookie']);
         }
@@ -165,7 +166,7 @@ class AuthManager
     }
 
     /**
-     * Créez un garde d'authentification basé sur un jeton.
+     * Create a token based authentication guard.
      *
      * @param  string  $name
      * @param  array  $config
@@ -173,9 +174,9 @@ class AuthManager
      */
     public function createTokenDriver($name, $config)
     {
-        // Le token guard implémente une implémentation de base de la garde basée sur un jeton API
-        // qui prend un champ de jeton API de la requête et le fait correspondre au
-        // utilisateur dans la base de données ou dans une autre couche de persistance où se trouvent les utilisateurs.
+        // The token guard implements a basic API token based guard implementation
+        // that takes an API token field from the request and matches it to the
+        // user in the database or another persistence layer where users are.
         $guard = new TokenGuard(
             $this->createUserProvider($config['provider']),
             $this->app['request']
@@ -187,7 +188,7 @@ class AuthManager
     }
 
     /**
-     * Créez l’implémentation du fournisseur d’utilisateurs pour le pilote.
+     * Create the user provider implementation for the driver.
      *
      * @param  string  $provider
      * @return \Two\Auth\Contracts\UserProviderInterface
@@ -198,7 +199,7 @@ class AuthManager
     {
         $config = $this->app['config']["auth.providers.{$provider}"];
 
-        // Récupérez le pilote de la configuration.
+        // Retrieve the driver from configuration.
         $driver = $config['driver'];
 
         if (isset($this->customProviderCreators[$driver])) {
@@ -222,7 +223,7 @@ class AuthManager
     }
 
     /**
-     * Créez une instance du fournisseur d'utilisateurs de base de données.
+     * Create an instance of the database user provider.
      *
      * @return \Two\Auth\DatabaseUserProvider
      */
@@ -234,7 +235,17 @@ class AuthManager
     }
 
     /**
-     * Obtenez la configuration de la garde.
+     * Create an instance of the Extended user provider.
+     *
+     * @return \Two\Auth\ExtendedUserProvider
+     */
+    protected function createExtendedProvider(array $config)
+    {
+        return new ExtendedUserProvider($this->app['hash'], $config['model']);
+    }
+
+    /**
+     * Get the guard configuration.
      *
      * @param  string  $name
      * @return array
@@ -245,7 +256,7 @@ class AuthManager
     }
 
     /**
-     * Obtenez le nom du pilote d'authentification par défaut.
+     * Get the default authentication driver name.
      *
      * @return string
      */
@@ -255,7 +266,7 @@ class AuthManager
     }
 
     /**
-     * Définissez le pilote de garde par défaut que l'usine doit servir.
+     * Set the default guard driver the factory should serve.
      *
      * @param  string  $name
      * @return void
@@ -271,7 +282,7 @@ class AuthManager
     }
 
     /**
-     * Définissez le nom du pilote d'authentification par défaut.
+     * Set the default authentication driver name.
      *
      * @param  string  $name
      * @return void
@@ -282,7 +293,7 @@ class AuthManager
     }
 
     /**
-     * Enregistrez un nouveau garde de demande basé sur le rappel.
+     * Register a new callback based request guard.
      *
      * @param  string  $driver
      * @param  callable  $callback
@@ -301,7 +312,7 @@ class AuthManager
     }
 
     /**
-     * Obtenez le rappel du résolveur utilisateur.
+     * Get the user resolver callback.
      *
      * @return \Closure
      */
@@ -311,7 +322,7 @@ class AuthManager
     }
 
     /**
-     * Définissez le rappel à utiliser pour résoudre les utilisateurs.
+     * Set the callback to be used to resolve users.
      *
      * @param  \Closure  $userResolver
      * @return $this
@@ -324,7 +335,7 @@ class AuthManager
     }
 
     /**
-     * Enregistrez un créateur de pilote personnalisé Closure.
+     * Register a custom driver creator Closure.
      *
      * @param  string  $driver
      * @param  \Closure  $callback
@@ -338,7 +349,7 @@ class AuthManager
     }
 
     /**
-     * Enregistrez un créateur de fournisseur personnalisé. Fermeture.
+     * Register a custom provider creator Closure.
      *
      * @param  string  $name
      * @param  \Closure  $callback
@@ -352,7 +363,7 @@ class AuthManager
     }
 
     /**
-     * Appelez dynamiquement l’instance de pilote par défaut.
+     * Dynamically call the default driver instance.
      *
      * @param  string  $method
      * @param  array  $parameters

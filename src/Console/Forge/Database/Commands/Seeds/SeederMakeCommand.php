@@ -9,7 +9,7 @@ namespace Two\Console\Forge\Database\Commands\Seeds;
 
 use Two\Console\Commands\GeneratorCommand;
 use Two\Filesystem\Filesystem;
-use Two\TwoApplication\Composer;
+use Two\Application\Composer;
 
 
 class SeederMakeCommand extends GeneratorCommand

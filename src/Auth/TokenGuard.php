@@ -9,8 +9,8 @@ namespace Two\Auth;
 
 use Two\Http\Request;
 use Two\Auth\Contracts\GuardInterface;
-use Two\Auth\Traits\GuardHelpersTrait;
 use Two\Auth\Contracts\UserProviderInterface;
+use Two\Auth\Traits\GuardHelpersTrait;
 
 
 class TokenGuard implements GuardInterface
@@ -18,21 +18,21 @@ class TokenGuard implements GuardInterface
     use GuardHelpersTrait;
 
     /**
-     * L’instance de requête.
+     * The request instance.
      *
      * @var \Two\Http\Request
      */
     protected $request;
 
     /**
-     * Le nom du champ sur la requête contenant le jeton API.
+     * The name of the field on the request containing the API token.
      *
      * @var string
      */
     protected $inputKey;
 
     /**
-     * Le nom de la « colonne » du jeton dans le stockage persistant.
+     * The name of the token "column" in persistent storage.
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class TokenGuard implements GuardInterface
 
 
     /**
-     * Créez un nouveau garde d'authentification.
+     * Create a new authentication guard.
      *
      * @param  \Two\Auth\Contracts\UserProviderInterface  $provider
      * @param  \Two\Http\Request  $request
@@ -56,15 +56,15 @@ class TokenGuard implements GuardInterface
     }
 
     /**
-     * Obtenez l'utilisateur actuellement authentifié.
+     * Get the currently authenticated user.
      *
      * @return \Two\Auth\Contracts\UserInterface|null
      */
     public function user()
     {
-        // Si nous avons déjà récupéré l'utilisateur pour la requête en cours, nous pouvons simplement
-        // le renvoie immédiatement. Nous ne voulons pas récupérer les données utilisateur sur
-        // chaque appel à cette méthode car cela serait extrêmement lent.
+        // If we've already retrieved the user for the current request we can just
+        // return it back immediately. We do not want to fetch the user data on
+        // every call to this method because that would be tremendously slow.
         if (! is_null($this->user)) {
             return $this->user;
         }
@@ -83,7 +83,7 @@ class TokenGuard implements GuardInterface
     }
 
     /**
-     * Obtenez le jeton pour la demande en cours.
+     * Get the token for the current request.
      *
      * @return string
      */
@@ -103,7 +103,7 @@ class TokenGuard implements GuardInterface
     }
 
     /**
-     * Validez les informations d'identification d'un utilisateur.
+     * Validate a user's credentials.
      *
      * @param  array  $credentials
      * @return bool
@@ -124,7 +124,7 @@ class TokenGuard implements GuardInterface
     }
 
     /**
-     * Définissez l’instance de requête actuelle.
+     * Set the current request instance.
      *
      * @param  \Two\Http\Request  $request
      * @return $this

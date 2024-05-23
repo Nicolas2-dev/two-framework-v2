@@ -7,8 +7,10 @@
  */
 namespace Two\Exceptions;
 
+
 use Two\Exceptions\ExceptionHandler;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class ExceptionServiceProvider extends ServiceProvider

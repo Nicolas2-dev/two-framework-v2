@@ -19,7 +19,7 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -47,7 +47,7 @@ class DatabaseManager implements ConnectionResolverInterface
     /**
      * Créez une nouvelle instance de gestionnaire de base de données.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @param  \Two\Database\ConnectionFactory  $factory
      * @return void
      */

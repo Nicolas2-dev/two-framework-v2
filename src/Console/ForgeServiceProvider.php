@@ -33,7 +33,7 @@ use Two\Console\Forge\Publishers\ConfigPublisher;
 use Two\Console\Forge\Two\ClearCompiledCommand;
 use Two\Console\Forge\Two\ConfigPublishCommand;
 use Two\Console\Forge\Two\VendorPublishCommand;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class ForgeServiceProvider extends ServiceProvider

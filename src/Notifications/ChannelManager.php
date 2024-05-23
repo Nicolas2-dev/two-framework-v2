@@ -9,8 +9,8 @@ namespace Two\Notifications;
 
 use InvalidArgumentException;
 
-use Two\Support\Manager;
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Manager;
+use Two\Application\Two;
 use Two\Bus\Dispatcher as BusDispatcher;
 use Two\Notifications\NotificationSender;
 use Two\Notifications\Channels\MailChannel;
@@ -40,12 +40,12 @@ class ChannelManager extends Manager implements DispatcherInterface
     /**
      * Créez une nouvelle instance de gestionnaire.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @param  \Two\Events\Dispatcher  $events
      * @param  \Two\Bus\Dispatcher  $bus
      * @return void
      */
-    public function __construct(TwoApplication $app, EventDispatcher $events, BusDispatcher $bus)
+    public function __construct(Two $app, EventDispatcher $events, BusDispatcher $bus)
     {
         $this->app = $app;
 

@@ -8,7 +8,8 @@
 namespace Two\Hashing;
 
 use Two\Hashing\BcryptHasher;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class HashServiceProvider extends ServiceProvider

@@ -10,7 +10,7 @@ namespace Two\Localization;
 use Two\Support\Arr;
 use Two\Support\Str;
 use Two\Localization\Language;
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Two;
 
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
@@ -23,7 +23,7 @@ class LanguageManager
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -59,10 +59,10 @@ class LanguageManager
     /**
      * Créez une nouvelle instance de Language Manager.
      *
-     * @param  \Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
-    function __construct(TwoApplication $app, $locale)
+    function __construct(Two $app, $locale)
     {
         $this->app = $app;
 

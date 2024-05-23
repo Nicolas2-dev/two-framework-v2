@@ -38,7 +38,7 @@ class Repository
     /**
      * Créez une nouvelle instance du gestionnaire de packages.
      *
-     * @param Application $app
+     * @param \Two\Application\Two $app
      */
     public function __construct(Config $config, Filesystem $files)
     {

@@ -45,21 +45,21 @@ class Connection implements ConnectionInterface
     /**
      * L'implémentation de la grammaire des requêtes.
      *
-     * @var \Two\Database\Query\Grammars\Grammar
+     * @var \Two\Database\Query\Grammar
      */
     protected $queryGrammar;
 
     /**
      * L’implémentation de la grammaire du schéma.
      *
-     * @var \Two\Database\Schema\Grammars\Grammar
+     * @var \Two\Database\Schema\Grammar
      */
     protected $schemaGrammar;
 
     /**
      * Implémentation du post-processeur de requête.
      *
-     * @var \Two\Database\Query\Processors\Processor
+     * @var \Two\Database\Query\Processor
      */
     protected $postProcessor;
 
@@ -172,7 +172,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez l'instance de grammaire de requête par défaut.
      *
-     * @return \Two\Database\Query\Grammars\Grammar
+     * @return \Two\Database\Query\Grammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -192,7 +192,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez l'instance de grammaire de schéma par défaut.
      *
-     * @return \Two\Database\Schema\Grammars\Grammar
+     * @return \Two\Database\Schema\Grammar
      */
     protected function getDefaultSchemaGrammar() {}
 
@@ -209,7 +209,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez l'instance de post-processeur par défaut.
      *
-     * @return \Two\Database\Query\Processors\Processor
+     * @return \Two\Database\Query\Processor
      */
     protected function getDefaultPostProcessor()
     {
@@ -910,7 +910,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez la grammaire de requête utilisée par la connexion.
      *
-     * @return \Two\Database\Query\Grammars\Grammar
+     * @return \Two\Database\Query\Grammar
      */
     public function getQueryGrammar()
     {
@@ -920,10 +920,10 @@ class Connection implements ConnectionInterface
     /**
      * Définissez la grammaire de requête utilisée par la connexion.
      *
-     * @param  \Two\Database\Query\Grammars\Grammar
+     * @param  \Two\Database\Query\Grammar
      * @return void
      */
-    public function setQueryGrammar(Query\Grammars\Grammar $grammar)
+    public function setQueryGrammar(Query\Grammar $grammar)
     {
         $this->queryGrammar = $grammar;
     }
@@ -931,7 +931,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez la grammaire du schéma utilisée par la connexion.
      *
-     * @return \Two\Database\Query\Grammars\Grammar
+     * @return \Two\Database\Query\Grammar
      */
     public function getSchemaGrammar()
     {
@@ -941,10 +941,10 @@ class Connection implements ConnectionInterface
     /**
      * Définissez la grammaire du schéma utilisée par la connexion.
      *
-     * @param  \Two\Database\Schema\Grammars\Grammar
+     * @param  \Two\Database\Schema\Grammar
      * @return void
      */
-    public function setSchemaGrammar(Schema\Grammars\Grammar $grammar)
+    public function setSchemaGrammar(Schema\Grammar $grammar)
     {
         $this->schemaGrammar = $grammar;
     }
@@ -952,7 +952,7 @@ class Connection implements ConnectionInterface
     /**
      * Obtenez le post-processeur de requête utilisé par la connexion.
      *
-     * @return \Two\Database\Query\Processors\Processor
+     * @return \Two\Database\Query\Processor
      */
     public function getPostProcessor()
     {
@@ -962,7 +962,7 @@ class Connection implements ConnectionInterface
     /**
      * Définissez le post-processeur de requête utilisé par la connexion.
      *
-     * @param  \Two\Database\Query\Processors\Processor
+     * @param  \Two\Database\Query\Processor
      * @return void
      */
     public function setPostProcessor(Processor $processor)

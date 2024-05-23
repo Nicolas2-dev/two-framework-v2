@@ -7,7 +7,7 @@
  */
 namespace Two\Session;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class SessionServiceProvider extends ServiceProvider
@@ -26,7 +26,7 @@ class SessionServiceProvider extends ServiceProvider
         $this->registerSessionDriver();
 
         //
-        $this->app->singleton('Two\Session\Middleware\StartSession');
+        $this->app->singleton('Two\Application\Middleware\Sessions\StartSession');
     }
 
     /**

@@ -11,7 +11,7 @@ use Two\Database\ORM\Model;
 use Two\Database\ORM\Builder;
 use Two\Database\ORM\Collection;
 use Two\Database\Query\Expression;
-use Two\Database\Execption\ModelNotFoundException;
+use Two\Database\Exception\ModelNotFoundException;
 
 
 class HasManyThrough extends Relation
@@ -211,7 +211,7 @@ class HasManyThrough extends Relation
      * @param  array  $columns
      * @return \Two\Database\ORM\Model|static
      *
-     * @throws \Two\Database\ORM\ModelNotFoundException
+     * @throws \Two\Database\Exception\ModelNotFoundException
      */
     public function firstOrFail($columns = array('*'))
     {

@@ -16,7 +16,7 @@ abstract class Facade
     /**
      * L'instance d'application étant en façade.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected static $app;
 
@@ -59,7 +59,7 @@ abstract class Facade
     /**
      * Définissez l'instance de l'application.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
     public static function setFacadeApplication($app)
@@ -70,7 +70,7 @@ abstract class Facade
     /**
      * Obtenez l'instance de l'application.
      *
-     * @return  Two\TwoApplication\TwoApplication  $app
+     * @return  \Two\Application\Two  $app
      */
     public static function getFacadeApplication()
     {

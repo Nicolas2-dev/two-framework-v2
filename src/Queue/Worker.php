@@ -456,7 +456,7 @@ class Worker
     /**
      * Définissez le gestionnaire d'exceptions à utiliser en mode démon.
      *
-     * @param  \Two\Exceptions\ExecptionHandler  $handler
+     * @param  \Two\Exceptions\ExceptionHandler  $handler
      * @return void
      */
     public function setDaemonExceptionHandler($handler)

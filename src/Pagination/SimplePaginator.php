@@ -14,8 +14,8 @@ use IteratorAggregate;
 
 use Two\Collection\Collection;
 use Two\Support\HtmlString;
-use Two\TwoApplication\Contracts\JsonableInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\JsonableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class SimplePaginator extends AbstractPaginator implements ArrayableInterface, ArrayAccess, Countable, IteratorAggregate, JsonSerializable, JsonableInterface

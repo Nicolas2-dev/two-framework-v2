@@ -15,7 +15,7 @@ class UrlGenerator
     /**
      * L’implémentation de Paginator.
      *
-     * @var \Two\Pagination\PaginatorInterface
+     * @var \Two\Pagination\Contracts\PaginatorInterface
      */
     protected $paginator;
 
@@ -23,7 +23,7 @@ class UrlGenerator
     /**
      * Créez une nouvelle instance de générateur d'URL.
      *
-     * @param  \Two\Pagination\PaginatorInterface  $paginator
+     * @param  \Two\Pagination\Contracts\PaginatorInterface  $paginator
      * @return void
      */
     public function __construct(AbstractPaginator $paginator)

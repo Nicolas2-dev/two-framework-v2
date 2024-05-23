@@ -28,11 +28,11 @@ use Two\Database\ORM\Relations\BelongsToMany;
 use Two\Database\ORM\Relations\HasOneThrough;
 use Two\Database\ORM\Relations\HasManyThrough;
 use Two\Database\Query\Builder as QueryBuilder;
-use Two\TwoApplication\Contracts\JsonableInterface;
+use Two\Application\Contracts\JsonableInterface;
 use Two\Database\ORM\Relations\BelongsToThrough;
-use Two\TwoApplication\Contracts\ArrayableInterface;
-use Two\Database\Execption\ModelNotFoundException;
-use Two\Database\Execption\MassAssignmentException;
+use Two\Application\Contracts\ArrayableInterface;
+use Two\Database\Exception\ModelNotFoundException;
+use Two\Database\Exception\MassAssignmentException;
 use Two\Database\Contracts\ConnectionResolverInterface as Resolver;
 use Two\Queue\Contracts\QueueableEntityInterface as QueueableEntity;
 
@@ -191,7 +191,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
     /**
      * L'instance du résolveur de connexion.
      *
-     * @var \Two\Database\ConnectionResolverInterface
+     * @var \Two\Database\Contracts\ConnectionResolverInterface
      */
     protected static $resolver;
 
@@ -676,7 +676,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
      * @param  array  $columns
      * @return \Two\Collection\Collection|static
      *
-     * @throws \Two\Database\Execption\ModelNotFoundException
+     * @throws \Two\Database\Exception\ModelNotFoundException
      */
     public static function findOrFail($id, $columns = array('*'))
     {
@@ -2808,7 +2808,7 @@ abstract class Model implements ArrayAccess, ArrayableInterface, JsonableInterfa
     /**
      * Obtenez l’instance du résolveur de connexion.
      *
-     * @return \Two\Database\ConnectionResolverInterface
+     * @return \Two\Database\Contracts\ConnectionResolverInterface
      */
     public static function getConnectionResolver()
     {

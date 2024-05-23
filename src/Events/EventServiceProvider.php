@@ -7,7 +7,7 @@
  */
 namespace Two\Events;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class EventServiceProvider extends ServiceProvider

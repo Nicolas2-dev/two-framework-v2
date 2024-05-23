@@ -9,8 +9,8 @@ namespace Two\Support;
 
 use ArrayAccess;
 
-use Two\TwoApplication\Contracts\JsonableInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\JsonableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class Fluent implements ArrayAccess, ArrayableInterface, JsonableInterface {

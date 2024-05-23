@@ -24,7 +24,7 @@ class Builder
     /**
      * L’instance de grammaire de schéma.
      *
-     * @var \Two\Database\Schema\Grammars\Grammar
+     * @var \Two\Database\Schema\Grammar
      */
     protected $grammar;
 

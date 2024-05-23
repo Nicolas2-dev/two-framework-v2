@@ -16,7 +16,7 @@ use Two\Cache\Store\ArrayStore;
 use Two\Cache\Datanase\DatabaseStore;
 use Two\Cache\Contracts\StoreInterface;
 use Two\Cache\Memcached\MemcachedStore;
-use Two\TwoApplication\Manager;
+use Two\Application\Manager;
 
 
 class CacheManager extends Manager

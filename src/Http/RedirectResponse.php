@@ -13,7 +13,7 @@ use Two\Support\Str;
 use Two\Support\MessageBag;
 use Two\View\ViewErrorBag;
 use Two\Session\Store as SessionStore;
-use Two\TwoApplication\Contracts\MessageProviderInterface;
+use Two\Application\Contracts\MessageProviderInterface;
 
 use Symfony\Component\HttpFoundation\Cookie as SymfonyCookie;
 use Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
@@ -141,7 +141,7 @@ class RedirectResponse extends SymfonyRedirectResponse
     /**
      * Flashez un conteneur d’erreurs dans la session.
      *
-     * @param  \Two\Support\Contracts\MessageProviderInterface|array  $provider
+     * @param  \Two\Application\Contracts\MessageProviderInterface|array  $provider
      * @param  string  $key
      * @return $this
      */
@@ -159,7 +159,7 @@ class RedirectResponse extends SymfonyRedirectResponse
     /**
      * Analysez les erreurs données en une valeur appropriée.
      *
-     * @param  \Two\Contracts\MessageProviderInterface|array  $provider
+     * @param  \Two\Application\Contracts\MessageProviderInterface|array  $provider
      * @return \Two\Support\MessageBag
      */
     protected function parseErrors($provider)

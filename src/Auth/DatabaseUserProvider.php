@@ -9,36 +9,36 @@ namespace Two\Auth;
 
 use Two\Support\Str;
 use Two\Database\Connection;
-use Two\Hashing\Contracts\HasherInterface;
 use Two\Auth\Contracts\UserInterface;
+use Two\Hashing\Contracts\HasherInterface;
 use Two\Auth\Contracts\UserProviderInterface;
 
 
 class DatabaseUserProvider implements UserProviderInterface
 {
     /**
-     * La connexion à la base de données active.
+     * The active database connection.
      *
      * @var \Two\Database\Connection
      */
     protected $conn;
 
     /**
-     * L'implémentation du hachage.
+     * The hasher implementation.
      *
      * @var \Two\Hashing\Contracts\HasherInterface
      */
     protected $hasher;
 
     /**
-     * La table contenant les utilisateurs.
+     * The table containing the users.
      *
      * @var string
      */
     protected $table;
 
     /**
-     * Créez un nouveau fournisseur d'utilisateurs de base de données.
+     * Create a new database user provider.
      *
      * @param  \Two\Database\Connection  $conn
      * @param  \Two\Hashing\Contracts\HasherInterface  $hasher
@@ -53,7 +53,7 @@ class DatabaseUserProvider implements UserProviderInterface
     }
 
     /**
-     * Récupérez un utilisateur par son identifiant unique.
+     * Retrieve a user by their unique identifier.
      *
      * @param  mixed  $identifier
      * @return \Two\Auth\Contracts\UserInterface|null
@@ -68,7 +68,7 @@ class DatabaseUserProvider implements UserProviderInterface
     }
 
     /**
-     * Récupérez un utilisateur grâce à son identifiant unique et son jeton « se souvenir de moi ».
+     * Retrieve a user by by their unique identifier and "remember me" token.
      *
      * @param  mixed   $identifier
      * @param  string  $token
@@ -87,7 +87,7 @@ class DatabaseUserProvider implements UserProviderInterface
     }
 
     /**
-     * Mettez à jour le jeton « Se souvenir de moi » pour l'utilisateur donné dans le stockage.
+     * Update the "remember me" token for the given user in storage.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $token
@@ -101,16 +101,16 @@ class DatabaseUserProvider implements UserProviderInterface
     }
 
     /**
-     * Récupérez un utilisateur à l'aide des informations d'identification fournies.
+     * Retrieve a user by the given credentials.
      *
      * @param  array  $credentials
      * @return \Two\Auth\Contracts\UserInterface|null
      */
     public function retrieveByCredentials(array $credentials)
     {
-        // Nous allons d’abord ajouter chaque élément d’identification à la requête en tant que clause Where.
-        // Ensuite, nous pouvons exécuter la requête et, si nous trouvons un utilisateur, la renvoyer dans un
-        // objet "utilisateur" générique qui sera utilisé par les instances Guard.
+        // First we will add each credential element to the query as a where clause.
+        // Then we can execute the query and, if we found a user, return it in a
+        // generic "user" object that will be utilized by the Guard instances.
         $query = $this->conn->table($this->table);
 
         foreach ($credentials as $key => $value) {
@@ -119,9 +119,9 @@ class DatabaseUserProvider implements UserProviderInterface
             }
         }
 
-        // Nous sommes maintenant prêts à exécuter la requête pour voir si nous avons un utilisateur correspondant
-        // les informations d'identification données. Sinon, nous renverrons simplement des valeurs nulles et indiquerons
-        // qu'il n'y a aucun utilisateur correspondant pour ces tableaux d'informations d'identification donnés.
+        // Now we are ready to execute the query to see if we have an user matching
+        // the given credentials. If not, we will just return nulls and indicate
+        // that there are no matching users for these given credential arrays.
         $user = $query->first();
 
         if (! is_null($user)) {
@@ -130,7 +130,7 @@ class DatabaseUserProvider implements UserProviderInterface
     }
 
     /**
-     * Validez un utilisateur par rapport aux informations d'identification fournies.
+     * Validate a user against the given credentials.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  array  $credentials

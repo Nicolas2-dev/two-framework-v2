@@ -12,7 +12,7 @@ use Two\Support\Str;
 use Two\Http\Request;
 use Two\Container\Container;
 use Two\Broadcasting\Broadcaster;
-use Two\Broadcasting\Execption\BroadcastException;
+use Two\Broadcasting\Exception\BroadcastException;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\RequestException;
@@ -223,7 +223,7 @@ class QuasarBroadcaster extends Broadcaster
      * @param string  $hash
      *
      * @return bool
-     * @throws \Two\Broadcasting\Execption\BroadcastException
+     * @throws \Two\Broadcasting\Exception\BroadcastException
      */
     protected function executeHttpRequest($url, array $payload, $hash)
     {

@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Notifications;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Notifications\Commands\NotificationMakeCommand;
 use Two\Console\Forge\Notifications\Commands\NotificationTableCommand;
 

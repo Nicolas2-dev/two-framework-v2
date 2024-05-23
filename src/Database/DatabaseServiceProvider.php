@@ -8,9 +8,11 @@
 namespace Two\Database;
 
 use Two\Database\ORM\Model;
+
 use Two\Database\DatabaseManager;
 use Two\Database\ConnectionFactory;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class DatabaseServiceProvider extends ServiceProvider

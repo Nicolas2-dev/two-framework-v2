@@ -7,7 +7,7 @@
  */
 namespace Two\Packages\Providers;
 
-use Two\TwoApplication\Providers\RouteServiceProvider as ServiceProvider;
+use Two\Application\Providers\RouteServiceProvider as ServiceProvider;
 use Two\Routing\Router;
 
 

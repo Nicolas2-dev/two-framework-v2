@@ -8,7 +8,7 @@
 namespace Two\Console\Forge\Two;
 
 use Two\Console\Commands\Command;
-use Two\TwoApplication\Composer;
+use Two\Application\Composer;
 
 use Symfony\Component\Console\Input\InputOption;
 

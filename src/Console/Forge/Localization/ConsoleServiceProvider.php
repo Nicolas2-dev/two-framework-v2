@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Localization;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use \Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Localization\Commands\LanguagesUpdateCommand;
 
 

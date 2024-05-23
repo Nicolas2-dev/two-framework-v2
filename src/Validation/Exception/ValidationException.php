@@ -5,11 +5,11 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\Validation\Execption;
+namespace Two\Validation\Exception;
 
 use RuntimeException;
 
-use Two\Twoapplication\Contracts\MessageProviderInterface;
+use Two\Application\Contracts\MessageProviderInterface;
 
 
 class ValidationException extends RuntimeException
@@ -17,14 +17,14 @@ class ValidationException extends RuntimeException
     /**
      * Implémentation du fournisseur de messages.
      *
-     * @var \Two\Support\Contracts\MessageProviderInterface
+     * @var \Two\Application\Contracts\MessageProviderInterface
      */
     protected $provider;
 
     /**
      * Créez une nouvelle instance d'exception de validation.
      *
-     * @param  \Two\Support\MessageProvider  $provider
+     * @param  \Two\Application\Contracts\MessageProviderInterface  $provider
      * @return void
      */
     public function __construct(MessageProviderInterface $provider)
@@ -45,7 +45,7 @@ class ValidationException extends RuntimeException
     /**
      * Obtenez le fournisseur de messages d’erreur de validation.
      *
-     * @return \Two\Support\MessageProviderInterface
+     * @return \Two\Application\Contracts\MessageProviderInterface
      */
     public function getMessageProvider()
     {

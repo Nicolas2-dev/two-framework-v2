@@ -8,7 +8,8 @@
 namespace Two\Filesystem;
 
 use Two\Filesystem\Filesystem;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class FilesystemServiceProvider extends ServiceProvider

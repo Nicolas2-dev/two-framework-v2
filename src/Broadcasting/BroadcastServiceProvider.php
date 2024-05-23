@@ -7,8 +7,10 @@
  */
 namespace Two\Broadcasting;
 
+
 use Two\Broadcasting\BroadcastManager;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class BroadcastServiceProvider extends ServiceProvider

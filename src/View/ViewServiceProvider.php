@@ -16,7 +16,8 @@ use Two\View\Engines\CompilerEngine;
 use Two\View\Engines\EngineResolver;
 use Two\View\Compilers\MarkdownCompiler;
 use Two\View\Compilers\TemplateCompiler;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class ViewServiceProvider extends ServiceProvider

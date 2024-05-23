@@ -10,10 +10,10 @@ namespace Two\Exceptions;
 use Exception;
 use ErrorException;
 
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Two;
 use Two\Exceptions\Exception\FatalErrorException;
-use Two\Exceptions\Exception\FatalThrowableError;
 
+use Two\Exceptions\Exception\FatalThrowableError;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 
@@ -22,7 +22,7 @@ class ExceptionHandler
     /**
      * La mise en œuvre du préparateur de réponses.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -37,11 +37,11 @@ class ExceptionHandler
     /**
      * Créez une nouvelle instance de gestionnaire d'erreurs.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @param  bool  $debug
      * @return void
      */
-    public function __construct(TwoApplication $app,  $debug = true)
+    public function __construct(Two $app,  $debug = true)
     {
         $this->app = $app;
 
@@ -179,7 +179,7 @@ class ExceptionHandler
     /**
      * Obtenez une instance du gestionnaire d'exceptions.
      *
-     * @return \Two\Exceptions\HandlerInterface
+     * @return \Two\Exceptions\Contracts\HandlerInterface
      */
     protected function getExceptionHandler()
     {

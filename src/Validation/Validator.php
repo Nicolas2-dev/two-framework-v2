@@ -21,7 +21,7 @@ use Two\Support\Fluent;
 use Two\Support\MessageBag;
 use Two\Container\Container;
 use Two\Config\Repository as Config;
-use Two\TwoApplication\Contracts\MessageProviderInterface;
+use Two\Application\Contracts\MessageProviderInterface;
 use Two\Validation\Contracts\PresenceVerifierInterface;
 
 use Symfony\Component\HttpFoundation\File\File;

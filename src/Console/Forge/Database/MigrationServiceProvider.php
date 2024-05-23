@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Database;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Database\Migrations\Migrator;
 use Two\Console\Forge\Database\Migrations\MigrationCreator;
 use Two\Console\Forge\Database\Commands\Migrations\ResetCommand;

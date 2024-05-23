@@ -12,7 +12,7 @@ use Two\Database\ORM\Model;
 use Two\Database\ORM\Builder;
 use Two\Database\ORM\Collection;
 use Two\Database\Query\Expression;
-use Two\Database\Execption\ModelNotFoundException;
+use Two\Database\Exception\ModelNotFoundException;
 
 
 class BelongsToMany extends Relation
@@ -160,7 +160,7 @@ class BelongsToMany extends Relation
      * @param  array  $columns
      * @return \Two\Database\ORM\Model|static
      *
-     * @throws \Database\ORM\ModelNotFoundException
+     * @throws \Database\Exception\ModelNotFoundException
      */
     public function firstOrFail($columns = array('*'))
     {

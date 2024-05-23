@@ -7,7 +7,7 @@
  */
 namespace Two\View;
 
-use Two\TwoApplication\Contracts\HtmlableInterface;
+use Two\Application\Contracts\HtmlableInterface;
 
 
 class Expression implements HtmlableInterface

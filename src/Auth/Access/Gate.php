@@ -5,7 +5,6 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-
 namespace Two\Auth\Access;
 
 use InvalidArgumentException;
@@ -13,54 +12,53 @@ use InvalidArgumentException;
 use Two\Support\Str;
 use Two\Container\Container;
 use Two\Auth\Access\Response;
-use Two\Auth\Exception\AuthorizedException;
-use Two\Auth\Contracts\Access\GateInterface;
 use Two\Auth\Contracts\UserInterface as User;
+use Two\Auth\Contracts\GateInterface;
+use Two\Auth\Exception\AuthorizationException;
 use Two\Auth\Traits\HandlesAuthorizationTrait;
 
 
 class Gate implements GateInterface
 {
-
     use HandlesAuthorizationTrait;
 
     /**
-     * L'instance de conteneur.
+     * The container instance.
      *
      * @var \Two\Container\Container
      */
     protected $container;
 
     /**
-     * Le résolveur utilisateur appelable.
+     * The user resolver callable.
      *
      * @var callable
      */
     protected $userResolver;
 
     /**
-     * Toutes les capacités définies.
+     * All of the defined abilities.
      *
      * @var array
      */
     protected $abilities = array();
 
     /**
-     * Toutes les politiques définies.
+     * All of the defined policies.
      *
      * @var array
      */
     protected $policies = array();
 
     /**
-     * Tous les inscrits avant les rappels.
+     * All of the registered before callbacks.
      *
      * @var array
      */
     protected $beforeCallbacks = array();
 
     /**
-     * Tous les inscrits après rappels.
+     * All of the registered after callbacks.
      *
      * @var array
      */
@@ -68,7 +66,7 @@ class Gate implements GateInterface
 
 
     /**
-     * Créez une nouvelle instance de porte.
+     * Create a new gate instance.
      *
      * @param  \Two\Container\Container  $container
      * @param  callable  $userResolver
@@ -96,7 +94,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si une capacité donnée a été définie.
+     * Determine if a given ability has been defined.
      *
      * @param  string  $ability
      * @return bool
@@ -107,7 +105,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Définir une nouvelle capacité.
+     * Define a new ability.
      *
      * @param  string  $ability
      * @param  callable|string  $callback
@@ -129,7 +127,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Créez le rappel de capacité pour une chaîne de rappel.
+     * Create the ability callback for a callback string.
      *
      * @param  string  $callback
      * @return \Closure
@@ -147,7 +145,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Définissez une classe de stratégie pour un type de classe donné.
+     * Define a policy class for a given class type.
      *
      * @param  string  $class
      * @param  string  $policy
@@ -161,7 +159,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Enregistrez un rappel à exécuter avant toutes les vérifications de Gate.
+     * Register a callback to run before all Gate checks.
      *
      * @param  callable  $callback
      * @return $this
@@ -174,7 +172,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Enregistrez un rappel à exécuter après toutes les vérifications de Gate.
+     * Register a callback to run after all Gate checks.
      *
      * @param  callable  $callback
      * @return $this
@@ -187,7 +185,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si la capacité donnée doit être accordée à l’utilisateur actuel.
+     * Determine if the given ability should be granted for the current user.
      *
      * @param  string  $ability
      * @param  array|mixed  $arguments
@@ -203,7 +201,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si la capacité donnée doit être refusée pour l’utilisateur actuel.
+     * Determine if the given ability should be denied for the current user.
      *
      * @param  string  $ability
      * @param  array|mixed  $arguments
@@ -219,7 +217,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si la capacité donnée doit être accordée à l’utilisateur actuel.
+     * Determine if the given ability should be granted for the current user.
      *
      * @param  string  $ability
      * @param  array|mixed  $arguments
@@ -234,7 +232,7 @@ class Gate implements GateInterface
         try {
             $result = $this->raw($ability, $arguments);
         }
-        catch (AuthorizedException $e) {
+        catch (AuthorizationException $e) {
             return false;
         }
 
@@ -242,13 +240,13 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si la capacité donnée doit être accordée à l’utilisateur actuel.
+     * Determine if the given ability should be granted for the current user.
      *
      * @param  string  $ability
      * @param  array|mixed  $arguments
      * @return \Two\Auth\Access\Response
      *
-     * @throws \Two\Auth\Execption\AuthorizationException
+     * @throws \Two\Auth\Access\AuthorizationException
      */
     public function authorize($ability, $arguments = array())
     {
@@ -266,7 +264,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Obtenez le résultat brut pour la capacité donnée pour l'utilisateur actuel.
+     * Get the raw result for the given ability for the current user.
      *
      * @param  string  $ability
      * @param  array  $arguments
@@ -290,7 +288,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Résolvez et appelez le rappel d’autorisation approprié.
+     * Resolve and call the appropriate authorization callback.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $ability
@@ -305,7 +303,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Appelez tous les rappels avant et revenez si un résultat est donné.
+     * Call all of the before callbacks and return if a result is given.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $ability
@@ -324,7 +322,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Appelez tous les rappels après avec le résultat de la vérification.
+     * Call all of the after callbacks with check result.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $ability
@@ -342,7 +340,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Résolvez l'appelable pour la capacité et les arguments donnés.
+     * Resolve the callable for the given ability and arguments.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $ability
@@ -367,7 +365,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Déterminez si le premier argument du tableau correspond à une stratégie.
+     * Determine if the first argument in the array corresponds to a policy.
      *
      * @param  array  $arguments
      * @return bool
@@ -390,7 +388,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Résolvez le rappel pour une vérification de stratégie.
+     * Resolve the callback for a policy check.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @param  string  $ability
@@ -420,7 +418,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Obtenez une instance de stratégie pour une classe donnée.
+     * Get a policy instance for a given class.
      *
      * @param  object|string  $class
      * @return mixed
@@ -441,7 +439,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Créez une instance de classe de stratégie du type donné.
+     * Build a policy class instance of the given type.
      *
      * @param  object|string  $class
      * @return mixed
@@ -452,7 +450,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Obtenez une instance de garde pour l'utilisateur donné.
+     * Get a guard instance for the given user.
      *
      * @param  \Two\Auth\Contracts\UserInterface|mixed  $user
      * @return static
@@ -471,7 +469,7 @@ class Gate implements GateInterface
     }
 
     /**
-     * Résolvez l'utilisateur à partir du résolveur d'utilisateur.
+     * Resolve the user from the user resolver.
      *
      * @return mixed
      */

@@ -15,7 +15,7 @@ use Two\Database\Query\Expression;
 use Two\Pagination\SimplePaginator;
 use Two\Database\ORM\Relations\Relation;
 use Two\Database\Query\Builder as QueryBuilder;
-use Two\Database\Execption\ModelNotFoundException;
+use Two\Database\Exception\ModelNotFoundException;
 
 
 class Builder
@@ -123,7 +123,7 @@ class Builder
      * @param  array  $columns
      * @return \Two\Database\ORM\Model|static
      *
-     * @throws \Two\Database\ORM\ModelNotFoundException
+     * @throws \Two\Database\Exception\ModelNotFoundException
      */
     public function findOrFail($id, $columns = array('*'))
     {
@@ -153,7 +153,7 @@ class Builder
      * @param  array  $columns
      * @return \Two\Database\ORM\Model|static
      *
-     * @throws \Two\Database\ORM\ModelNotFoundException
+     * @throws \Two\Database\Exception\ModelNotFoundException
      */
     public function firstOrFail($columns = array('*'))
     {

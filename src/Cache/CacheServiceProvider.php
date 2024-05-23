@@ -7,8 +7,10 @@
  */
 namespace Two\Cache;
 
+
 use Two\Cache\Memcached\MemcachedConnector;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class CacheServiceProvider extends ServiceProvider

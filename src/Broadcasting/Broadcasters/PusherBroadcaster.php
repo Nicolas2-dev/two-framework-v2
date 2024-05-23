@@ -12,7 +12,7 @@ use Two\Support\Str;
 use Two\Http\Request;
 use Two\Container\Container;
 use Two\Broadcasting\Broadcaster;
-use Two\Broadcasting\Execption\BroadcastException;
+use Two\Broadcasting\Exception\BroadcastException;
 
 use Pusher\Pusher;
 

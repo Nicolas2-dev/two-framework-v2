@@ -8,8 +8,10 @@
 namespace Two\Validation;
 
 use Two\Validation\Factory;
+
 use Two\Validation\DatabasePresenceVerifier;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class ValidationServiceProvider extends ServiceProvider

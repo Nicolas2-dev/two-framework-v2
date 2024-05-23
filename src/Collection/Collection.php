@@ -15,8 +15,8 @@ use CachingIterator;
 use IteratorAggregate;
 
 use Two\Support\Arr;
-use Two\TwoApplication\Contracts\JsonableInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\JsonableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class Collection implements ArrayAccess, ArrayableInterface, Countable, IteratorAggregate, JsonableInterface
@@ -83,7 +83,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Différez la collection avec les éléments donnés.
      *
-     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @param  \Two\Collection\Collection|\Two\Application\Contracts\ArrayableInterface|array  $items
      * @return \Two\Collection\Collection
      */
     public function diff($items)
@@ -246,7 +246,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Intersection de la collection avec les éléments donnés.
      *
-     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @param  \Two\Collection\Collection|\Two\Application\Contracts\ArrayableInterface|array  $items
      * @return \Two\Collection\Collection
      */
     public function intersect($items)
@@ -343,7 +343,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Fusionnez la collection avec les éléments donnés.
      *
-     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @param  \Two\Collection\Collection|\Two\Application\Contracts\ArrayableInterface|array  $items
      * @return \Two\Collection\Collection
      */
     public function merge($items)
@@ -790,7 +790,7 @@ class Collection implements ArrayAccess, ArrayableInterface, Countable, Iterator
     /**
      * Tableau de résultats d’éléments de Collection ou ArrayableInterface.
      *
-     * @param  \Two\Collection\Collection|\Support\Contracts\ArrayableInterface|array  $items
+     * @param  \Two\Collection\Collection|\Two\Application\Contracts\ArrayableInterface|array  $items
      * @return array
      */
     private function getArrayableItems($items)

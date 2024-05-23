@@ -11,8 +11,8 @@ use Closure;
 use InvalidArgumentException;
 
 use Two\Support\Arr;
+use Two\Application\Two;
 use Two\Broadcasting\PendingBroadcast;
-use Two\TwoApplication\TwoApplication;
 use Two\Broadcasting\Contracts\FactoryInterface;
 use Two\Broadcasting\Broadcasters\LogBroadcaster;
 use Two\Broadcasting\Broadcasters\NullBroadcaster;
@@ -28,7 +28,7 @@ class BroadcastManager implements FactoryInterface
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -49,10 +49,10 @@ class BroadcastManager implements FactoryInterface
     /**
      * Créez une nouvelle instance de gestionnaire.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
-    public function __construct(TwoApplication $app)
+    public function __construct(Two $app)
     {
         $this->app = $app;
     }

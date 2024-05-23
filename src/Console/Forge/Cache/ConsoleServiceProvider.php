@@ -7,7 +7,7 @@
  */
 namespace Two\Console\Forge\Cache;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Cache\Commands\ClearCommand;
 use Two\Console\Forge\Cache\Commands\ForgetCommand;
 use Two\Console\Forge\Cache\Commands\CacheTableCommand;

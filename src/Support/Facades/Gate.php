@@ -9,7 +9,7 @@ namespace Two\Support\Facades;
 
 
 /**
- * @see \Two\Auth\Contracts\Access\GateInterface
+ * @see \Two\Auth\Access\GateInterface
  */
 class Gate extends Facade
 {
@@ -20,6 +20,6 @@ class Gate extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'Two\Auth\Contracts\Access\GateInterface';
+        return 'Two\Auth\Access\GateInterface';
     }
 }

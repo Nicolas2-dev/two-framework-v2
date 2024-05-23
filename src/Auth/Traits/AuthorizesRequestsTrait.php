@@ -8,7 +8,7 @@
 namespace Two\Auth\Traits;
 
 use Two\Support\Facades\App;
-use Two\Auth\Contracts\Access\GateInterface;
+use Two\Auth\Contracts\GateInterface;
 use Two\Auth\Exception\UnAuthorizedException;
 
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -29,7 +29,7 @@ trait AuthorizesRequestsTrait
     {
         list($ability, $arguments) = $this->parseAbilityAndArguments($ability, $arguments);
 
-        $gate = App::make('Two\Auth\Contracts\Access\GateInterface');
+        $gate = App::make('Two\Auth\Contracts\GateInterface');
 
         return $this->authorizeAtGate($gate, $ability, $arguments);
     }
@@ -37,7 +37,7 @@ trait AuthorizesRequestsTrait
     /**
      * Autoriser une action donnée pour un utilisateur.
      *
-     * @param  \Two\Auth\UserInterface|mixed  $user
+     * @param  \Two\Auth\Contracts\UserInterface|mixed  $user
      * @param  mixed  $ability
      * @param  mixed|array  $arguments
      * @return \Two\Auth\Access\Response
@@ -48,7 +48,7 @@ trait AuthorizesRequestsTrait
     {
         list($ability, $arguments) = $this->parseAbilityAndArguments($ability, $arguments);
 
-        $gate = App::make('Two\Auth\Contracts\Access\GateInterface')->forUser($user);
+        $gate = App::make('Two\Auth\Contracts\GateInterface')->forUser($user);
 
         return $this->authorizeAtGate($gate, $ability, $arguments);
     }

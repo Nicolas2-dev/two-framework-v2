@@ -8,7 +8,9 @@
 namespace Two\Log;
 
 use Two\Log\Writer;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
+
 
 use Monolog\Logger as Monolog;
 
@@ -47,7 +49,7 @@ class LogServiceProvider extends ServiceProvider
     /**
      * Configurez les gestionnaires Monolog pour l'application.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @param  \Two\Log\Writer  $log
      * @return void
      */
@@ -63,7 +65,7 @@ class LogServiceProvider extends ServiceProvider
     /**
      * Configurez les gestionnaires Monolog pour l'application.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @param  \Two\Log\Writer  $log
      * @return void
      */

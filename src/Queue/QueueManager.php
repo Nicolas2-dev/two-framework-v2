@@ -16,7 +16,7 @@ class QueueManager
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -36,7 +36,7 @@ class QueueManager
     /**
      * Créez une nouvelle instance de gestionnaire de files d'attente.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
     public function __construct($app)

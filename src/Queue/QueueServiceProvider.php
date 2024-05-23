@@ -8,6 +8,7 @@
 namespace Two\Queue;
 
 use Two\Queue\CallQueuedClosure;
+
 use Two\Queue\Connectors\SqsConnector;
 use Two\Queue\Connectors\IronConnector;
 use Two\Queue\Connectors\NullConnector;
@@ -17,9 +18,8 @@ use Two\Queue\Connectors\DatabaseConnector;
 use Two\Queue\Failed\NullFailedJobProvider;
 use Two\Queue\Connectors\BeanstalkdConnector;
 use Two\Queue\Failed\DatabaseFailedJobProvider;
-
+use Two\Application\Providers\ServiceProvider;
 use Two\Console\Forge\Queue\Commands\WorkCommand;
-use Two\TwoApplication\Providers\ServiceProvider;
 use Two\Console\Forge\Queue\Commands\ListenCommand;
 use Two\Console\Forge\Queue\Commands\RestartCommand;
 use Two\Console\Forge\Queue\Commands\SubscribeCommand;

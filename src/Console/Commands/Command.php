@@ -22,7 +22,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     /**
      * L'instance de deux applications.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $container;
 
@@ -66,7 +66,7 @@ class Command extends \Symfony\Component\Console\Command\Command
         // Nous allons continuer et définir le nom, la description et les paramètres sur la console
         // commandes juste pour rendre les choses un peu plus faciles pour le développeur. C'est
         // afin qu'ils n'aient pas besoin d'être tous spécifiés manuellement dans les constructeurs.
-        $this->setDescription($this->description);
+        $this->setDescription((string) $this->description);
 
         $this->specifyParameters();
     }
@@ -379,7 +379,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     /**
      * Obtenez l’instance de deux applications.
      *
-     * @return Two\TwoApplication\TwoApplication
+     * @return \Two\Application\Two
      */
     public function getTwo()
     {
@@ -389,7 +389,7 @@ class Command extends \Symfony\Component\Console\Command\Command
     /**
      * Définissez l’instance de deux applications.
      *
-     * @param  Two\TwoApplication\TwoApplication  $Two
+     * @param  \Two\Application\Two  $Two
      * @return void
      */
     public function setContainer($Two)

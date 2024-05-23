@@ -12,8 +12,8 @@ use RuntimeException;
 use InvalidArgumentException;
 
 use Two\Events\Contracts\DispatcherInterface as EventsDispatcher;
-use Two\TwoApplication\Contracts\JsonableInterface as Jsonable;
-use Two\TwoApplication\Contracts\ArrayableInterface as Arrayable;
+use Two\Application\Contracts\JsonableInterface as Jsonable;
+use Two\Application\Contracts\ArrayableInterface as Arrayable;
 
 use Monolog\Handler\SyslogHandler;
 use Monolog\Handler\StreamHandler;

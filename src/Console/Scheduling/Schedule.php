@@ -9,7 +9,7 @@ namespace Two\Console\Scheduling;
 
 use Two\Container\Container;
 use Two\Support\ProcessUtils;
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Two;
 use Two\Console\Scheduling\Event\Event;
 use Two\Console\Scheduling\Cache\CacheMutex;
 use Two\Console\Scheduling\Event\CallbackEvent;
@@ -135,10 +135,10 @@ class Schedule
     /**
      * Obtenez tous les événements du calendrier qui sont dus.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return array
      */
-    public function dueEvents(TwoApplication $app)
+    public function dueEvents(Two $app)
     {
         return array_filter($this->events, function ($event) use ($app)
         {

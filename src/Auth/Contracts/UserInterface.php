@@ -11,28 +11,28 @@ namespace Two\Auth\Contracts;
 interface UserInterface
 {
     /**
-     * Obtenez l'identifiant unique de l'utilisateur.
+     * Get the unique identifier for the user.
      *
      * @return mixed
      */
     public function getAuthIdentifier();
 
     /**
-     * Obtenez le mot de passe de l'utilisateur.
+     * Get the password for the user.
      *
      * @return string
      */
     public function getAuthPassword();
 
     /**
-     * Obtenez la valeur du jeton pour la session « Se souvenir de moi ».
+     * Get the token value for the "remember me" session.
      *
      * @return string
      */
     public function getRememberToken();
 
     /**
-     * Définissez la valeur du jeton pour la session « Se souvenir de moi ».
+     * Set the token value for the "remember me" session.
      *
      * @param  string  $value
      * @return void
@@ -40,7 +40,7 @@ interface UserInterface
     public function setRememberToken($value);
 
     /**
-     * Obtenez le nom de colonne pour le jeton « se souvenir de moi ».
+     * Get the column name for the "remember me" token.
      *
      * @return string
      */

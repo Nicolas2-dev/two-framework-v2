@@ -12,7 +12,7 @@ use ArrayIterator;
 use RuntimeException;
 
 use Two\Collection\Collection;
-use Two\TwoApplication\Contracts\HtmlableInterface;
+use Two\Application\Contracts\HtmlableInterface;
 
 
 abstract class AbstractPaginator implements HtmlableInterface

@@ -102,6 +102,23 @@ if (! function_exists('vendor_url'))
     }
 }
 
+if (! function_exists('shared_url'))
+{
+    /**
+     * Assistant d'URL de fournisseur
+     *
+     * @param string $path
+     * @param string $vendor
+     * @return string
+     */
+    function shared_url($path, $vendor)
+    {
+        $path = sprintf('shared/%s/%s', $vendor, $path);
+
+        return url($path);
+    }
+}
+
 if (! function_exists('action'))
 {
     /**
@@ -1223,7 +1240,7 @@ if (! function_exists('collect'))
      * Créez une collection à partir de la valeur donnée.
      *
      * @param  mixed  $value
-     * @return \Two\Support\Collection
+     * @return \Two\Collection\Collection
      */
     function collect($value = null)
     {

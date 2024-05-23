@@ -5,7 +5,7 @@
  * @version 1.0.0
  * @date    15 mai 2024
  */
-namespace Two\Database\Execption;
+namespace Two\Database\Exception;
 
 
 class MassAssignmentException extends \RuntimeException {}

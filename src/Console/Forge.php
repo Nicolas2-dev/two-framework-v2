@@ -8,7 +8,7 @@
 namespace Two\Console;
 
 use Two\Console\TwoConsole;
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Two;
 
 
 class Forge
@@ -16,7 +16,7 @@ class Forge
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -31,10 +31,10 @@ class Forge
     /**
      * Créez une nouvelle instance d'exécuteur de commandes Forge.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
-    public function __construct(TwoApplication $app)
+    public function __construct(Two $app)
     {
         $this->app = $app;
     }

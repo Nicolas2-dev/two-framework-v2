@@ -8,7 +8,8 @@
 namespace Two\Encryption;
 
 use Two\Encryption\Encrypter;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class EncryptionServiceProvider extends ServiceProvider

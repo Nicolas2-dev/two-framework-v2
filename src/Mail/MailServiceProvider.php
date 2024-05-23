@@ -7,10 +7,11 @@
  */
 namespace Two\Mail;
 
-use Two\Mail\TransportManager;
-use Two\TwoApplication\Providers\ServiceProvider;
-
 use Swift_Mailer;
+
+use Two\Mail\TransportManager;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class MailServiceProvider extends ServiceProvider
@@ -68,7 +69,7 @@ class MailServiceProvider extends ServiceProvider
      * Définissez quelques dépendances sur l'instance de messagerie.
      *
      * @param  \Two\Mail\Mailer  $mailer
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return void
      */
     protected function setMailerDependencies($mailer, $app)

@@ -11,14 +11,14 @@ namespace Two\Auth\Access;
 class Response
 {
     /**
-     * Le message de réponse.
+     * The response message.
      *
      * @var string|null
      */
     protected $message;
 
     /**
-     * Créez une nouvelle réponse.
+     * Create a new response.
      *
      * @param  string|null  $message
      */
@@ -28,7 +28,7 @@ class Response
     }
 
     /**
-     * Obtenez le message de réponse.
+     * Get the response message.
      *
      * @return string|null
      */
@@ -38,7 +38,7 @@ class Response
     }
 
     /**
-     * Obtenez la représentation sous forme de chaîne du message.
+     * Get the string representation of the message.
      *
      * @return string
      */

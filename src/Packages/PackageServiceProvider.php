@@ -9,7 +9,7 @@ namespace Two\Packages;
 
 use Two\Packages\Repository;
 use Two\Packages\PackageManager;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class PackageServiceProvider extends ServiceProvider

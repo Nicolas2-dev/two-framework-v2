@@ -2,8 +2,8 @@
 
 namespace {{namespace}}\Providers;
 
-use Two\Auth\Contracts\Access\GateInterface as Gate;
-use Two\TwoApplication\Providers\AuthServiceProvider as ServiceProvider;
+use Two\Auth\Contracts\GateInterface as Gate;
+use Two\Application\Providers\AuthServiceProvider as ServiceProvider;
 
 
 class AuthServiceProvider extends ServiceProvider
@@ -21,7 +21,7 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Enregistrez n'importe quel service d'authentification/autorisation {{lower_type}}.
      *
-     * @param  \Two\Auth\Contracts\Access\GateInterface  $gate
+     * @param  \Two\Auth\Contracts\GateInterface  $gate
      * @return void
      */
     public function boot(Gate $gate)

@@ -9,7 +9,8 @@ namespace Two\Routing\Assets;
 
 use Two\Routing\Assets\AssetManager;
 use Two\Routing\Assets\AssetDispatcher;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class AssetServiceProvider extends ServiceProvider

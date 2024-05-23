@@ -167,7 +167,7 @@ class ConnectionFactory
      * Créez une instance de connecteur basée sur la configuration.
      *
      * @param  array  $config
-     * @return \Two\Database\Connectors\ConnectorInterface
+     * @return \Two\Database\Contracts\ConnectorInterface
      *
      * @throws \InvalidArgumentException
      */

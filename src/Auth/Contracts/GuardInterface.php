@@ -11,35 +11,35 @@ namespace Two\Auth\Contracts;
 interface GuardInterface
 {
     /**
-     * Déterminez si l'utilisateur actuel est authentifié.
+     * Determine if the current user is authenticated.
      *
      * @return bool
      */
     public function check();
 
     /**
-     * Déterminez si l'utilisateur actuel est un invité.
+     * Determine if the current user is a guest.
      *
      * @return bool
      */
     public function guest();
 
     /**
-     * Obtenez l'utilisateur actuellement authentifié.
+     * Get the currently authenticated user.
      *
      * @return \Two\Auth\Contracts\UserInterface|null
      */
     public function user();
 
     /**
-     * Obtenez l'ID de l'utilisateur actuellement authentifié.
+     * Get the ID for the currently authenticated user.
      *
      * @return int|null
      */
     public function id();
 
     /**
-     * Validez les informations d'identification d'un utilisateur.
+     * Validate a user's credentials.
      *
      * @param  array  $credentials
      * @return bool
@@ -47,7 +47,7 @@ interface GuardInterface
     public function validate(array $credentials = array());
 
     /**
-     * Définissez l'utilisateur actuel.
+     * Set the current user.
      *
      * @param  \Two\Auth\Contracts\UserInterface  $user
      * @return void

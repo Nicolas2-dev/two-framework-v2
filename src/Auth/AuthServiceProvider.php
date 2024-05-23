@@ -8,14 +8,14 @@
 namespace Two\Auth;
 
 use Two\Auth\Access\Gate;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 
 class AuthServiceProvider extends ServiceProvider
 {
 
     /**
-     * Enregistrez le fournisseur de services.
+     * Register the service provider.
      *
      * @return void
      */
@@ -31,7 +31,7 @@ class AuthServiceProvider extends ServiceProvider
     }
 
     /**
-     * Enregistrez les services d'authentification.
+     * Register the authenticator services.
      *
      * @return void
      */
@@ -39,9 +39,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->app->singleton('auth', function($app)
         {
-            // Une fois le service d'authentification effectivement demandé par le développeur
-            // nous définirons une variable dans l'application l'indiquant. Cela nous aide
-            // savons que nous devons définir ultérieurement tous les cookies en file d'attente dans l'événement after.
+            // Once the authentication service has actually been requested by the developer
+            // we will set a variable in the application indicating such. This helps us
+            // know that we need to set any queued cookies in the after event later.
             $app['auth.loaded'] = true;
 
             return new AuthManager($app);
@@ -54,7 +54,7 @@ class AuthServiceProvider extends ServiceProvider
     }
 
     /**
-     * Enregistrez un résolveur pour l'utilisateur authentifié.
+     * Register a resolver for the authenticated user.
      *
      * @return void
      */
@@ -69,13 +69,13 @@ class AuthServiceProvider extends ServiceProvider
     }
 
     /**
-     * Enregistrez le service de portail d'accès.
+     * Register the access gate service.
      *
      * @return void
      */
     protected function registerAccessGate()
     {
-        $this->app->singleton('Two\Auth\Contracts\Access\GateInterface', function ($app)
+        $this->app->singleton('Two\Auth\Contracts\GateInterface', function ($app)
         {
             return new Gate($app, function() use ($app)
             {
@@ -87,7 +87,7 @@ class AuthServiceProvider extends ServiceProvider
     }
 
     /**
-     * Enregistrez un résolveur pour l'utilisateur authentifié.
+     * Register a resolver for the authenticated user.
      *
      * @return void
      */

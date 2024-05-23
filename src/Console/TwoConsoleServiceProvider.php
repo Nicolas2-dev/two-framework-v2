@@ -8,8 +8,8 @@
 namespace Two\Console;
 
 use Two\Console\Forge;
-use Two\TwoApplication\Composer;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Composer;
+use Two\Application\Providers\ServiceProvider;
 
 
 class TwoConsoleServiceProvider extends ServiceProvider

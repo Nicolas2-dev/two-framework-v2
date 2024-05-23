@@ -21,7 +21,7 @@ trait AuthorizableTrait
      */
     public function can($ability, $arguments = array())
     {
-        $gate = App::make('Two\Auth\Contracts\Access\GateInterface')->forUser($this);
+        $gate = App::make('Two\Auth\Contracts\GateInterface')->forUser($this);
 
         return $gate->check($ability, $arguments);
     }

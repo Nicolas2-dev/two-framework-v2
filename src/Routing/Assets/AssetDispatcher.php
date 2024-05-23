@@ -13,8 +13,8 @@ use Two\Support\Arr;
 use Two\Support\Str;
 use Two\Http\Request;
 use Two\Http\Response;
+use Two\Application\Two;
 use Two\Http\JsonResponse;
-use Two\TwoApplication\TwoApplication;
 
 use Symfony\Component\Mime\MimeTypes;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -27,7 +27,7 @@ class AssetDispatcher
     /**
      * L'instance d'application.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $app;
 
@@ -70,7 +70,7 @@ class AssetDispatcher
      *
      * @return void
      */
-    public function __construct(TwoApplication $app)
+    public function __construct(Two $app)
     {
         $this->app = $app;
     }
@@ -180,6 +180,26 @@ class AssetDispatcher
         $basePath = BASEPATH .'vendor';
 
         if (! Str::startsWith($path, $this->getVendorPaths())) {
+            return new Response('File Not Found', 404);
+        }
+
+        $path = $basePath .DS .str_replace('/', DS, $path);
+
+        return $this->serve($path, $request);
+    }
+
+    /**
+     * Servez un fichier partagé.
+     *
+     * @param  string  $path
+     * @param  \Symfony\Component\HttpFoundation\Request  $request
+     * @return  \Symfony\Component\HttpFoundation\Response
+     */
+    public function serveSharedFile($path, Request $request)
+    {
+        $basePath = BASEPATH .'shared';
+
+        if (! Str::startsWith($path, $this->getSharedPaths())) {
             return new Response('File Not Found', 404);
         }
 
@@ -309,6 +329,54 @@ class AssetDispatcher
 
         // Le chemin du fichier cache.
         $path = STORAGE_PATH .'framework' .DS .'assets' .DS .'vendor_paths.php';
+
+        // Le chemin de configuration pour vérifier par rapport au fichier cache.
+        $configPath = APPPATH .'Config' .DS .'Routing.php';
+
+        $lastModified = $files->lastModified($configPath);
+
+        if ($files->exists($path) && ! ($lastModified < $files->lastModified($path))) {
+            return $this->paths = $files->getRequire($path);
+        }
+
+        $paths = array();
+
+        $options = $this->app['config']->get('routing.assets.paths', array());
+
+        foreach ($options as $vendor => $value) {
+            $values = is_array($value) ? $value : array($value);
+
+            $values = array_map(function($value) use ($vendor)
+            {
+                return $vendor .'/' .$value .'/';
+
+            }, $values);
+
+            $paths = array_merge($paths, $values);
+        }
+
+        $paths = array_unique($paths);
+
+        // Enregistrez dans le cache.
+        $files->makeDirectory(dirname($path), 0755, true, true);
+
+        $content = "<?php\n\nreturn " .var_export($paths, true) .";\n";
+
+        $files->put($path, $content);
+
+        return $this->paths = $paths;
+    }
+
+    public function getSharedPaths()
+    {
+        if (isset($this->paths)) {
+            return $this->paths;
+        }
+
+        $files = $this->app['files'];
+
+        // Le chemin du fichier cache.
+        $path = STORAGE_PATH .'framework' .DS .'assets' .DS .'shared_paths.php';
 
         // Le chemin de configuration pour vérifier par rapport au fichier cache.
         $configPath = APPPATH .'Config' .DS .'Routing.php';

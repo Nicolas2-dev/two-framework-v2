@@ -28,7 +28,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     /**
      * L'instance de deux applications.
      *
-     * @var Two\TwoApplication\TwoApplication
+     * @var \Two\Application\Two
      */
     protected $container;
 
@@ -36,7 +36,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     /**
      * Créez et démarrez une nouvelle application console.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return \Two\Console\TwoConsole
      */
     public static function start($app)
@@ -47,7 +47,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     /**
      * Créez une nouvelle application console.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return \Two\Console\TwoConsole
      */
     public static function make($app)
@@ -243,7 +243,7 @@ class TwoConsole extends \Symfony\Component\Console\Application
     /**
      * Définissez l’instance de deux applications.
      *
-     * @param  Two\TwoApplication\TwoApplication  $container
+     * @param  \Two\Application\Two  $container
      * @return $this
      */
     public function setContainer($container)

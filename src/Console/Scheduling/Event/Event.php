@@ -13,7 +13,7 @@ use LogicException;
 use Two\Mail\Mailer;
 use Two\Container\Container;
 use Two\Support\ProcessUtils;
-use Two\TwoApplication\TwoApplication;
+use Two\Application\Two;
 use Two\Console\Scheduling\Contracts\MutexInterface as Mutex;
 
 use Closure;
@@ -309,10 +309,10 @@ class Event
     /**
      * Déterminez si l'événement donné doit s'exécuter en fonction de l'expression Cron.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return bool
      */
-    public function isDue(TwoApplication $app)
+    public function isDue(Two $app)
     {
         if (! $this->runsInMaintenanceMode() && $app->isDownForMaintenance()) {
             return false;
@@ -340,10 +340,10 @@ class Event
     /**
      * Déterminez si les filtres réussissent pour l’événement.
      *
-     * @param  Two\TwoApplication\TwoApplication  $app
+     * @param  \Two\Application\Two  $app
      * @return bool
      */
-    protected function filtersPass(TwoApplication $app)
+    protected function filtersPass(Two $app)
     {
         if (($this->filter && ! $app->call($this->filter)) || ($this->reject && $app->call($this->reject))) {
             return false;

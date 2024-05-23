@@ -11,7 +11,7 @@ use Two\Support\Facades\Facade;
 
 
 /**
- * @see Two\TwoApplication\TwoApplication
+ * @see \Two\Application\Two
  */
 class App extends Facade
 {
@@ -19,7 +19,7 @@ class App extends Facade
     /**
      * Renvoie l'instance Application.
      *
-     * @return Two\TwoApplication\TwoApplication
+     * @return \Two\Application\Two
      */
     public static function instance()
     {

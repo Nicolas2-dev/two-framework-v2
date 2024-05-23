@@ -11,8 +11,8 @@ use Two\Routing\Router;
 use Two\Routing\Redirector;
 use Two\Routing\UrlGenerator;
 use Two\Routing\Response\ResponseFactory;
-use Two\TwoApplication\Providers\ServiceProvider;
 
+use Two\Application\Providers\ServiceProvider;
 
 class RoutingServiceProvider extends ServiceProvider
 {

@@ -17,9 +17,9 @@ use Two\Support\Str;
 use Two\View\Factory;
 use Two\Support\MessageBag;
 use Two\View\Contracts\Engines\EngineInterface;
-use Two\TwoApplication\Contracts\ArrayableInterface as Arrayable;
-use Two\TwoApplication\Contracts\RenderableInterface as Renderable;
-use Two\TwoApplication\Contracts\MessageProviderInterface as MessageProvider;
+use Two\Application\Contracts\ArrayableInterface as Arrayable;
+use Two\Application\Contracts\RenderableInterface as Renderable;
+use Two\Application\Contracts\MessageProviderInterface as MessageProvider;
 
 
 /**
@@ -226,7 +226,7 @@ class View implements ArrayAccess, Renderable
     /**
      * Ajoutez des erreurs de validation à la vue.
      *
-     * @param  \Two\Support\Contracts\MessageProviderInterface|array  $provider
+     * @param  \Two\Application\Contracts\MessageProviderInterface|array  $provider
      * @return \Two\View\View
      */
     public function withErrors($provider)

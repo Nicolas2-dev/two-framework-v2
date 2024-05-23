@@ -7,8 +7,10 @@
  */
 namespace Two\Notifications;
 
+use Two\Application\Providers\ServiceProvider;
+
+
 use Two\Notifications\ChannelManager;
-use Two\TwoApplication\Providers\ServiceProvider;
 use Two\Bus\Contracts\DispatcherInterface as BusDispatcher;
 
 

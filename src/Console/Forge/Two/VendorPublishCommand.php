@@ -11,7 +11,7 @@ use FilesystemIterator;
 
 use Two\Filesystem\Filesystem;
 use Two\Console\Commands\Command;
-use Two\TwoApplication\Providers\ServiceProvider;
+use Two\Application\Providers\ServiceProvider;
 
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;

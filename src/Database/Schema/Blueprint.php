@@ -62,7 +62,7 @@ class Blueprint
      * Exécutez le plan sur la base de données.
      *
      * @param  \Two\Database\Connection  $connection
-     * @param  \Two\Database\Schema\Grammars\Grammar $grammar
+     * @param  \Two\Database\Schema\Grammar $grammar
      * @return void
      */
     public function build(Connection $connection, Grammar $grammar)
@@ -77,7 +77,7 @@ class Blueprint
      * Obtenez les instructions SQL brutes pour le plan.
      *
      * @param  \Two\Database\Connection  $connection
-     * @param  \Two\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \Two\Database\Schema\Grammar  $grammar
      * @return array
      */
     public function toSql(Connection $connection, Grammar $grammar)

@@ -19,7 +19,7 @@ class DatabaseFailedJobProvider implements FailedJobProviderInterface
     /**
      * L’implémentation du résolveur de connexion.
      *
-     * @var \Two\Database\ConnectionResolverInterface
+     * @var \Two\Database\Contracts\ConnectionResolverInterface
      */
     protected $resolver;
 

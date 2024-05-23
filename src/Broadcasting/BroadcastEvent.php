@@ -11,7 +11,7 @@ use ReflectionClass;
 use ReflectionProperty;
 
 use Two\Queue\Job;
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 use Two\Broadcasting\Contracts\BroadcasterInterface;
 
 

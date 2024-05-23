@@ -7,7 +7,8 @@
  */
 namespace Two\Packages\Providers;
 
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class PackageServiceProvider extends ServiceProvider

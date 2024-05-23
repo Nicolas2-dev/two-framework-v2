@@ -7,7 +7,7 @@
  */
 namespace Two\Support;
 
-use Two\TwoApplication\Contracts\ArrayableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class MessageBag Implements ArrayableInterface

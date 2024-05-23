@@ -7,8 +7,10 @@
  */
 namespace Two\Localization;
 
+
 use Two\Localization\LanguageManager;
-use Two\TwoApplication\Providers\ServiceProvider;
+
+use Two\Application\Providers\ServiceProvider;
 
 
 class LocalizationServiceProvider extends ServiceProvider
