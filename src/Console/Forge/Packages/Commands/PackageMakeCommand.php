@@ -180,6 +180,7 @@ class PackageMakeCommand extends Command
         ),
         'extended' => array(
             'boxe',
+            'config',
             'seeder',
             'auth-service-provider',
             'event-service-provider',
