@@ -44,7 +44,7 @@ abstract class Job
     protected $deleted = false;
 
 	/**
-	 * Indicates if the job has been released.
+	 * Indique si le travail a été libéré.
 	 *
 	 * @var bool
 	 */
@@ -104,7 +104,7 @@ abstract class Job
     abstract public function getRawBody();
 
 	/**
-	 * Determine if the job was released back into the queue.
+	 * Déterminez si le travail a été remis dans la file d'attente.
 	 *
 	 * @return bool
 	 */
@@ -114,7 +114,7 @@ abstract class Job
 	}
 
 	/**
-	 * Determine if the job has been deleted or released.
+	 * Déterminez si le travail a été supprimé ou publié.
 	 *
 	 * @return bool
 	 */

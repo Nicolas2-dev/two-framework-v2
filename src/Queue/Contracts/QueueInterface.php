@@ -22,6 +22,16 @@ interface QueueInterface
     public function push($job, $data = '', $queue = null);
 
     /**
+     * Placez un nouveau travail dans la file d'attente.
+     *
+     * @param  string  $queue
+     * @param  string|object  $job
+     * @param  mixed  $data
+     * @return mixed
+     */
+    public function pushOn($queue, $job, $data = '');
+
+    /**
      * Insérez une charge utile brute dans la file d'attente.
      *
      * @param  string  $payload
@@ -49,5 +59,16 @@ interface QueueInterface
      * @return \Two\Queue\Jobs\Job|null
      */
     public function pop($queue = null);
+
+    /**
+     * Placez une nouvelle tâche dans la file d'attente après un certain délai.
+     *
+     * @param  string  $queue
+     * @param  \DateTimeInterface|\DateInterval|int  $delay
+     * @param  string|object  $job
+     * @param  mixed  $data
+     * @return mixed
+     */
+    public function laterOn($queue, $delay, $job, $data = '');
 
 }

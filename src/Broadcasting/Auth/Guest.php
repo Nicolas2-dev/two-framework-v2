@@ -11,7 +11,7 @@ namespace Two\Broadcasting\Auth;
 use JsonSerializable;
 
 use Two\Auth\Contracts\UserInterface;
-use Two\Application\TwoContracts\ArrayableInterface;
+use Two\Application\Contracts\ArrayableInterface;
 
 
 class Guest implements UserInterface, ArrayableInterface, JsonSerializable
