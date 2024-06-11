@@ -43,6 +43,13 @@ abstract class Job
      */
     protected $deleted = false;
 
+	/**
+	 * Indicates if the job has been released.
+	 *
+	 * @var bool
+	 */
+	protected $released = false;
+
     /**
      * Licenciez le travail.
      *
@@ -77,7 +84,10 @@ abstract class Job
      * @param  int   $delay
      * @return void
      */
-    abstract public function release($delay = 0);
+    public function release($delay = 0)
+	{
+		$this->released = true;
+	}
 
     /**
      * Obtenez le nombre de tentatives de travail.
@@ -92,6 +102,26 @@ abstract class Job
      * @return string
      */
     abstract public function getRawBody();
+
+	/**
+	 * Determine if the job was released back into the queue.
+	 *
+	 * @return bool
+	 */
+	public function isReleased()
+	{
+		return $this->released;
+	}
+
+	/**
+	 * Determine if the job has been deleted or released.
+	 *
+	 * @return bool
+	 */
+	public function isDeletedOrReleased()
+	{
+		return $this->isDeleted() || $this->isReleased();
+	}
 
     /**
      * Résolvez et lancez la méthode du gestionnaire de tâches.
