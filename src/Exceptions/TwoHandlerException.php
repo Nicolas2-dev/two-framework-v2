@@ -16,7 +16,7 @@ use Two\Support\Facades\Config;
 use Two\Support\Facades\Redirect;
 use Two\Support\Facades\Response;
 use Two\Http\Response as HttpResponse;
-use Two\Auth\Exception\AuthorizedException;
+use Two\Auth\Exception\AuthorizationException;
 use Two\Http\Exception\HttpResponseException;
 use Two\Exceptions\Contracts\HandlerInterface;
 use Two\Exceptions\Exception\FlattenException;
@@ -128,7 +128,7 @@ class TwoHandlerException implements HandlerInterface
     {
         if ($e instanceof ModelNotFoundException) {
             $e = new NotFoundHttpException($e->getMessage(), $e);
-        } else if ($e instanceof AuthorizedException) {
+        } else if ($e instanceof AuthorizationException) {
             $e = new HttpException(403, $e->getMessage());
         }
 
