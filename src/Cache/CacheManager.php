@@ -9,7 +9,7 @@ namespace Two\Cache;
 
 use Two\Cache\Apc\ApcStore;
 use Two\Cache\Apc\ApcWrapper;
-use Two\Cache\file\FileStore;
+use Two\Cache\File\FileStore;
 use Two\Cache\Store\NullStore;
 use Two\Cache\Redis\RedisStore;
 use Two\Cache\Store\ArrayStore;
